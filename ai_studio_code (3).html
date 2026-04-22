@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azai Tech | Crafted Digital Excellence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #030508;
+            --accent: #00d2ff;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* 1. BACKGROUND & STARFIELD */
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #0a1322 0%, #030508 100%);
+            z-index: -1;
+        }
+
+        /* 2. NAVIGATION */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 25px 8%; position: fixed; top: 0; width: 100%; z-index: 100;
+            background: rgba(3, 5, 8, 0.8); backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo { font-size: 1.4rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; list-style: none; gap: 35px; }
+        .nav-links a { text-decoration: none; color: #888; font-size: 0.8rem; transition: 0.3s; font-weight: 600; letter-spacing: 1px; }
+        .nav-links a:hover { color: white; }
+
+        /* 3. UNIVERSAL SECTION STYLING */
+        section { min-height: 100vh; padding: 120px 8%; display: flex; flex-direction: column; align-items: center; position: relative; }
+        .section-tag { letter-spacing: 10px; color: var(--accent); font-size: 0.7rem; margin-bottom: 20px; font-weight: 800; text-transform: uppercase; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 60px; text-align: center; }
+
+        /* 4. HERO SECTION */
+        #hero { justify-content: center; }
+        .hero-content { text-align: center; z-index: 10; max-width: 800px; }
+        .main-title {
+            font-family: 'Playfair Display', serif; font-size: clamp(4rem, 15vw, 10rem);
+            letter-spacing: -5px; line-height: 0.9;
+            background: linear-gradient(to bottom, #fff 50%, #444 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .floating-asset { position: absolute; pointer-events: none; opacity: 0.6; }
+        .tech-core { width: 500px; top: 45%; left: 50%; transform: translate(-50%, -50%); animation: coreFloat 10s ease-in-out infinite; }
+        
+        @keyframes coreFloat {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+            50% { transform: translate(-50%, -55%) rotate(5deg) scale(1.05); }
+        }
+
+        /* 5. SERVICES GRID */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; width: 100%; max-width: 1200px; }
+        .service-card {
+            background: var(--glass); border: 1px solid var(--border); padding: 50px 30px; border-radius: 30px; 
+            backdrop-filter: blur(20px); transition: 0.5s;
+        }
+        .service-card:hover { border-color: var(--accent); transform: translateY(-10px); background: rgba(0, 210, 255, 0.05); }
+        .service-card img { width: 60px; margin-bottom: 25px; }
+
+        /* 6. PROJECTS SECTION (Work) */
+        .projects-container { width: 100%; max-width: 1200px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .project-card {
+            position: relative; border-radius: 24px; overflow: hidden; height: 450px;
+            border: 1px solid var(--border); transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .project-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; filter: brightness(0.6); }
+        .project-info { position: absolute; bottom: 0; padding: 40px; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.9)); }
+        .project-card:hover img { transform: scale(1.1); filter: brightness(1); }
+        .project-card:hover { border-color: var(--accent); }
+
+        /* 7. CONTACT SECTION */
+        .contact-wrapper {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+            width: 100%; max-width: 1200px; background: var(--glass);
+            padding: 60px; border-radius: 40px; border: 1px solid var(--border);
+            backdrop-filter: blur(20px);
+        }
+        .contact-info h2 { font-size: 3rem; margin-bottom: 20px; font-family: 'Playfair Display'; }
+        .contact-form { display: flex; flex-direction: column; gap: 20px; }
+        .input-group input, .input-group textarea {
+            width: 100%; padding: 15px; background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border); border-radius: 12px; color: white;
+            font-family: 'Inter'; outline: none; transition: 0.3s;
+        }
+        .input-group input:focus { border-color: var(--accent); background: rgba(255,255,255,0.1); }
+        
+        .btn-main {
+            background: white; color: black; border: none; padding: 18px 45px;
+            border-radius: 40px; font-weight: 700; letter-spacing: 2px;
+            cursor: pointer; transition: 0.4s; text-decoration: none;
+            display: inline-block; font-size: 0.8rem; text-align: center;
+        }
+        .btn-main:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(255,255,255,0.3); }
+
+        footer { padding: 60px; text-align: center; color: #444; font-size: 0.8rem; letter-spacing: 2px; }
+
+        @media (max-width: 900px) {
+            .projects-container, .contact-wrapper { grid-template-columns: 1fr; }
+            .contact-wrapper { padding: 30px; }
+            .main-title { font-size: 5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-overlay"></div>
+
+    <nav>
+        <div class="logo">AZAI<span>TECH</span></div>
+        <ul class="nav-links">
+            <li><a href="#hero">HOME</a></li>
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#work">WORK</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+        <a href="#contact" class="btn-main" style="padding: 10px 25px; margin: 0; font-size: 0.7rem;">HIRE US</a>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <img src="https://cdni.iconscout.com/illustration/premium/thumb/abstract-3d-shape-5692015-4743204.png" class="floating-asset tech-core">
+        <div class="hero-content">
+            <p class="section-tag">Digital Software Studio</p>
+            <h1 class="main-title">CRAFTED</h1>
+            <p style="color: #888; margin: 30px auto; max-width: 550px; line-height: 1.8;">
+                We transform complex ideas into elegant digital products. Specialized in high-performance 
+                mobile apps and scalable cloud ecosystems.
+            </p>
+            <a href="#work" class="btn-main">VIEW OUR WORK</a>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+        <p class="section-tag">Capabilities</p>
+        <h2 class="section-title">Our Expertise</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="https://cdn3d.iconscout.com/3d/premium/thumb/smart-phone-5174984-4322436.png">
+                <h3>Mobile Apps</h3>
+                <p>Native iOS & Android development with a focus on buttery-smooth UI and performance.</p>
+            </div>
+            <div class="service-card">
+                <img src="https://cdn3d.iconscout.com/3d/premium/thumb/web-development-5381861-4500010.png">
+                <h3>Web Platforms</h3>
+                <p>High-conversion websites and complex SaaS dashboards built with modern tech stacks.</p>
+            </div>
+            <div class="service-card">
+                <img src="https://cdn3d.iconscout.com/3d/premium/thumb/cloud-computing-5606161-4663842.png">
+                <h3>Cloud & AI</h3>
+                <p>Scalable backend systems and custom AI integrations to automate your business flow.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS (WORK) -->
+    <section id="work">
+        <p class="section-tag">Portfolio</p>
+        <h2 class="section-title">Selected Projects</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=2070&auto=format&fit=crop">
+                <div class="project-info">
+                    <p style="color: var(--accent); font-weight: bold; font-size: 0.7rem;">MOBILE / FINTECH</p>
+                    <h3>Nova Wallet App</h3>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop">
+                <div class="project-info">
+                    <p style="color: var(--accent); font-weight: bold; font-size: 0.7rem;">WEB / SAAS</p>
+                    <h3>Zenith AI Dashboard</h3>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop">
+                <div class="project-info">
+                    <p style="color: var(--accent); font-weight: bold; font-size: 0.7rem;">WEB / ANALYTICS</p>
+                    <h3>Quantum Data Engine</h3>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop">
+                <div class="project-info">
+                    <p style="color: var(--accent); font-weight: bold; font-size: 0.7rem;">MOBILE / LIFESTYLE</p>
+                    <h3>Aura Social Network</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <p class="section-tag" style="text-align: left;">Contact</p>
+                <h2>Ready to start your journey?</h2>
+                <p style="color: #888; line-height: 1.8; margin-top: 20px;">
+                    Have a project in mind? We'd love to hear about it. Send us a message and our team will get back to you within 24 hours.
+                </p>
+                <div style="margin-top: 40px;">
+                    <p style="font-weight: bold;">Email us:</p>
+                    <p style="color: var(--accent);">hello@azaitech.studio</p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <div class="input-group">
+                    <input type="text" placeholder="Your Name">
+                </div>
+                <div class="input-group">
+                    <input type="email" placeholder="Your Email">
+                </div>
+                <div class="input-group">
+                    <textarea rows="5" placeholder="Tell us about your project..."></textarea>
+                </div>
+                <button class="btn-main">SEND MESSAGE</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 AZAI TECH STUDIO &bull; BUILT FOR THE FUTURE</p>
+    </footer>
+
+    <script>
+        // Subtle Parallax effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            document.querySelector('.tech-core').style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px))`;
+        });
+    </script>
+
+</body>
+</html>

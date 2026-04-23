@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Space+Grotesk:wght@300..700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-background: #121414;
+  --color-surface: #121414;
+  --color-surface-dim: #121414;
+  --color-surface-bright: #37393a;
+  --color-on-surface: #e2e2e2;
+  --color-on-surface-variant: #b9cacb;
+  --color-primary: #e1fdff;
+  --color-on-primary: #00363a;
+  --color-primary-container: #00f2ff;
+  --color-on-primary-container: #006a71;
+  --color-secondary: #c1c6dc;
+  --color-on-secondary: #2a3041;
+  --color-accent: #00f2ff;
+  --color-accent-glow: rgba(0, 242, 255, 0.4);
+
+  --font-sans: "Space Grotesk", sans-serif;
+  --font-serif: "Newsreader", serif;
+  --font-display: "Playfair Display", serif;
+  --font-mono: "Space Grotesk", monospace;
+
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 3rem;
+
+  --animate-core-float: coreFloat 10s ease-in-out infinite;
+  --animate-pulse-glow: pulseGlow 2s ease-in-out infinite;
+
+  @keyframes coreFloat {
+    0%, 100% { transform: translate(-50%, -50%) rotate(0deg) scale(1) }
+    50% { transform: translate(-50%, -55%) rotate(5deg) scale(1.05) }
+  }
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 0.6; transform: scale(1) }
+    50% { opacity: 1; transform: scale(1.05) }
+  }
+}
+
+:root {
+  --bg: #030508;
+  --accent: #00d2ff;
+  --glass: rgba(255, 255, 255, 0.03);
+  --border: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    @apply bg-background text-on-surface;
+  }
+
+  body {
+    @apply font-sans m-0 overflow-x-hidden;
+    background-color: var(--bg);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-white;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10;
+  }
+
+  .btn-primary {
+    @apply px-8 py-3 bg-white text-black font-bold uppercase tracking-widest rounded-full 
+           hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] transition-all duration-300;
+  }
+
+  .section-tag {
+    @apply font-sans text-xs font-extrabold tracking-[10px] text-accent uppercase mb-4;
+  }
+}
+
+/* Custom Backgrounds */
+.bg-starfield {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 50%, #0a1322 0%, #030508 100%);
+}
+
+.bg-nebula {
+  background: radial-gradient(ellipse at center, #0b1121 0%, #121414 70%, #000 100%);
+}
+
+/* Utility for Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}

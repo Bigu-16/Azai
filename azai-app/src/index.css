@@ -3,9 +3,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #121414;
-  --color-surface: #121414;
-  --color-surface-dim: #121414;
+  --color-background: #020617;
+  --color-surface: #020617;
+  --color-surface-dim: #000814;
   --color-surface-bright: #37393a;
   --color-on-surface: #e2e2e2;
   --color-on-surface-variant: #b9cacb;
@@ -41,7 +41,7 @@
 }
 
 :root {
-  --bg: #030508;
+  --bg: #020617;
   --accent: #00d2ff;
   --glass: rgba(255, 255, 255, 0.03);
   --border: rgba(255, 255, 255, 0.1);
@@ -83,7 +83,7 @@
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: radial-gradient(circle at 50% 50%, #0a1322 0%, #030508 100%);
+  background: radial-gradient(circle at 50% 50%, #0a192f 0%, #020617 100%);
 }
 
 .bg-nebula {

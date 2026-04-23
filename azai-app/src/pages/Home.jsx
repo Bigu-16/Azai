@@ -39,7 +39,7 @@ const Home = () => {
         <div className="z-10 text-center max-w-[800px]">
           <p className="section-tag">Digital Software Studio</p>
           <h1 className="text-[clamp(4rem,15vw,10rem)] font-display tracking-[-5px] leading-[0.9] bg-gradient-to-b from-white to-[#444] bg-clip-text text-transparent uppercase">
-            CRAFTED
+            AZAI
           </h1>
           <p className="text-slate-400 my-8 mx-auto max-w-[550px] leading-relaxed text-lg">
             We transform complex ideas into elegant digital products. Specialized in high-performance 

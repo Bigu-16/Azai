@@ -43,7 +43,6 @@ const services = [
 const Home = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [activeService, setActiveService] = useState(1);
-  const [selectedSolution, setSelectedSolution] = useState(1);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -207,7 +206,6 @@ const Home = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => {
-                        setSelectedSolution(index);
                         document.getElementById('solutions').scrollIntoView({ behavior: 'smooth' });
                       }}
                       className="btn-primary"
@@ -229,7 +227,7 @@ const Home = () => {
         <div className="flex flex-col md:flex-row items-center justify-center max-w-[1280px] mx-auto w-full gap-24 relative z-10">
           {/* Left Side: Technical Visual */}
           <motion.div 
-            key={`img-${services[selectedSolution].title}`}
+            key={`img-${services[activeService].title}`}
             initial={{ scale: 0.8, opacity: 0, rotate: -5 }}
             whileInView={{ scale: 1, opacity: 1, rotate: 0 }}
             viewport={{ once: true }}
@@ -239,19 +237,19 @@ const Home = () => {
             <div className="relative group">
               <div 
                 className="absolute inset-0 rounded-3xl blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-1000"
-                style={{ backgroundColor: services[selectedSolution].color }}
+                style={{ backgroundColor: services[activeService].color }}
               />
               <img 
-                alt={services[selectedSolution].title} 
+                alt={services[activeService].title} 
                 className="object-cover rounded-3xl w-full max-w-[500px] h-auto aspect-[4/5] md:aspect-[3/4] shadow-2xl border border-white/10" 
-                src={services[selectedSolution].solutionImage}
+                src={services[activeService].solutionImage}
               />
             </div>
           </motion.div>
 
           {/* Right Side: Content */}
           <motion.div 
-            key={`content-${services[selectedSolution].title}`}
+            key={`content-${services[activeService].title}`}
             initial={{ x: 50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
@@ -259,14 +257,14 @@ const Home = () => {
             className="w-full md:w-1/2 flex flex-col items-start justify-center text-left"
           >
             <span className="font-sans text-[0.7rem] text-accent tracking-[0.5em] uppercase mb-4 opacity-80">
-              {services[selectedSolution].solutionTagline}
+              {services[activeService].solutionTagline}
             </span>
             <h2 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] text-white mb-8 uppercase tracking-tight leading-none">
-              {services[selectedSolution].solutionTitle}
+              {services[activeService].solutionTitle}
             </h2>
             <div className="w-20 h-[1px] bg-accent/50 mb-10"></div>
             <p className="font-sans text-lg text-slate-400 max-w-lg mb-12 leading-relaxed">
-              {services[selectedSolution].solutionDescription}
+              {services[activeService].solutionDescription}
             </p>
             <div className="flex items-center gap-8">
               <button className="btn-primary">

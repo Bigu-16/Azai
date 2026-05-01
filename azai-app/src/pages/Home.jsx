@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useAnimationFrame, AnimatePresence } from 'framer-motion';
+import { SmokeyFluidCursor } from 'react-smokey-fluid-cursor';
 
 const services = [
   {
@@ -81,6 +82,14 @@ const Home = () => {
 
   return (
     <div className="pt-20">
+      <SmokeyFluidCursor 
+        config={{
+          transparent: true,
+          densityDissipation: 2.5, // Faster fade so it doesn't clutter
+          velocityDissipation: 1.5,
+          colorUpdateSpeed: 0 // We can set this to 0 if we don't want it to constantly change color
+        }} 
+      />
       {/* HERO SECTION */}
       <section id="hero" className="min-h-screen flex flex-col items-center justify-center relative px-8">
         <div className="z-10 text-center max-w-[800px]">

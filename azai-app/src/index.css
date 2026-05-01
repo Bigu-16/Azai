@@ -47,6 +47,18 @@
   --border: rgba(255, 255, 255, 0.1);
 }
 
+#smokey-fluid-canvas {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 1 !important; /* Above the body background, behind the content */
+  pointer-events: none !important; /* Let clicks pass through to your buttons */
+  /* Force the smoke to match the Azai Tech cyan/blue (#00f2ff) */
+  filter: grayscale(1) sepia(1) hue-rotate(140deg) saturate(600%) brightness(1.2) !important;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

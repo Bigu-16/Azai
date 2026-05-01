@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useAnimationFrame, AnimatePresence } from 'framer-motion';
 
 const services = [
   {
@@ -42,7 +42,13 @@ const services = [
 
 const Home = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [activeService, setActiveService] = useState(1);
+  const [activeService, setActiveService] = useState(0);
+  const [rotation, setRotation] = useState(0);
+
+  // Continuous smooth rotation
+  useAnimationFrame((time, delta) => {
+    setRotation((prev) => prev - delta * 0.0003); // Adjust speed here
+  });
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -51,24 +57,27 @@ const Home = () => {
       setMousePosition({ x, y });
     };
     window.addEventListener('mousemove', handleMouseMove);
-
-    const timer = setInterval(() => {
-      setActiveService((prev) => (prev + 1) % services.length);
-    }, 3000);
-
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
-      clearInterval(timer);
     };
   }, []);
 
-  const getShiftedIndex = (index) => {
-    const total = services.length;
-    let diff = index - activeService;
-    if (diff > total / 2) diff -= total;
-    if (diff < -total / 2) diff += total;
-    return diff;
-  };
+  // Update active service based on which item is closest to the front
+  useEffect(() => {
+    let maxZ = -Infinity;
+    let centerIndex = 0;
+    services.forEach((_, index) => {
+      const angle = (index / services.length) * 2 * Math.PI + rotation;
+      const z = Math.cos(angle);
+      if (z > maxZ) {
+        maxZ = z;
+        centerIndex = index;
+      }
+    });
+    if (activeService !== centerIndex) {
+      setActiveService(centerIndex);
+    }
+  }, [rotation, activeService]);
 
   return (
     <div className="pt-20">
@@ -113,18 +122,18 @@ const Home = () => {
         </div>
         
         {/* Orbital Carousel Container */}
-        <div className="relative w-full max-w-7xl h-[450px] flex items-center justify-center z-40">
+        <div className="relative w-full max-w-7xl h-[120px] flex items-center justify-center z-40">
           {services.map((service, index) => {
             // Minimal Orbital Math
             const total = services.length;
-            const angle = ((index - activeService) / total) * 2 * Math.PI;
+            const angle = (index / total) * 2 * Math.PI + rotation;
             
             const x = Math.sin(angle) * 30; // Compact displacement
             const z = Math.cos(angle);
             
-            const isCenter = Math.abs(x) < 5 && z > 0.5;
-            const scale = isCenter ? 1.0 : 0.6;
-            const opacity = isCenter ? 1 : 0.4; 
+            const isActive = index === activeService;
+            const scale = z > 0 ? 0.8 + (z * 0.4) : 0.6; // Scale up when in front
+            const opacity = z > 0 ? 0.6 + (z * 0.4) : 0.3; // More opaque when in front
             const zIndex = Math.round(z * 100) + 50;
 
             return (
@@ -137,68 +146,54 @@ const Home = () => {
                   opacity: opacity,
                   zIndex: zIndex,
                 }}
-                transition={{ duration: 1.2, ease: [0.32, 0.72, 0, 1] }}
-                onClick={() => setActiveService(index)}
-                className={`absolute flex flex-col items-center cursor-pointer transition-all duration-500 ${isCenter ? 'pointer-events-auto' : 'pointer-events-auto hover:opacity-80'}`}
+                transition={{ duration: 0, ease: "linear" }}
+                className="absolute flex flex-col items-center pointer-events-none"
               >
                 {/* Orbital Icon Navigation */}
-                {!isCenter && (
-                  <div className="flex flex-col items-center gap-4">
-                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-full glass flex items-center justify-center p-3">
-                      <img alt={service.title} className="w-full h-full object-contain opacity-60" src={service.icon}/>
-                    </div>
-                    <span className="font-sans text-[0.5rem] tracking-[0.3em] text-white/40 uppercase">
-                      {service.title}
-                    </span>
+                <div className="flex flex-col items-center gap-3">
+                  <div className={`w-14 h-14 md:w-16 md:h-16 rounded-full glass flex items-center justify-center p-3 transition-all duration-500 ${isActive ? 'shadow-[0_0_20px_rgba(255,255,255,0.2)] border-white/40' : 'border-white/5'}`}>
+                    <img alt={service.title} className="w-full h-full object-contain" src={service.icon}/>
                   </div>
-                )}
-
-                {/* Central Focus Content */}
-                {isCenter && (
-                  <div className="flex flex-col items-center text-center max-w-3xl px-6">
-                    <motion.p 
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 0.8 }}
-                      className="font-sans text-[0.6rem] text-accent tracking-[0.4em] uppercase mb-4"
-                    >
-                      {service.tagline}
-                    </motion.p>
-                    <motion.h3 
-                      initial={{ y: 30, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      className="font-display text-[40px] md:text-[64px] leading-none text-white uppercase tracking-tighter mb-8 bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent"
-                    >
-                      {service.title}
-                    </motion.h3>
-                    <motion.div 
-                      key={`line-${service.title}`}
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ duration: 1 }}
-                      className="w-16 h-[2px] bg-accent shadow-[0_0_15px_rgba(0,242,255,0.5)] mb-8"
-                    ></motion.div>
-                    <motion.p 
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 0.9 }}
-                      className="text-slate-400 font-sans text-base md:text-lg leading-relaxed mb-10 max-w-lg"
-                    >
-                      {service.description}
-                    </motion.p>
-                    <motion.button 
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => {
-                        document.getElementById('solutions').scrollIntoView({ behavior: 'smooth' });
-                      }}
-                      className="btn-primary"
-                    >
-                      EXPLORE SOLUTIONS
-                    </motion.button>
-                  </div>
-                )}
+                  <span className={`font-sans text-[0.5rem] md:text-[0.6rem] tracking-[0.3em] uppercase mt-1 transition-colors duration-500 ${isActive ? 'text-white' : 'text-white/40'}`}>
+                    {service.title}
+                  </span>
+                </div>
               </motion.div>
             );
           })}
+        </div>
+
+        {/* Central Focus Content */}
+        <div className="relative w-full max-w-3xl min-h-[300px] flex items-center justify-center z-50 mt-12 md:mt-16">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeService}
+              initial={{ opacity: 0, y: 10, filter: 'blur(4px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
+              transition={{ duration: 0.4 }}
+              className="flex flex-col items-center text-center px-6"
+            >
+              <p className="font-sans text-[0.6rem] text-accent tracking-[0.4em] uppercase mb-4">
+                {services[activeService].tagline}
+              </p>
+              <h3 className="font-display text-[40px] md:text-[64px] leading-none text-white uppercase tracking-tighter mb-8 bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
+                {services[activeService].title}
+              </h3>
+              <div className="w-16 h-[2px] bg-accent shadow-[0_0_15px_rgba(0,242,255,0.5)] mb-8"></div>
+              <p className="text-slate-400 font-sans text-base md:text-lg leading-relaxed mb-10 max-w-lg">
+                {services[activeService].description}
+              </p>
+              <button 
+                onClick={() => {
+                  document.getElementById('solutions').scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="btn-primary"
+              >
+                EXPLORE SOLUTIONS
+              </button>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </section>
 
@@ -548,18 +543,50 @@ const OrbitalProjectViewer = () => {
             </div>
           ))}
 
-          {/* Main Asset */}
-          <div className="relative w-full max-w-[600px] h-[340px] rounded-[30px] overflow-hidden border border-white/20 shadow-[0_0_50px_rgba(0,0,0,0.8)]">
-            <img 
-              alt={project.title} 
-              className="w-full h-full object-cover" 
-              src={project.mainImage}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 p-8 w-full">
-              <p className="text-accent font-bold text-xs tracking-[5px] uppercase mb-2">{project.tag}</p>
-              <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+          {/* Main Asset: Device Mockups */}
+          <div className="relative w-full max-w-[700px] flex flex-col md:flex-row items-end justify-center gap-8 md:gap-12 pb-12">
+            
+            {/* Desktop Monitor */}
+            <div className="relative w-[240px] h-[150px] md:w-[320px] md:h-[200px] bg-slate-800 rounded-t-xl border-[4px] border-slate-800 shadow-[0_0_40px_rgba(0,0,0,0.8)] z-10 flex flex-col shrink-0">
+              {/* Screen */}
+              <div className="w-full flex-1 bg-black overflow-hidden rounded-t-md relative">
+                <img 
+                  alt={`${project.title} Desktop`} 
+                  className="w-full h-full object-cover opacity-90" 
+                  src={project.mainImage}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+                <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4">
+                  <h3 className="text-xs md:text-sm font-bold text-white">{project.title}</h3>
+                </div>
+              </div>
+              {/* Chin */}
+              <div className="h-4 md:h-5 w-full bg-slate-700 rounded-b-lg flex items-center justify-center border-t border-slate-600">
+                <div className="w-6 h-1 bg-slate-500 rounded-full"></div>
+              </div>
+              {/* Stand */}
+              <div className="absolute -bottom-4 md:-bottom-6 left-1/2 -translate-x-1/2 w-12 md:w-16 h-4 md:h-6 bg-slate-700" style={{ clipPath: 'polygon(15% 0, 85% 0, 100% 100%, 0% 100%)' }}></div>
+              <div className="absolute -bottom-5 md:-bottom-7 left-1/2 -translate-x-1/2 w-20 md:w-28 h-1 bg-slate-600 rounded-full shadow-lg"></div>
             </div>
+
+            {/* Mobile Phone */}
+            <div className="relative w-[70px] h-[140px] md:w-[100px] md:h-[200px] bg-slate-800 rounded-[12px] md:rounded-[20px] border-[3px] md:border-[4px] border-slate-800 shadow-[10px_10px_30px_rgba(0,0,0,0.9)] z-20 overflow-hidden flex flex-col shrink-0">
+              {/* Notch */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-6 md:w-10 h-2 bg-slate-800 rounded-b-sm md:rounded-b-md z-30"></div>
+              {/* Screen */}
+              <div className="w-full h-full bg-black relative">
+                <img 
+                  alt={`${project.title} Mobile`} 
+                  className="w-full h-full object-cover" 
+                  src={project.mainImage}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none"></div>
+                <div className="absolute bottom-2 left-2">
+                  <p className="text-accent font-bold text-[5px] md:text-[6px] tracking-[1px] uppercase">{project.tag.split('/')[0]}</p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </motion.div>
 

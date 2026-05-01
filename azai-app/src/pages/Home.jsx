@@ -74,24 +74,6 @@ const Home = () => {
     <div className="pt-20">
       {/* HERO SECTION */}
       <section id="hero" className="min-h-screen flex flex-col items-center justify-center relative px-8">
-        <motion.img 
-          src="https://cdni.iconscout.com/illustration/premium/thumb/abstract-3d-shape-5692015-4743204.png"
-          className="absolute w-[500px] opacity-60 pointer-events-none"
-          animate={{
-            x: mousePosition.x * 2 - 250, // centering adjustment
-            y: mousePosition.y * 2 - 250,
-            rotate: [0, 5, 0],
-            scale: [1, 1.05, 1],
-          }}
-          transition={{
-            x: { type: 'spring', stiffness: 50, damping: 20 },
-            y: { type: 'spring', stiffness: 50, damping: 20 },
-            rotate: { duration: 10, repeat: Infinity, ease: "easeInOut" },
-            scale: { duration: 10, repeat: Infinity, ease: "easeInOut" }
-          }}
-          style={{ left: '50%', top: '45%', transform: 'translate(-50%, -50%)' }}
-        />
-        
         <div className="z-10 text-center max-w-[800px]">
           <p className="section-tag">Digital Software Studio</p>
           <h1 className="text-[clamp(4rem,15vw,10rem)] font-display tracking-[-5px] leading-[0.9] bg-gradient-to-b from-white to-[#444] bg-clip-text text-transparent uppercase">

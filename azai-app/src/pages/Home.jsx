@@ -124,7 +124,7 @@ const Home = () => {
         </div>
         
         {/* Orbital Carousel Container */}
-        <div className="relative w-full max-w-7xl h-[120px] flex items-center justify-center z-40">
+        <div className="relative w-full max-w-7xl h-[240px] flex items-center justify-center z-40">
           {services.map((service, index) => {
             // Minimal Orbital Math
             const total = services.length;
@@ -152,13 +152,10 @@ const Home = () => {
                 className="absolute flex flex-col items-center pointer-events-none"
               >
                 {/* Orbital Icon Navigation */}
-                <div className="flex flex-col items-center gap-3">
-                  <div className={`w-14 h-14 md:w-16 md:h-16 rounded-full glass flex items-center justify-center p-3 transition-all duration-500 ${isActive ? 'shadow-[0_0_20px_rgba(255,255,255,0.2)] border-white/40' : 'border-white/5'}`}>
+                <div className="flex flex-col items-center">
+                  <div className={`w-28 h-28 md:w-36 md:h-36 rounded-full glass flex items-center justify-center p-6 transition-all duration-500 ${isActive ? 'shadow-[0_0_25px_rgba(255,255,255,0.3)] border-white/40' : 'border-white/5'}`}>
                     <img alt={service.title} className="w-full h-full object-contain" src={service.icon}/>
                   </div>
-                  <span className={`font-sans text-[0.5rem] md:text-[0.6rem] tracking-[0.3em] uppercase mt-1 transition-colors duration-500 ${isActive ? 'text-white' : 'text-white/40'}`}>
-                    {service.title}
-                  </span>
                 </div>
               </motion.div>
             );

@@ -302,6 +302,7 @@ const portfolioProjects = [
     id: 1,
     title: "Nova Wallet App",
     tag: "MOBILE / FINTECH",
+    deviceType: "mobile",
     heading: "HARNESS THE POWER OF INNOVATION •",
     description: "A BURST OF PRECISION DIGITAL DESIGN WILL IGNITE YOUR SENSES AND FUEL YOUR CORE PEAK PERFORMANCE.",
     mainImage: "https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=2070&auto=format&fit=crop",
@@ -309,7 +310,7 @@ const portfolioProjects = [
       {
         type: "image",
         src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBoi8jtaxdtjlcU0ylWqpfdGSRoHwBS4DvrwwYP3x8jcqaRIYEo348i1Cud6iPBUzYe4w659p-vJSgN4mvfVzFHk0UxgapWw2T6UjZVT3sX9xcBHrXJv41FyKpE8IrNR_oANp-4k_hIC2ntuzVyVNv1G0fKzLT1CLTgUQa4dvtVOav6ozH58ZcQ7rpx8wUQ1sNFfejLUTsaqBVEcWDaTurgqsrSnM-VbePU7b5Krac36hDmDLlkw-iN1okWVr_PFLgkIotAjTsUs9CB",
-        top: "15%", left: "-15%",
+        top: "10%", left: "-95px",
         animation: "animate-[bounce_4s_infinite]",
         width: "w-14", height: "h-14"
       },
@@ -323,25 +324,17 @@ const portfolioProjects = [
       {
         type: "image",
         src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBTyMwwPL4fCM0KC0nT2s9b-u2XeYyfpOrAs1JLlK7DwjQ_CPC4b34u0Rde0YGSwLM2CCq6Y6BcGeiL90IjiWEqKHMkf2jQpJNOi8xJBiikcuDZCq2yCO4eWlDIh6K3n_thmgS3kjHwOceG0ZVMqtekpfTe0KlxdpypbmIiOWDBrobwF8rHr4pAepTzbcMUoCp9o23dq-VLiGeIwfcfWR4RkfnrxxHowaoUEIWrj_sIPYYZtSpPagnfr2pj4_Hcv0dTgUKdz2eE63JE",
-        top: "15%", right: "-15%",
+        top: "50%", right: "-95px",
         animation: "animate-[bounce_6s_infinite]",
         width: "w-16", height: "h-16"
       },
       {
         type: "icon",
         icon: "shield_locked",
-        top: "70%", left: "-20%",
+        top: "50%", left: "-95px",
         animation: "animate-[bounce_7s_infinite]",
         width: "w-14", height: "h-14",
         iconClass: "text-4xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
-      },
-      {
-        type: "icon",
-        icon: "credit_card",
-        top: "70%", right: "-20%",
-        animation: "animate-[bounce_4.5s_infinite]",
-        width: "w-16", height: "h-16",
-        iconClass: "text-5xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
       }
     ]
   },
@@ -349,13 +342,14 @@ const portfolioProjects = [
     id: 2,
     title: "Zenith AI Dashboard",
     tag: "WEB / SAAS",
+    deviceType: "desktop",
     heading: "ELEVATE YOUR SAAS PLATFORM •",
     description: "ARCHITECTING SCALABLE SOLUTIONS THAT EMPOWER YOUR BUSINESS TO REACH UNPRECEDENTED HEIGHTS OF EFFICIENCY.",
     mainImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
     floatingItems: [
       {
         type: "icon", icon: "monitoring",
-        top: "20%", left: "-18%", animation: "animate-[bounce_4s_infinite]",
+        top: "10%", left: "-95px", animation: "animate-[bounce_4s_infinite]",
         width: "w-16", height: "h-16", iconClass: "text-4xl text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]"
       },
       {
@@ -365,17 +359,12 @@ const portfolioProjects = [
       },
       {
         type: "icon", icon: "insights",
-        top: "25%", right: "-18%", animation: "animate-[bounce_6s_infinite]",
+        top: "50%", right: "-95px", animation: "animate-[bounce_6s_infinite]",
         width: "w-14", height: "h-14", iconClass: "text-4xl text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]"
       },
       {
         type: "icon", icon: "memory",
-        top: "65%", left: "-15%", animation: "animate-[bounce_5.5s_infinite]",
-        width: "w-16", height: "h-16", iconClass: "text-5xl text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]"
-      },
-      {
-        type: "icon", icon: "schema",
-        top: "70%", right: "-15%", animation: "animate-[bounce_4.5s_infinite]",
+        top: "50%", left: "-95px", animation: "animate-[bounce_5.5s_infinite]",
         width: "w-16", height: "h-16", iconClass: "text-5xl text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]"
       }
     ]
@@ -384,13 +373,14 @@ const portfolioProjects = [
     id: 3,
     title: "Quantum Data Engine",
     tag: "WEB / ANALYTICS",
+    deviceType: "desktop",
     heading: "UNLEASH QUANTUM ANALYTICS •",
     description: "DECODE THE FUTURE WITH DATA-DRIVEN INSIGHTS THAT TRANSFORM COMPLEXITY INTO ACTIONABLE INTELLIGENCE.",
     mainImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
     floatingItems: [
       {
         type: "icon", icon: "database",
-        top: "15%", left: "-15%", animation: "animate-[bounce_4.5s_infinite]",
+        top: "10%", left: "-95px", animation: "animate-[bounce_4.5s_infinite]",
         width: "w-16", height: "h-16", iconClass: "text-4xl text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.8)]"
       },
       {
@@ -400,17 +390,12 @@ const portfolioProjects = [
       },
       {
         type: "icon", icon: "hub",
-        top: "20%", right: "-15%", animation: "animate-[bounce_6.5s_infinite]",
+        top: "50%", right: "-95px", animation: "animate-[bounce_6.5s_infinite]",
         width: "w-14", height: "h-14", iconClass: "text-4xl text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.8)]"
       },
       {
         type: "icon", icon: "query_stats",
-        top: "65%", left: "-20%", animation: "animate-[bounce_4s_infinite]",
-        width: "w-16", height: "h-16", iconClass: "text-5xl text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.8)]"
-      },
-      {
-        type: "icon", icon: "speed",
-        top: "70%", right: "-20%", animation: "animate-[bounce_5s_infinite]",
+        top: "50%", left: "-95px", animation: "animate-[bounce_4s_infinite]",
         width: "w-16", height: "h-16", iconClass: "text-5xl text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.8)]"
       }
     ]
@@ -419,13 +404,14 @@ const portfolioProjects = [
     id: 4,
     title: "Aura Social Network",
     tag: "MOBILE / LIFESTYLE",
+    deviceType: "mobile",
     heading: "CONNECT WITH THE WORLD •",
     description: "CRAFTING IMMERSIVE SOCIAL EXPERIENCES THAT BRIDGE COMMUNITIES AND REDEFINE DIGITAL LIFESTYLE.",
     mainImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop",
     floatingItems: [
       {
         type: "icon", icon: "groups",
-        top: "20%", left: "-15%", animation: "animate-[bounce_5s_infinite]",
+        top: "10%", left: "-95px", animation: "animate-[bounce_5s_infinite]",
         width: "w-16", height: "h-16", iconClass: "text-4xl text-pink-400 drop-shadow-[0_0_8px_rgba(244,114,182,0.8)]"
       },
       {
@@ -435,17 +421,12 @@ const portfolioProjects = [
       },
       {
         type: "icon", icon: "forum",
-        top: "25%", right: "-15%", animation: "animate-[bounce_6s_infinite]",
+        top: "50%", right: "-95px", animation: "animate-[bounce_6s_infinite]",
         width: "w-14", height: "h-14", iconClass: "text-4xl text-pink-400 drop-shadow-[0_0_8px_rgba(244,114,182,0.8)]"
       },
       {
         type: "icon", icon: "photo_library",
-        top: "70%", left: "-15%", animation: "animate-[bounce_4.5s_infinite]",
-        width: "w-16", height: "h-16", iconClass: "text-5xl text-pink-400 drop-shadow-[0_0_8px_rgba(244,114,182,0.8)]"
-      },
-      {
-        type: "icon", icon: "share",
-        top: "75%", right: "-15%", animation: "animate-[bounce_5.5s_infinite]",
+        top: "50%", left: "-95px", animation: "animate-[bounce_4.5s_infinite]",
         width: "w-16", height: "h-16", iconClass: "text-5xl text-pink-400 drop-shadow-[0_0_8px_rgba(244,114,182,0.8)]"
       }
     ]
@@ -486,7 +467,7 @@ const OrbitalProjectViewer = () => {
       {/* Diffuse Background Glow */}
       <div className="diffuse-glow hidden md:block"></div>
 
-      <div className="w-full max-w-[1400px] flex flex-col xl:flex-row items-center justify-between gap-12 xl:gap-20 z-10 px-12 md:px-20">
+      <div className="w-full max-w-[1400px] flex flex-col xl:flex-row items-center xl:items-start justify-between gap-12 xl:gap-20 z-10 px-12 md:px-20">
         
         {/* Left Text Block */}
         <motion.div 
@@ -513,7 +494,7 @@ const OrbitalProjectViewer = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative shrink-0 w-full xl:w-[600px] flex justify-center items-center py-10"
+          className={`relative shrink-0 flex justify-center items-center py-10 ${project.deviceType === 'mobile' ? 'w-[120px] md:w-[180px]' : 'w-[280px] md:w-[420px]'}`}
         >
           {/* Orbital Icons */}
           {project.floatingItems.map((item, idx) => (
@@ -546,45 +527,49 @@ const OrbitalProjectViewer = () => {
           <div className="relative w-full max-w-[700px] flex flex-col md:flex-row items-end justify-center gap-8 md:gap-12 pb-12">
             
             {/* Desktop Monitor */}
-            <div className="relative w-[240px] h-[150px] md:w-[320px] md:h-[200px] bg-slate-800 rounded-t-xl border-[4px] border-slate-800 shadow-[0_0_40px_rgba(0,0,0,0.8)] z-10 flex flex-col shrink-0">
-              {/* Screen */}
-              <div className="w-full flex-1 bg-black overflow-hidden rounded-t-md relative">
-                <img 
-                  alt={`${project.title} Desktop`} 
-                  className="w-full h-full object-cover opacity-90" 
-                  src={project.mainImage}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-                <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4">
-                  <h3 className="text-xs md:text-sm font-bold text-white">{project.title}</h3>
+            {project.deviceType === "desktop" && (
+              <div className="relative w-[280px] h-[175px] md:w-[420px] md:h-[260px] bg-slate-800 rounded-t-xl border-[4px] border-slate-800 shadow-[0_0_40px_rgba(0,0,0,0.8)] z-10 flex flex-col shrink-0 mx-auto">
+                {/* Screen */}
+                <div className="w-full flex-1 bg-black overflow-hidden rounded-t-md relative">
+                  <img 
+                    alt={`${project.title} Desktop`} 
+                    className="w-full h-full object-cover opacity-90" 
+                    src={project.mainImage}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+                  <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4">
+                    <h3 className="text-xs md:text-sm font-bold text-white">{project.title}</h3>
+                  </div>
                 </div>
+                {/* Chin */}
+                <div className="h-4 md:h-5 w-full bg-slate-700 rounded-b-lg flex items-center justify-center border-t border-slate-600">
+                  <div className="w-6 h-1 bg-slate-500 rounded-full"></div>
+                </div>
+                {/* Stand */}
+                <div className="absolute -bottom-4 md:-bottom-6 left-1/2 -translate-x-1/2 w-12 md:w-16 h-4 md:h-6 bg-slate-700" style={{ clipPath: 'polygon(15% 0, 85% 0, 100% 100%, 0% 100%)' }}></div>
+                <div className="absolute -bottom-5 md:-bottom-7 left-1/2 -translate-x-1/2 w-20 md:w-28 h-1 bg-slate-600 rounded-full shadow-lg"></div>
               </div>
-              {/* Chin */}
-              <div className="h-4 md:h-5 w-full bg-slate-700 rounded-b-lg flex items-center justify-center border-t border-slate-600">
-                <div className="w-6 h-1 bg-slate-500 rounded-full"></div>
-              </div>
-              {/* Stand */}
-              <div className="absolute -bottom-4 md:-bottom-6 left-1/2 -translate-x-1/2 w-12 md:w-16 h-4 md:h-6 bg-slate-700" style={{ clipPath: 'polygon(15% 0, 85% 0, 100% 100%, 0% 100%)' }}></div>
-              <div className="absolute -bottom-5 md:-bottom-7 left-1/2 -translate-x-1/2 w-20 md:w-28 h-1 bg-slate-600 rounded-full shadow-lg"></div>
-            </div>
+            )}
 
             {/* Mobile Phone */}
-            <div className="relative w-[70px] h-[140px] md:w-[100px] md:h-[200px] bg-slate-800 rounded-[12px] md:rounded-[20px] border-[3px] md:border-[4px] border-slate-800 shadow-[10px_10px_30px_rgba(0,0,0,0.9)] z-20 overflow-hidden flex flex-col shrink-0">
-              {/* Notch */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-6 md:w-10 h-2 bg-slate-800 rounded-b-sm md:rounded-b-md z-30"></div>
-              {/* Screen */}
-              <div className="w-full h-full bg-black relative">
-                <img 
-                  alt={`${project.title} Mobile`} 
-                  className="w-full h-full object-cover" 
-                  src={project.mainImage}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none"></div>
-                <div className="absolute bottom-2 left-2">
-                  <p className="text-accent font-bold text-[5px] md:text-[6px] tracking-[1px] uppercase">{project.tag.split('/')[0]}</p>
+            {project.deviceType === "mobile" && (
+              <div className="relative w-[120px] h-[240px] md:w-[180px] md:h-[360px] bg-slate-800 rounded-[20px] md:rounded-[32px] border-[3px] md:border-[5px] border-slate-800 shadow-[10px_10px_40px_rgba(0,0,0,0.9)] z-20 overflow-hidden flex flex-col shrink-0 mx-auto">
+                {/* Notch */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-10 md:w-16 h-3 md:h-4 bg-slate-800 rounded-b-md md:rounded-b-lg z-30"></div>
+                {/* Screen */}
+                <div className="w-full h-full bg-black relative">
+                  <img 
+                    alt={`${project.title} Mobile`} 
+                    className="w-full h-full object-cover" 
+                    src={project.mainImage}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none"></div>
+                  <div className="absolute bottom-4 left-4">
+                    <p className="text-accent font-bold text-[8px] md:text-[10px] tracking-[2px] uppercase">{project.tag.split('/')[0]}</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
 
           </div>
         </motion.div>
@@ -596,7 +581,7 @@ const OrbitalProjectViewer = () => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 20 }}
           transition={{ duration: 0.8 }}
-          className="flex-1 flex flex-col items-end text-right w-full"
+          className="flex-1 flex flex-col items-start text-left w-full"
         >
           <p className="text-xs xl:text-xs text-slate-400 tracking-[0.2em] leading-[2] max-w-[300px] uppercase font-sans font-bold">
             {project.description}

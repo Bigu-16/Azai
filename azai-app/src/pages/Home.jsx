@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useAnimationFrame, AnimatePresence } from 'framer-motion';
 import { SmokeyFluidCursor } from 'react-smokey-fluid-cursor';
+import EcoSyncVideo from '../assets/EcoSyncVideo_WithAudio.mp4';
 
 const services = [
   {
@@ -306,6 +307,8 @@ const portfolioProjects = [
     heading: "HARNESS THE POWER OF INNOVATION •",
     description: "A BURST OF PRECISION DIGITAL DESIGN WILL IGNITE YOUR SENSES AND FUEL YOUR CORE PEAK PERFORMANCE.",
     mainImage: "https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=2070&auto=format&fit=crop",
+    video: "", // Add .mp4 URL here to show video
+    link: "", // Add project URL here to make it clickable
     floatingItems: [
       {
         type: "image",
@@ -340,12 +343,14 @@ const portfolioProjects = [
   },
   {
     id: 2,
-    title: "Zenith AI Dashboard",
+    //title: "EcoSync Enterprise",
     tag: "WEB / SAAS",
     deviceType: "desktop",
-    heading: "ELEVATE YOUR SAAS PLATFORM •",
-    description: "ARCHITECTING SCALABLE SOLUTIONS THAT EMPOWER YOUR BUSINESS TO REACH UNPRECEDENTED HEIGHTS OF EFFICIENCY.",
+    heading: "ECOSYNC ENTERPRISE: INTELLIGENT INFRASTRUCTURE & AI-OPS SUITE •",
+    description: "ECOSYNC ENTERPRISE IS A HIGH-FIDELITY DASHBOARD BY AZAI TECH THAT SIMPLIFIES LARGE-SCALE INDUSTRIAL DATA INTO INTUITIVE, PIXEL-PERFECT INTERFACES. WE BRIDGE THE GAP BETWEEN COMPLEX ENERGY TELEMETRY AND SMART UX TO DELIVER ACTIONABLE, AUTOMATED INSIGHTS.",
     mainImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+    video: EcoSyncVideo, 
+    link: "",
     floatingItems: [
       {
         type: "icon", icon: "monitoring",
@@ -377,6 +382,8 @@ const portfolioProjects = [
     heading: "UNLEASH QUANTUM ANALYTICS •",
     description: "DECODE THE FUTURE WITH DATA-DRIVEN INSIGHTS THAT TRANSFORM COMPLEXITY INTO ACTIONABLE INTELLIGENCE.",
     mainImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    video: "", 
+    link: "",
     floatingItems: [
       {
         type: "icon", icon: "database",
@@ -408,6 +415,8 @@ const portfolioProjects = [
     heading: "CONNECT WITH THE WORLD •",
     description: "CRAFTING IMMERSIVE SOCIAL EXPERIENCES THAT BRIDGE COMMUNITIES AND REDEFINE DIGITAL LIFESTYLE.",
     mainImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop",
+    video: "", 
+    link: "",
     floatingItems: [
       {
         type: "icon", icon: "groups",
@@ -482,9 +491,20 @@ const OrbitalProjectViewer = () => {
             {project.heading}
           </h2>
           <p className="text-slate-500 tracking-[0.5em] text-[10px] mb-8 font-bold">{">>>>>>>>"}</p>
-          <button className="px-6 py-2.5 bg-white/5 border border-white/10 hover:border-accent hover:shadow-[0_0_20px_rgba(0,229,255,0.2)] transition-all duration-300 rounded-lg text-xs tracking-[0.2em] uppercase font-bold text-white">
-            Order Today
-          </button>
+          {project.link ? (
+            <a 
+              href={project.link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block px-6 py-2.5 bg-white/5 border border-white/10 hover:border-accent hover:shadow-[0_0_20px_rgba(0,229,255,0.2)] hover:bg-accent/10 transition-all duration-300 rounded-lg text-xs tracking-[0.2em] uppercase font-bold text-white text-center"
+            >
+              View Project
+            </a>
+          ) : (
+            <button className="px-6 py-2.5 bg-white/5 border border-white/10 hover:border-accent hover:shadow-[0_0_20px_rgba(0,229,255,0.2)] transition-all duration-300 rounded-lg text-xs tracking-[0.2em] uppercase font-bold text-white">
+              Order Today
+            </button>
+          )}
         </motion.div>
 
         {/* Central Project Image */}
@@ -530,15 +550,32 @@ const OrbitalProjectViewer = () => {
             {project.deviceType === "desktop" && (
               <div className="relative w-[280px] h-[175px] md:w-[420px] md:h-[260px] bg-slate-800 rounded-t-xl border-[4px] border-slate-800 shadow-[0_0_40px_rgba(0,0,0,0.8)] z-10 flex flex-col shrink-0 mx-auto">
                 {/* Screen */}
-                <div className="w-full flex-1 bg-black overflow-hidden rounded-t-md relative">
-                  <img 
-                    alt={`${project.title} Desktop`} 
-                    className="w-full h-full object-cover opacity-90" 
-                    src={project.mainImage}
-                  />
+                <div 
+                  className={`w-full flex-1 bg-black overflow-hidden rounded-t-md relative ${project.link ? 'cursor-pointer group' : ''}`}
+                  onClick={() => project.link && window.open(project.link, '_blank')}
+                >
+                  {project.video ? (
+                    <video 
+                      autoPlay 
+                      loop 
+                      muted 
+                      playsInline 
+                      className={`w-full h-full object-cover opacity-90 transition-transform duration-700 ${project.link ? 'group-hover:scale-105' : ''}`}
+                      src={project.video}
+                    />
+                  ) : (
+                    <img 
+                      alt={`${project.title} Desktop`} 
+                      className={`w-full h-full object-cover opacity-90 transition-transform duration-700 ${project.link ? 'group-hover:scale-105' : ''}`} 
+                      src={project.mainImage}
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-                  <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4">
-                    <h3 className="text-xs md:text-sm font-bold text-white">{project.title}</h3>
+                  <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 z-10">
+                    <h3 className="text-xs md:text-sm font-bold text-white flex items-center gap-2">
+                      {project.title}
+                      {project.link && <span className="material-symbols-outlined text-[12px] text-accent opacity-0 group-hover:opacity-100 transition-all duration-300">open_in_new</span>}
+                    </h3>
                   </div>
                 </div>
                 {/* Chin */}
@@ -557,15 +594,32 @@ const OrbitalProjectViewer = () => {
                 {/* Notch */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-10 md:w-16 h-3 md:h-4 bg-slate-800 rounded-b-md md:rounded-b-lg z-30"></div>
                 {/* Screen */}
-                <div className="w-full h-full bg-black relative">
-                  <img 
-                    alt={`${project.title} Mobile`} 
-                    className="w-full h-full object-cover" 
-                    src={project.mainImage}
-                  />
+                <div 
+                  className={`w-full h-full bg-black relative ${project.link ? 'cursor-pointer group' : ''}`}
+                  onClick={() => project.link && window.open(project.link, '_blank')}
+                >
+                  {project.video ? (
+                    <video 
+                      autoPlay 
+                      loop 
+                      muted 
+                      playsInline 
+                      className={`w-full h-full object-cover transition-transform duration-700 ${project.link ? 'group-hover:scale-105' : ''}`}
+                      src={project.video}
+                    />
+                  ) : (
+                    <img 
+                      alt={`${project.title} Mobile`} 
+                      className={`w-full h-full object-cover transition-transform duration-700 ${project.link ? 'group-hover:scale-105' : ''}`} 
+                      src={project.mainImage}
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none"></div>
-                  <div className="absolute bottom-4 left-4">
-                    <p className="text-accent font-bold text-[8px] md:text-[10px] tracking-[2px] uppercase">{project.tag.split('/')[0]}</p>
+                  <div className="absolute bottom-4 left-4 z-10">
+                    <p className="text-accent font-bold text-[8px] md:text-[10px] tracking-[2px] uppercase flex items-center gap-1">
+                      {project.tag.split('/')[0]}
+                      {project.link && <span className="material-symbols-outlined text-[12px] text-accent opacity-0 group-hover:opacity-100 transition-all duration-300">open_in_new</span>}
+                    </p>
                   </div>
                 </div>
               </div>

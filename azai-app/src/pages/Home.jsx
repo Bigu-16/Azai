@@ -82,9 +82,9 @@ const Home = () => {
 
   return (
     <div className="pt-20">
-      <SmokeyFluidCursor />
       {/* HERO SECTION */}
-      <section id="hero" className="min-h-screen flex flex-col items-center justify-center relative px-8">
+      <section id="hero" className="min-h-screen flex flex-col items-center justify-center relative px-8 overflow-hidden">
+        <SmokeyFluidCursor />
         <div className="z-10 text-center max-w-[800px]">
           <p className="section-tag">Digital Software Studio</p>
           <h1 className="text-[clamp(4rem,15vw,10rem)] font-display tracking-[-5px] leading-[0.9] bg-gradient-to-b from-white to-[#444] bg-clip-text text-transparent uppercase">

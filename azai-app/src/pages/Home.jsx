@@ -258,6 +258,99 @@ const Home = () => {
         </div>
       </section>
 
+      {/* ABOUT US SECTION */}
+      <section id="about" className="relative py-32 px-8 flex flex-col items-center overflow-hidden border-t border-b border-white/5 bg-slate-950/50">
+        {/* Ambient glows */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+        
+        <div className="max-w-[1280px] w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center relative z-10">
+          {/* Left Side: Brand Visual & Stats */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="order-2 lg:order-1 flex flex-col gap-8"
+          >
+            <div className="relative w-full aspect-square max-w-[500px] mx-auto flex items-center justify-center">
+              {/* Core Animated Element */}
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 rounded-full border border-dashed border-white/10 flex items-center justify-center"
+              >
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-accent rounded-full shadow-[0_0_15px_rgba(0,242,255,0.8)]"></div>
+              </motion.div>
+              <motion.div 
+                animate={{ rotate: -360 }}
+                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-10 rounded-full border border-dashed border-white/20 flex items-center justify-center"
+              >
+                <div className="absolute bottom-0 right-1/2 translate-x-1/2 w-2 h-2 bg-purple-500 rounded-full shadow-[0_0_15px_rgba(180,100,255,0.8)]"></div>
+              </motion.div>
+              
+              {/* Central Emblem */}
+              <div className="z-20 relative text-center glass rounded-3xl p-10 backdrop-blur-xl border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] group hover:border-accent/30 transition-all duration-500">
+                <h3 className="font-display text-6xl text-white tracking-tighter group-hover:text-accent transition-colors duration-500">AZAI</h3>
+                <p className="text-[10px] tracking-[0.4em] text-slate-500 uppercase mt-2">Established &bull; 2024</p>
+              </div>
+
+              {/* Floating Stat Cards */}
+              <motion.div 
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-[10%] right-[0%] md:-right-[10%] glass px-6 py-4 rounded-xl border border-white/10 flex flex-col backdrop-blur-md z-30"
+              >
+                <span className="text-2xl font-bold text-white">50+</span>
+                <span className="text-[10px] text-slate-400 tracking-wider uppercase">Projects Delivered</span>
+              </motion.div>
+
+              <motion.div 
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute bottom-[15%] left-[0%] md:-left-[10%] glass px-6 py-4 rounded-xl border border-white/10 flex flex-col backdrop-blur-md z-30"
+              >
+                <span className="text-2xl font-bold text-accent">99.9%</span>
+                <span className="text-[10px] text-slate-400 tracking-wider uppercase">Server Uptime</span>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Right Side: Text Content */}
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="order-1 lg:order-2 flex flex-col items-start text-left"
+          >
+            <span className="section-tag !text-left !mx-0">About Studio</span>
+            <h2 className="font-display text-[3rem] md:text-[4.5rem] leading-[1] text-white mt-4 mb-8 uppercase tracking-tighter">
+              Engineering The <br />
+              <span className="bg-gradient-to-r from-white to-white/40 bg-clip-text text-transparent">Digital Frontier</span>
+            </h2>
+            <p className="text-slate-400 text-lg leading-[1.8] mb-10 font-sans">
+              We are not just a software studio; we are architectural visionaries. AZAI merges avant-garde design with hyper-scalable technology. Every pixel, every line of code, every deployment is calculated to ensure absolute dominance in your digital market vertical.
+            </p>
+
+            {/* Core Values Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-white/10 transition-all group">
+                <span className="material-symbols-outlined text-accent mb-4 group-hover:scale-110 transition-transform inline-block">precision_manufacturing</span>
+                <h4 className="text-white font-bold mb-2 uppercase tracking-wide text-sm">Ultra-Precision</h4>
+                <p className="text-slate-500 text-xs leading-relaxed">Zero compromise on architectural integrity and interface refinement.</p>
+              </div>
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-white/10 transition-all group">
+                <span className="material-symbols-outlined text-purple-400 mb-4 group-hover:scale-110 transition-transform inline-block">speed</span>
+                <h4 className="text-white font-bold mb-2 uppercase tracking-wide text-sm">Hypersonic Scale</h4>
+                <p className="text-slate-500 text-xs leading-relaxed">Engineered to sustain massive concurrency and instantaneous throughput.</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* WORK SECTION */}
       <section id="work" className="py-32 flex flex-col items-center overflow-hidden">
         <p className="section-tag">Portfolio</p>

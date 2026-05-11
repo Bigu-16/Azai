@@ -320,21 +320,21 @@ const portfolioProjects = [
       {
         type: "image",
         src: "https://lh3.googleusercontent.com/aida-public/AB6AXuB5PrJe96dcMWLme3F1cEcvDlL4WzSYPZLI6FlwoTtbcKzJN0Wu13Hkzcu6ouGS6OR5dMpJcF56YG37Ka37Fk30oZ5eifYfeyde9oZ2ky9uQOmHzfzWWojUIJwA-TiW9QYQYgJBU9E8TuM3oECYJmy_o-Ln9zqGOhIwx4YVFY2U2mIZFpYQ5AWBCYrC8hWjaEMhhC6tIiOsIY5FOnvkIK6bHRR25CmV01KcgbKVx1a9FSY-xKQ4I807U8tsxmkdFIzSQlJ0nrcdPxQl",
-        top: "-15%", left: "50%", transform: "translateX(-50%)",
+        top: "10%", right: "-95px",
         animation: "animate-[bounce_5s_infinite]",
         width: "w-16", height: "h-16"
       },
       {
         type: "image",
         src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBTyMwwPL4fCM0KC0nT2s9b-u2XeYyfpOrAs1JLlK7DwjQ_CPC4b34u0Rde0YGSwLM2CCq6Y6BcGeiL90IjiWEqKHMkf2jQpJNOi8xJBiikcuDZCq2yCO4eWlDIh6K3n_thmgS3kjHwOceG0ZVMqtekpfTe0KlxdpypbmIiOWDBrobwF8rHr4pAepTzbcMUoCp9o23dq-VLiGeIwfcfWR4RkfnrxxHowaoUEIWrj_sIPYYZtSpPagnfr2pj4_Hcv0dTgUKdz2eE63JE",
-        top: "50%", right: "-95px",
+        top: "80%", right: "-95px",
         animation: "animate-[bounce_6s_infinite]",
         width: "w-16", height: "h-16"
       },
       {
         type: "icon",
         icon: "shield_locked",
-        top: "50%", left: "-95px",
+        top: "80%", left: "-95px",
         animation: "animate-[bounce_7s_infinite]",
         width: "w-14", height: "h-14",
         iconClass: "text-4xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
@@ -346,7 +346,7 @@ const portfolioProjects = [
     //title: "EcoSync Enterprise",
     tag: "WEB / SAAS",
     deviceType: "desktop",
-    heading: "ECOSYNC ENTERPRISE: INTELLIGENT INFRASTRUCTURE & AI-OPS SUITE •",
+    heading: "ECOSYNC ENTERPRISE",
     description: "ECOSYNC ENTERPRISE IS A HIGH-FIDELITY DASHBOARD BY AZAI TECH THAT SIMPLIFIES LARGE-SCALE INDUSTRIAL DATA INTO INTUITIVE, PIXEL-PERFECT INTERFACES. WE BRIDGE THE GAP BETWEEN COMPLEX ENERGY TELEMETRY AND SMART UX TO DELIVER ACTIONABLE, AUTOMATED INSIGHTS.",
     mainImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
     video: EcoSyncVideo, 
@@ -355,22 +355,22 @@ const portfolioProjects = [
       {
         type: "icon", icon: "monitoring",
         top: "10%", left: "-95px", animation: "animate-[bounce_4s_infinite]",
-        width: "w-16", height: "h-16", iconClass: "text-4xl text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]"
+        width: "w-16", height: "h-16", iconClass: "text-4xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
       },
       {
         type: "icon", icon: "robot_2",
-        top: "-15%", left: "50%", transform: "translateX(-50%)", animation: "animate-[bounce_5s_infinite]",
-        width: "w-20", height: "h-20", iconClass: "text-5xl text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]"
+        top: "10%", right: "-95px", animation: "animate-[bounce_5s_infinite]",
+        width: "w-20", height: "h-20", iconClass: "text-5xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
       },
       {
         type: "icon", icon: "insights",
-        top: "50%", right: "-95px", animation: "animate-[bounce_6s_infinite]",
-        width: "w-14", height: "h-14", iconClass: "text-4xl text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]"
+        top: "80%", right: "-95px", animation: "animate-[bounce_6s_infinite]",
+        width: "w-14", height: "h-14", iconClass: "text-4xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
       },
       {
         type: "icon", icon: "memory",
-        top: "50%", left: "-95px", animation: "animate-[bounce_5.5s_infinite]",
-        width: "w-16", height: "h-16", iconClass: "text-5xl text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]"
+        top: "80%", left: "-95px", animation: "animate-[bounce_5.5s_infinite]",
+        width: "w-16", height: "h-16", iconClass: "text-5xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
       }
     ]
   },
@@ -388,22 +388,22 @@ const portfolioProjects = [
       {
         type: "icon", icon: "database",
         top: "10%", left: "-95px", animation: "animate-[bounce_4.5s_infinite]",
-        width: "w-16", height: "h-16", iconClass: "text-4xl text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.8)]"
+        width: "w-16", height: "h-16", iconClass: "text-4xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
       },
       {
         type: "icon", icon: "analytics",
-        top: "-15%", left: "50%", transform: "translateX(-50%)", animation: "animate-[bounce_5.5s_infinite]",
-        width: "w-20", height: "h-20", iconClass: "text-5xl text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.8)]"
+        top: "10%", right: "-95px", animation: "animate-[bounce_5.5s_infinite]",
+        width: "w-20", height: "h-20", iconClass: "text-5xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
       },
       {
         type: "icon", icon: "hub",
-        top: "50%", right: "-95px", animation: "animate-[bounce_6.5s_infinite]",
-        width: "w-14", height: "h-14", iconClass: "text-4xl text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.8)]"
+        top: "80%", right: "-95px", animation: "animate-[bounce_6.5s_infinite]",
+        width: "w-14", height: "h-14", iconClass: "text-4xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
       },
       {
         type: "icon", icon: "query_stats",
-        top: "50%", left: "-95px", animation: "animate-[bounce_4s_infinite]",
-        width: "w-16", height: "h-16", iconClass: "text-5xl text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.8)]"
+        top: "80%", left: "-95px", animation: "animate-[bounce_4s_infinite]",
+        width: "w-16", height: "h-16", iconClass: "text-5xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
       }
     ]
   },
@@ -421,22 +421,22 @@ const portfolioProjects = [
       {
         type: "icon", icon: "groups",
         top: "10%", left: "-95px", animation: "animate-[bounce_5s_infinite]",
-        width: "w-16", height: "h-16", iconClass: "text-4xl text-pink-400 drop-shadow-[0_0_8px_rgba(244,114,182,0.8)]"
+        width: "w-16", height: "h-16", iconClass: "text-4xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
       },
       {
         type: "icon", icon: "favorite",
-        top: "-15%", left: "50%", transform: "translateX(-50%)", animation: "animate-[bounce_4s_infinite]",
-        width: "w-16", height: "h-16", iconClass: "text-5xl text-pink-400 drop-shadow-[0_0_8px_rgba(244,114,182,0.8)]"
+        top: "10%", right: "-95px", animation: "animate-[bounce_4s_infinite]",
+        width: "w-16", height: "h-16", iconClass: "text-5xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
       },
       {
         type: "icon", icon: "forum",
-        top: "50%", right: "-95px", animation: "animate-[bounce_6s_infinite]",
-        width: "w-14", height: "h-14", iconClass: "text-4xl text-pink-400 drop-shadow-[0_0_8px_rgba(244,114,182,0.8)]"
+        top: "80%", right: "-95px", animation: "animate-[bounce_6s_infinite]",
+        width: "w-14", height: "h-14", iconClass: "text-4xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
       },
       {
         type: "icon", icon: "photo_library",
-        top: "50%", left: "-95px", animation: "animate-[bounce_4.5s_infinite]",
-        width: "w-16", height: "h-16", iconClass: "text-5xl text-pink-400 drop-shadow-[0_0_8px_rgba(244,114,182,0.8)]"
+        top: "80%", left: "-95px", animation: "animate-[bounce_4.5s_infinite]",
+        width: "w-16", height: "h-16", iconClass: "text-5xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
       }
     ]
   }
@@ -476,20 +476,25 @@ const OrbitalProjectViewer = () => {
       {/* Diffuse Background Glow */}
       <div className="diffuse-glow hidden md:block"></div>
 
-      <div className="w-full max-w-[1400px] flex flex-col xl:flex-row items-center xl:items-start justify-between gap-12 xl:gap-20 z-10 px-12 md:px-20">
+      <div className="w-full max-w-[1400px] flex flex-col xl:flex-row items-center justify-between gap-12 xl:gap-32 z-10 px-12 md:px-20">
         
-        {/* Left Text Block */}
+        {/* Left Content Group: Text & Details */}
         <motion.div 
-          key={`left-${project.id}`}
+          key={`text-${project.id}`}
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.8 }}
           className="flex-1 flex flex-col items-start w-full"
         >
-          <h2 className="text-2xl lg:text-3xl xl:text-3xl uppercase font-sans tracking-widest leading-[1.3] mb-6 text-white">
-            {project.heading}
-          </h2>
+          <div className="mb-8 text-left max-w-2xl flex flex-col items-start gap-6">
+            <h2 className="text-2xl lg:text-3xl xl:text-3xl uppercase font-sans tracking-widest leading-[1.3] text-white">
+              {project.heading}
+            </h2>
+            <p className="text-xs xl:text-xs text-slate-400 tracking-[0.2em] leading-[2] uppercase font-sans font-bold max-w-md">
+              {project.description}
+            </p>
+          </div>
           <p className="text-slate-500 tracking-[0.5em] text-[10px] mb-8 font-bold">{">>>>>>>>"}</p>
           {project.link ? (
             <a 
@@ -507,14 +512,14 @@ const OrbitalProjectViewer = () => {
           )}
         </motion.div>
 
-        {/* Central Project Image */}
+        {/* Right Content Group: Device Mockup (Pushed Right by flex justify-between) */}
         <motion.div 
           key={`center-${project.id}`}
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className={`relative shrink-0 flex justify-center items-center py-10 ${project.deviceType === 'mobile' ? 'w-[120px] md:w-[180px]' : 'w-[280px] md:w-[420px]'}`}
+          className={`relative shrink-0 flex justify-center items-center py-10 ${project.deviceType === 'mobile' ? 'w-[140px] md:w-[230px]' : 'w-[320px] md:w-[560px]'}`}
         >
           {/* Orbital Icons */}
           {project.floatingItems.map((item, idx) => (
@@ -544,11 +549,11 @@ const OrbitalProjectViewer = () => {
           ))}
 
           {/* Main Asset: Device Mockups */}
-          <div className="relative w-full max-w-[700px] flex flex-col md:flex-row items-end justify-center gap-8 md:gap-12 pb-12">
+          <div className="relative w-full max-w-[750px] flex flex-col md:flex-row items-end justify-center gap-8 md:gap-12 pb-12">
             
             {/* Desktop Monitor */}
             {project.deviceType === "desktop" && (
-              <div className="relative w-[280px] h-[175px] md:w-[420px] md:h-[260px] bg-slate-800 rounded-t-xl border-[4px] border-slate-800 shadow-[0_0_40px_rgba(0,0,0,0.8)] z-10 flex flex-col shrink-0 mx-auto">
+              <div className="relative w-[320px] h-[200px] md:w-[560px] md:h-[350px] bg-slate-800 rounded-t-xl border-[4px] border-slate-800 shadow-[0_0_40px_rgba(0,0,0,0.8)] z-10 flex flex-col shrink-0 mx-auto">
                 {/* Screen */}
                 <div 
                   className={`w-full flex-1 bg-black overflow-hidden rounded-t-md relative ${project.link ? 'cursor-pointer group' : ''}`}
@@ -583,16 +588,16 @@ const OrbitalProjectViewer = () => {
                   <div className="w-6 h-1 bg-slate-500 rounded-full"></div>
                 </div>
                 {/* Stand */}
-                <div className="absolute -bottom-4 md:-bottom-6 left-1/2 -translate-x-1/2 w-12 md:w-16 h-4 md:h-6 bg-slate-700" style={{ clipPath: 'polygon(15% 0, 85% 0, 100% 100%, 0% 100%)' }}></div>
-                <div className="absolute -bottom-5 md:-bottom-7 left-1/2 -translate-x-1/2 w-20 md:w-28 h-1 bg-slate-600 rounded-full shadow-lg"></div>
+                <div className="absolute -bottom-4 md:-bottom-6 left-1/2 -translate-x-1/2 w-12 md:w-20 h-4 md:h-6 bg-slate-700" style={{ clipPath: 'polygon(15% 0, 85% 0, 100% 100%, 0% 100%)' }}></div>
+                <div className="absolute -bottom-5 md:-bottom-7 left-1/2 -translate-x-1/2 w-20 md:w-36 h-1 bg-slate-600 rounded-full shadow-lg"></div>
               </div>
             )}
 
             {/* Mobile Phone */}
             {project.deviceType === "mobile" && (
-              <div className="relative w-[120px] h-[240px] md:w-[180px] md:h-[360px] bg-slate-800 rounded-[20px] md:rounded-[32px] border-[3px] md:border-[5px] border-slate-800 shadow-[10px_10px_40px_rgba(0,0,0,0.9)] z-20 overflow-hidden flex flex-col shrink-0 mx-auto">
+              <div className="relative w-[140px] h-[280px] md:w-[230px] md:h-[460px] bg-slate-800 rounded-[20px] md:rounded-[32px] border-[3px] md:border-[5px] border-slate-800 shadow-[10px_10px_40px_rgba(0,0,0,0.9)] z-20 overflow-hidden flex flex-col shrink-0 mx-auto">
                 {/* Notch */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-10 md:w-16 h-3 md:h-4 bg-slate-800 rounded-b-md md:rounded-b-lg z-30"></div>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 md:w-18 h-3 md:h-4 bg-slate-800 rounded-b-md md:rounded-b-lg z-30"></div>
                 {/* Screen */}
                 <div 
                   className={`w-full h-full bg-black relative ${project.link ? 'cursor-pointer group' : ''}`}
@@ -626,20 +631,6 @@ const OrbitalProjectViewer = () => {
             )}
 
           </div>
-        </motion.div>
-
-        {/* Right Text Block */}
-        <motion.div 
-          key={`right-${project.id}`}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: 20 }}
-          transition={{ duration: 0.8 }}
-          className="flex-1 flex flex-col items-start text-left w-full"
-        >
-          <p className="text-xs xl:text-xs text-slate-400 tracking-[0.2em] leading-[2] max-w-[300px] uppercase font-sans font-bold">
-            {project.description}
-          </p>
         </motion.div>
 
       </div>

@@ -2,6 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { motion, useAnimationFrame, AnimatePresence } from 'framer-motion';
 import { SmokeyFluidCursor } from 'react-smokey-fluid-cursor';
 import EcoSyncVideo from '../assets/EcoSyncVideo_WithAudio.mp4';
+import photo1 from '../assets/photo_1_2026-05-11_19-54-06.jpg';
+import photo2 from '../assets/photo_2_2026-05-11_19-54-06.jpg';
+import photo3 from '../assets/photo_3_2026-05-11_19-54-06.jpg';
+import photo4 from '../assets/photo_4_2026-05-11_19-54-06.jpg';
+import photo5 from '../assets/photo_5_2026-05-11_19-54-06.jpg';
 
 const services = [
   {
@@ -469,32 +474,33 @@ const portfolioProjects = [
   },
   {
     id: 3,
-    title: "Quantum Data Engine",
-    tag: "WEB / ANALYTICS",
+    title: "Patient Tracker",
+    tag: "WEB / HEALTHCARE",
     deviceType: "desktop",
-    heading: "UNLEASH QUANTUM ANALYTICS •",
-    description: "DECODE THE FUTURE WITH DATA-DRIVEN INSIGHTS THAT TRANSFORM COMPLEXITY INTO ACTIONABLE INTELLIGENCE.",
-    mainImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    heading: "PATIENT TRACKER •",
+    description: "PATIENT TRACKER IS A DIGITAL ECOSYSTEM DESIGNED TO STRENGTHEN THE VITAL LINK BETWEEN PATIENTS AND DOCTORS THROUGH REAL-TIME COMMUNICATION AND SHARED HEALTH INSIGHTS.",
+    mainImage: photo1,
+    images: [photo1, photo2, photo3, photo4, photo5],
     video: "", 
     link: "",
     floatingItems: [
       {
-        type: "icon", icon: "database",
+        type: "icon", icon: "monitor_heart",
         top: "10%", left: "-95px", animation: "animate-[bounce_4.5s_infinite]",
         width: "w-16", height: "h-16", iconClass: "text-4xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
       },
       {
-        type: "icon", icon: "analytics",
+        type: "icon", icon: "medical_information",
         top: "10%", right: "-95px", animation: "animate-[bounce_5.5s_infinite]",
         width: "w-20", height: "h-20", iconClass: "text-5xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
       },
       {
-        type: "icon", icon: "hub",
+        type: "icon", icon: "healing",
         top: "80%", right: "-95px", animation: "animate-[bounce_6.5s_infinite]",
         width: "w-14", height: "h-14", iconClass: "text-4xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
       },
       {
-        type: "icon", icon: "query_stats",
+        type: "icon", icon: "health_and_safety",
         top: "80%", left: "-95px", animation: "animate-[bounce_4s_infinite]",
         width: "w-16", height: "h-16", iconClass: "text-5xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
       }
@@ -537,6 +543,7 @@ const portfolioProjects = [
 
 const OrbitalProjectViewer = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % portfolioProjects.length);
@@ -547,6 +554,20 @@ const OrbitalProjectViewer = () => {
   };
 
   const project = portfolioProjects[currentIndex];
+
+  useEffect(() => {
+    setCurrentImageIndex(0);
+  }, [currentIndex]);
+
+  useEffect(() => {
+    let interval;
+    if (project.images && project.images.length > 0) {
+      interval = setInterval(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
+      }, 3000);
+    }
+    return () => clearInterval(interval);
+  }, [project]);
 
   return (
     <div className="relative w-full px-6 md:px-24 min-h-[500px] flex items-center justify-center py-16">
@@ -646,10 +667,10 @@ const OrbitalProjectViewer = () => {
             
             {/* Desktop Monitor */}
             {project.deviceType === "desktop" && (
-              <div className="relative w-[320px] h-[200px] md:w-[560px] md:h-[350px] bg-slate-800 rounded-t-xl border-[4px] border-slate-800 shadow-[0_0_40px_rgba(0,0,0,0.8)] z-10 flex flex-col shrink-0 mx-auto">
+              <div className="relative w-[320px] h-[200px] md:w-[560px] md:h-[350px] bg-slate-800 rounded-t-2xl border-[4px] border-slate-800 shadow-[0_0_40px_rgba(0,0,0,0.8)] z-10 flex flex-col shrink-0 mx-auto">
                 {/* Screen */}
                 <div 
-                  className={`w-full flex-1 bg-black overflow-hidden rounded-t-md relative ${project.link ? 'cursor-pointer group' : ''}`}
+                  className={`w-full flex-1 bg-black overflow-hidden rounded-t-xl relative ${project.link ? 'cursor-pointer group' : ''}`}
                   onClick={() => project.link && window.open(project.link, '_blank')}
                 >
                   {project.video ? (
@@ -658,13 +679,22 @@ const OrbitalProjectViewer = () => {
                       loop 
                       muted 
                       playsInline 
-                      className={`w-full h-full object-cover opacity-90 transition-transform duration-700 ${project.link ? 'group-hover:scale-105' : ''}`}
+                      className={`w-full h-full object-fill rounded-t-xl opacity-100 transition-transform duration-700 ${project.link ? 'group-hover:scale-105' : ''}`}
                       src={project.video}
                     />
+                  ) : project.images && project.images.length > 0 ? (
+                    project.images.map((imgSrc, idx) => (
+                      <img 
+                        key={idx}
+                        alt={`${project.title} Desktop Image ${idx + 1}`} 
+                        className={`absolute inset-0 w-full h-full object-fill rounded-t-xl transition-opacity duration-1000 ${idx === currentImageIndex ? 'opacity-100' : 'opacity-0'} ${project.link ? 'group-hover:scale-105' : ''}`} 
+                        src={imgSrc}
+                      />
+                    ))
                   ) : (
                     <img 
                       alt={`${project.title} Desktop`} 
-                      className={`w-full h-full object-cover opacity-90 transition-transform duration-700 ${project.link ? 'group-hover:scale-105' : ''}`} 
+                      className={`w-full h-full object-fill rounded-t-xl opacity-100 transition-transform duration-700 ${project.link ? 'group-hover:scale-105' : ''}`} 
                       src={project.mainImage}
                     />
                   )}

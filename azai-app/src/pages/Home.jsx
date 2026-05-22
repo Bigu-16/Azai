@@ -7,6 +7,34 @@ import photo2 from '../assets/photo_2_2026-05-11_19-54-06.jpg';
 import photo3 from '../assets/photo_3_2026-05-11_19-54-06.jpg';
 import photo4 from '../assets/photo_4_2026-05-11_19-54-06.jpg';
 import photo5 from '../assets/photo_5_2026-05-11_19-54-06.jpg';
+import solomeImage from '../assets/photo_1_2026-05-20_20-41-52.jpg';
+import afomiaImage from '../assets/photo_1_2026-05-20_20-51-57.jpg';
+import abigiyaImage from '../assets/photo_2026-05-22_20-26-20.jpg';
+
+const aboutCards = [
+  {
+    id: 1,
+    title: "Solome Getachew",
+    narrowTitle: "Solome Getachew",
+    stat: "Frontend",
+    statLabel: "Projects",
+    image: solomeImage
+  },
+  {
+    id: 2,
+    title: "Afomia Tadesse",
+    narrowTitle: "Afomia Tadesse",
+    stat: "Backend",
+    image: afomiaImage
+  },
+    {
+    id: 3,
+    title: "Abigiya Getachew",
+    narrowTitle: "Abigiya Getachew",
+    stat: "Mobile dev",
+    image: abigiyaImage
+  }
+];
 
 const services = [
   {
@@ -51,6 +79,7 @@ const Home = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [activeService, setActiveService] = useState(0);
   const [rotation, setRotation] = useState(0);
+  const [focusedAboutCard, setFocusedAboutCard] = useState(1);
 
   // Continuous smooth rotation
   useAnimationFrame((time, delta) => {
@@ -269,90 +298,67 @@ const Home = () => {
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[120px] pointer-events-none"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-[120px] pointer-events-none"></div>
         
-        <div className="max-w-[1280px] w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center relative z-10">
-          {/* Left Side: Brand Visual & Stats */}
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="order-2 lg:order-1 flex flex-col gap-8"
-          >
-            <div className="relative w-full aspect-square max-w-[500px] mx-auto flex items-center justify-center">
-              {/* Core Animated Element */}
-              <motion.div 
-                animate={{ rotate: 360 }}
-                transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 rounded-full border border-dashed border-white/10 flex items-center justify-center"
-              >
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-accent rounded-full shadow-[0_0_15px_rgba(0,242,255,0.8)]"></div>
-              </motion.div>
-              <motion.div 
-                animate={{ rotate: -360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-10 rounded-full border border-dashed border-white/20 flex items-center justify-center"
-              >
-                <div className="absolute bottom-0 right-1/2 translate-x-1/2 w-2 h-2 bg-purple-500 rounded-full shadow-[0_0_15px_rgba(180,100,255,0.8)]"></div>
-              </motion.div>
-              
-              {/* Central Emblem */}
-              <div className="z-20 relative text-center glass rounded-3xl p-10 backdrop-blur-xl border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] group hover:border-accent/30 transition-all duration-500">
-                <h3 className="font-display text-6xl text-white tracking-tighter group-hover:text-accent transition-colors duration-500">AZAI</h3>
-                <p className="text-[10px] tracking-[0.4em] text-slate-500 uppercase mt-2">Established &bull; 2024</p>
-              </div>
-
-              {/* Floating Stat Cards */}
-              <motion.div 
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-[10%] right-[0%] md:-right-[10%] glass px-6 py-4 rounded-xl border border-white/10 flex flex-col backdrop-blur-md z-30"
-              >
-                <span className="text-2xl font-bold text-white">50+</span>
-                <span className="text-[10px] text-slate-400 tracking-wider uppercase">Projects Delivered</span>
-              </motion.div>
-
-              <motion.div 
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-[15%] left-[0%] md:-left-[10%] glass px-6 py-4 rounded-xl border border-white/10 flex flex-col backdrop-blur-md z-30"
-              >
-                <span className="text-2xl font-bold text-accent">99.9%</span>
-                <span className="text-[10px] text-slate-400 tracking-wider uppercase">Server Uptime</span>
-              </motion.div>
+        <div className="max-w-[1280px] w-full mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            {/* Left Column: Content */}
+            <div className="lg:col-span-4 pt-12">
+              <span className="section-tag !text-left !mx-0">About Us</span>
+              <h2 className="font-display text-[2.5rem] lg:text-[3.5rem] leading-[1] text-white mt-4 mb-6 uppercase tracking-tighter bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
+                Watch.<br />
+                Learn.<br />
+                Grow.
+              </h2>
+              <p className="text-slate-400 font-sans text-base md:text-lg leading-relaxed mb-10 max-w-md">
+                We are a collective of passionate software engineers driven by complex problem-solving. Together, we architect elite systems and amplify digital outreach, crafting transformative solutions for companies across every sector.
+              </p>
             </div>
-          </motion.div>
 
-          {/* Right Side: Text Content */}
-          <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="order-1 lg:order-2 flex flex-col items-start text-left"
-          >
-            <span className="section-tag !text-left !mx-0">About Studio</span>
-            <h2 className="font-display text-[3rem] md:text-[4.5rem] leading-[1] text-white mt-4 mb-8 uppercase tracking-tighter">
-              Engineering The <br />
-              <span className="bg-gradient-to-r from-white to-white/40 bg-clip-text text-transparent">Digital Frontier</span>
-            </h2>
-            <p className="text-slate-400 text-lg leading-[1.8] mb-10 font-sans">
-              We are not just a software studio; we are architectural visionaries. AZAI merges avant-garde design with hyper-scalable technology. Every pixel, every line of code, every deployment is calculated to ensure absolute dominance in your digital market vertical.
-            </p>
-
-            {/* Core Values Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-              <div className="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-white/10 transition-all group">
-                <span className="material-symbols-outlined text-accent mb-4 group-hover:scale-110 transition-transform inline-block">precision_manufacturing</span>
-                <h4 className="text-white font-bold mb-2 uppercase tracking-wide text-sm">Ultra-Precision</h4>
-                <p className="text-slate-500 text-xs leading-relaxed">Zero compromise on architectural integrity and interface refinement.</p>
-              </div>
-              <div className="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-white/10 transition-all group">
-                <span className="material-symbols-outlined text-purple-400 mb-4 group-hover:scale-110 transition-transform inline-block">speed</span>
-                <h4 className="text-white font-bold mb-2 uppercase tracking-wide text-sm">Hypersonic Scale</h4>
-                <p className="text-slate-500 text-xs leading-relaxed">Engineered to sustain massive concurrency and instantaneous throughput.</p>
-              </div>
+            {/* Right Column: Featured Cards */}
+            <div className="lg:col-span-8 flex items-end gap-4 overflow-x-auto pb-4 min-h-[480px]">
+              {aboutCards.map((card) => {
+                const isFocused = focusedAboutCard === card.id;
+                return (
+                  <div 
+                    key={card.id}
+                    onClick={() => setFocusedAboutCard(card.id)}
+                    className={`relative h-[480px] rounded-3xl overflow-hidden shadow-xl glass border border-white/10 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer ${isFocused ? 'w-[400px] shrink-0 cursor-default' : 'w-[160px] shrink-0 hover:border-accent/50 hover:shadow-[0_0_30px_rgba(0,242,255,0.2)]'}`}
+                  >
+                    <img 
+                      alt={card.narrowTitle} 
+                      className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-60" 
+                      src={card.image} 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                    <div className="absolute inset-0 flex flex-col justify-end p-8 text-white z-10">
+                      {/* Focused state info */}
+                      <div className={`flex flex-col justify-end items-start gap-2 transition-all duration-300 ${isFocused ? 'opacity-100 translate-y-0 delay-150' : 'opacity-0 translate-y-4 pointer-events-none absolute bottom-8 left-8 right-8'}`}>
+                        <div>
+                          <h3 className="font-display text-3xl font-bold leading-tight uppercase tracking-tight">
+                            {card.title.split('\n').map((line, i) => <React.Fragment key={i}>{line}<br/></React.Fragment>)}
+                          </h3>
+                        </div>
+                        {card.stat && (
+                          <div className="text-left">
+                            <span className="text-3xl font-bold text-accent">{card.stat}</span>
+                            <p className="text-[10px] uppercase tracking-widest text-slate-400">{card.statLabel}</p>
+                          </div>
+                        )}
+                      </div>
+                      {/* Narrow state info */}
+                      <div className={`absolute bottom-12 left-1/2 -translate-x-1/2 transition-all duration-300 ${isFocused ? 'opacity-0 pointer-events-none' : 'opacity-100 delay-150'}`}>
+                        <h4 
+                          className="font-display text-2xl text-white uppercase tracking-widest whitespace-nowrap rotate-180"
+                          style={{ writingMode: 'vertical-rl' }}
+                        >
+                          {card.narrowTitle}
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 

@@ -9,7 +9,7 @@ import photo4 from '../assets/photo_4_2026-05-11_19-54-06.jpg';
 import photo5 from '../assets/photo_5_2026-05-11_19-54-06.jpg';
 import solomeImage from '../assets/photo_1_2026-05-20_20-41-52.jpg';
 import afomiaImage from '../assets/photo_1_2026-05-20_20-51-57.jpg';
-import abigiyaImage from '../assets/photo_2026-05-22_20-26-20.jpg';
+import abigiyaImage from '../assets/image copy.png';
 
 const aboutCards = [
   {
@@ -292,6 +292,13 @@ const Home = () => {
         </div>
       </section>
 
+      {/* WORK SECTION */}
+      <section id="work" className="py-32 flex flex-col items-center overflow-hidden">
+        <p className="section-tag">Portfolio</p>
+        <h2 className="text-[clamp(2.5rem,5vw,4rem)] mb-16 text-center">Selected Projects</h2>
+        <OrbitalProjectViewer />
+      </section>
+
       {/* ABOUT US SECTION */}
       <section id="about" className="relative py-32 px-8 flex flex-col items-center overflow-hidden border-t border-b border-white/5 bg-slate-950/50">
         {/* Ambient glows */}
@@ -360,13 +367,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* WORK SECTION */}
-      <section id="work" className="py-32 flex flex-col items-center overflow-hidden">
-        <p className="section-tag">Portfolio</p>
-        <h2 className="text-[clamp(2.5rem,5vw,4rem)] mb-16 text-center">Selected Projects</h2>
-        <OrbitalProjectViewer />
       </section>
 
       {/* CONTACT SECTION */}

@@ -133,11 +133,11 @@
 }
 
 .nav-arrow {
-  background: rgba(16, 24, 40, 0.35);
+  background: transparent;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 229, 255, 0.18);
-  box-shadow: 0 0 18px rgba(0, 229, 255, 0.15), inset 0 0 10px rgba(0, 229, 255, 0.05);
+  border: 1px solid white;
+  box-shadow: none;
   border-radius: 50%;
   width: 52px;
   height: 52px;
@@ -146,12 +146,13 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  color: rgba(195, 245, 255, 0.8);
+  color: white;
 }
 
 .nav-arrow:hover {
-  background: rgba(16, 24, 40, 0.6);
-  border: 1px solid rgba(0, 229, 255, 0.4);
-  box-shadow: 0 0 25px rgba(0, 229, 255, 0.3), inset 0 0 15px rgba(0, 229, 255, 0.1);
-  color: #fff;
+  background: white;
+  border: 1px solid white;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  color: black;
+  transform: scale(1.05);
 }

@@ -20,14 +20,11 @@ const Navbar = () => {
         <a href="#work" className="text-[0.75rem] font-bold tracking-widest text-slate-400 hover:text-white transition-colors uppercase">
           Work
         </a>
-        <a href="#contact" className="text-[0.75rem] font-bold tracking-widest text-slate-400 hover:text-white transition-colors uppercase">
-          Contact
-        </a>
       </div>
 
       <div className="flex items-center gap-4">
         <a href="#contact" className="btn-primary !px-6 !py-2 !text-[0.7rem]">
-          HIRE US
+          CONTACT US
         </a>
       </div>
     </nav>

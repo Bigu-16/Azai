@@ -17,7 +17,7 @@ const aboutCards = [
     title: "Solome Getachew",
     narrowTitle: "Solome Getachew",
     stat: "Frontend",
-    statLabel: "Projects",
+    // statLabel: "Projects",
     image: solomeImage
   },
   {
@@ -116,25 +116,25 @@ const Home = () => {
   }, [rotation, activeService]);
 
   return (
-    <div className="pt-20">
+    <div className="pt-16 md:pt-20">
       {/* HERO SECTION */}
-      <section id="hero" className="min-h-screen flex flex-col items-center justify-center relative px-8 overflow-hidden">
+      <section id="hero" className="min-h-[100svh] flex flex-col items-center justify-center relative px-4 md:px-8 overflow-hidden">
         <SmokeyFluidCursor />
-        <div className="z-10 text-center max-w-[800px]">
+        <div className="z-10 text-center max-w-[800px] mt-12 md:mt-0">
           <p className="section-tag">Digital Software Studio</p>
-          <h1 className="text-[clamp(4rem,15vw,10rem)] font-display tracking-[-5px] leading-[0.9] bg-gradient-to-b from-white to-[#444] bg-clip-text text-transparent uppercase">
+          <h1 className="text-[clamp(3.5rem,15vw,10rem)] font-display tracking-[-2px] md:tracking-[-5px] leading-[0.9] bg-gradient-to-b from-white to-[#444] bg-clip-text text-transparent uppercase">
             AZAI
           </h1>
-          <p className="text-slate-400 my-8 mx-auto max-w-[550px] leading-relaxed text-lg">
+          <p className="text-slate-400 my-6 md:my-8 mx-auto max-w-[550px] leading-relaxed text-sm md:text-lg">
             We transform complex ideas into elegant digital products. Specialized in high-performance 
             mobile apps and scalable cloud ecosystems.
           </p>
-          <a href="#work" className="btn-primary">VIEW OUR WORK</a>
+          <a href="#work" className="btn-primary inline-block text-xs md:text-base">VIEW OUR WORK</a>
         </div>
       </section>
 
       {/* SERVICES SECTION */}
-      <section id="services" className="relative min-h-screen flex flex-col items-center pt-40 pb-20 overflow-hidden">
+      <section id="services" className="relative min-h-[100svh] flex flex-col items-center pt-24 md:pt-40 pb-16 md:pb-20 overflow-hidden">
         {/* Cinematic Backdrop - Now Dynamic */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(15,23,42,0.8)_0%,_transparent_100%)]" />
@@ -148,7 +148,7 @@ const Home = () => {
           />
         </div>
 
-        <div className="relative z-10 text-center mb-12">
+        <div className="relative z-10 text-center mb-8 md:mb-12">
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -159,7 +159,7 @@ const Home = () => {
         </div>
         
         {/* Orbital Carousel Container */}
-        <div className="relative w-full max-w-7xl h-[240px] flex items-center justify-center z-40">
+        <div className="relative w-full max-w-7xl h-[160px] md:h-[240px] flex items-center justify-center z-40">
           {services.map((service, index) => {
             // Minimal Orbital Math
             const total = services.length;
@@ -188,7 +188,7 @@ const Home = () => {
               >
                 {/* Orbital Icon Navigation */}
                 <div className="flex flex-col items-center">
-                  <div className={`w-28 h-28 md:w-36 md:h-36 rounded-full glass flex items-center justify-center p-6 transition-all duration-500 ${isActive ? 'shadow-[0_0_25px_rgba(255,255,255,0.3)] border-white/40' : 'border-white/5'}`}>
+                  <div className={`w-20 h-20 md:w-36 md:h-36 rounded-full glass flex items-center justify-center p-4 md:p-6 transition-all duration-500 ${isActive ? 'shadow-[0_0_25px_rgba(255,255,255,0.3)] border-white/40' : 'border-white/5'}`}>
                     <img alt={service.title} className="w-full h-full object-contain" src={service.icon}/>
                   </div>
                 </div>
@@ -198,7 +198,7 @@ const Home = () => {
         </div>
 
         {/* Central Focus Content */}
-        <div className="relative w-full max-w-3xl min-h-[300px] flex items-center justify-center z-50 mt-12 md:mt-16">
+        <div className="relative w-full max-w-3xl min-h-[250px] md:min-h-[300px] flex items-center justify-center z-50 mt-8 md:mt-16">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeService}
@@ -206,23 +206,23 @@ const Home = () => {
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               exit={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
               transition={{ duration: 0.4 }}
-              className="flex flex-col items-center text-center px-6"
+              className="flex flex-col items-center text-center px-4 md:px-6"
             >
-              <p className="font-sans text-[0.6rem] text-accent tracking-[0.4em] uppercase mb-4">
+              <p className="font-sans text-[0.5rem] md:text-[0.6rem] text-accent tracking-[0.4em] uppercase mb-3 md:mb-4">
                 {services[activeService].tagline}
               </p>
-              <h3 className="font-display text-[40px] md:text-[64px] leading-none text-white uppercase tracking-tighter mb-8 bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
+              <h3 className="font-display text-[32px] md:text-[64px] leading-none text-white uppercase tracking-tighter mb-4 md:mb-8 bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
                 {services[activeService].title}
               </h3>
-              <div className="w-16 h-[2px] bg-accent shadow-[0_0_15px_rgba(0,242,255,0.5)] mb-8"></div>
-              <p className="text-slate-400 font-sans text-base md:text-lg leading-relaxed mb-10 max-w-lg">
+              <div className="w-12 md:w-16 h-[2px] bg-accent shadow-[0_0_15px_rgba(0,242,255,0.5)] mb-6 md:mb-8"></div>
+              <p className="text-slate-400 font-sans text-sm md:text-lg leading-relaxed mb-8 md:mb-10 max-w-lg">
                 {services[activeService].description}
               </p>
               <button 
                 onClick={() => {
                   document.getElementById('solutions').scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="btn-primary"
+                className="btn-primary text-xs md:text-base"
               >
                 EXPLORE SOLUTIONS
               </button>
@@ -232,10 +232,10 @@ const Home = () => {
       </section>
 
       {/* SOLUTIONS DETAIL SECTION (Based on SpaceEdu design) */}
-      <section id="solutions" className="relative min-h-screen bg-slate-950 text-white py-32 px-8 flex flex-col items-center justify-center overflow-hidden">
+      <section id="solutions" className="relative min-h-[100svh] bg-slate-950 text-white py-20 md:py-32 px-4 md:px-8 flex flex-col items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_#0b1121_0%,_#020408_100%)] opacity-60"></div>
         
-        <div className="flex flex-col md:flex-row items-center justify-center max-w-[1280px] mx-auto w-full gap-24 relative z-10">
+        <div className="flex flex-col md:flex-row items-center justify-center max-w-[1280px] mx-auto w-full gap-12 md:gap-24 relative z-10">
           {/* Left Side: Technical Visual */}
           <motion.div 
             key={`img-${services[activeService].title}`}
@@ -247,12 +247,12 @@ const Home = () => {
           >
             <div className="relative group">
               <div 
-                className="absolute inset-0 rounded-3xl blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-1000"
+                className="absolute inset-0 rounded-[20px] md:rounded-3xl blur-2xl md:blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-1000"
                 style={{ backgroundColor: services[activeService].color }}
               />
               <img 
                 alt={services[activeService].title} 
-                className="object-cover rounded-3xl w-full max-w-[500px] h-auto aspect-[4/5] md:aspect-[3/4] shadow-2xl border border-white/10" 
+                className="object-cover rounded-[20px] md:rounded-3xl w-full max-w-[300px] md:max-w-[500px] h-auto aspect-[4/5] md:aspect-[3/4] shadow-2xl border border-white/10" 
                 src={services[activeService].solutionImage}
               />
             </div>
@@ -265,23 +265,23 @@ const Home = () => {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="w-full md:w-1/2 flex flex-col items-start justify-center text-left"
+            className="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center text-center md:text-left"
           >
-            <span className="font-sans text-[0.7rem] text-accent tracking-[0.5em] uppercase mb-4 opacity-80">
+            <span className="font-sans text-[0.6rem] md:text-[0.7rem] text-accent tracking-[0.5em] uppercase mb-4 opacity-80">
               {services[activeService].solutionTagline}
             </span>
-            <h2 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] text-white mb-8 uppercase tracking-tight leading-none">
+            <h2 className="font-display text-[clamp(2rem,6vw,4.5rem)] text-white mb-6 md:mb-8 uppercase tracking-tight leading-none">
               {services[activeService].solutionTitle}
             </h2>
-            <div className="w-20 h-[1px] bg-accent/50 mb-10"></div>
-            <p className="font-sans text-lg text-slate-400 max-w-lg mb-12 leading-relaxed">
+            <div className="w-16 md:w-20 h-[1px] bg-accent/50 mb-8 md:mb-10"></div>
+            <p className="font-sans text-sm md:text-lg text-slate-400 max-w-lg mb-8 md:mb-12 leading-relaxed">
               {services[activeService].solutionDescription}
             </p>
-            <div className="flex items-center gap-8">
-              <button className="btn-primary">
+            <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 w-full md:w-auto">
+              <button className="btn-primary w-full md:w-auto text-xs md:text-base">
                 TECHNICAL SPEC
               </button>
-              <button className="flex items-center gap-3 text-white/60 hover:text-accent transition-colors group">
+              <button className="flex items-center justify-center md:justify-start gap-3 w-full md:w-auto text-white/60 hover:text-accent transition-colors group">
                 <span className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-accent/50">
                   <span className="material-symbols-outlined text-xl">play_arrow</span>
                 </span>
@@ -293,42 +293,42 @@ const Home = () => {
       </section>
 
       {/* WORK SECTION */}
-      <section id="work" className="py-32 flex flex-col items-center overflow-hidden">
+      <section id="work" className="py-20 md:py-32 flex flex-col items-center overflow-hidden">
         <p className="section-tag">Portfolio</p>
-        <h2 className="text-[clamp(2.5rem,5vw,4rem)] mb-16 text-center">Selected Projects</h2>
+        <h2 className="text-[clamp(2rem,5vw,4rem)] mb-8 md:mb-16 text-center px-4">Selected Projects</h2>
         <OrbitalProjectViewer />
       </section>
 
       {/* ABOUT US SECTION */}
-      <section id="about" className="relative py-32 px-8 flex flex-col items-center overflow-hidden border-t border-b border-white/5 bg-slate-950/50">
+      <section id="about" className="relative py-20 md:py-32 px-4 md:px-8 flex flex-col items-center overflow-hidden border-t border-b border-white/5 bg-slate-950/50">
         {/* Ambient glows */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[120px] pointer-events-none"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[120px] pointer-events-none hidden md:block"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-[120px] pointer-events-none hidden md:block"></div>
         
         <div className="max-w-[1280px] w-full mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
             {/* Left Column: Content */}
-            <div className="lg:col-span-4 pt-12">
-              <span className="section-tag !text-left !mx-0">About Us</span>
-              <h2 className="font-display text-[2.5rem] lg:text-[3.5rem] leading-[1] text-white mt-4 mb-6 uppercase tracking-tighter bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
-                Watch.<br />
-                Learn.<br />
-                Grow.
+            <div className="lg:col-span-4 pt-4 md:pt-12 text-center md:text-left flex flex-col items-center md:items-start">
+              <span className="section-tag !mx-auto md:!mx-0">About Us</span>
+              <h2 className="font-display text-[2.5rem] lg:text-[3.5rem] leading-[1] text-white mt-2 md:mt-4 mb-4 md:mb-6 uppercase tracking-tighter bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
+                Meet<br className="hidden md:block" />
+                <span className="md:hidden"> </span>the<br className="hidden md:block" />
+                <span className="md:hidden"> </span>Team
               </h2>
-              <p className="text-slate-400 font-sans text-base md:text-lg leading-relaxed mb-10 max-w-md">
+              <p className="text-slate-400 font-sans text-sm md:text-lg leading-relaxed mb-8 md:mb-10 max-w-md">
                 We are a collective of passionate software engineers driven by complex problem-solving. Together, we architect elite systems and amplify digital outreach, crafting transformative solutions for companies across every sector.
               </p>
             </div>
 
             {/* Right Column: Featured Cards */}
-            <div className="lg:col-span-8 flex items-end gap-4 overflow-x-auto pb-4 min-h-[480px]">
+            <div className="lg:col-span-8 flex flex-row items-end gap-3 md:gap-4 overflow-x-auto pb-4 min-h-[350px] md:min-h-[480px] w-full snap-x snap-mandatory hide-scrollbar">
               {aboutCards.map((card) => {
                 const isFocused = focusedAboutCard === card.id;
                 return (
                   <div 
                     key={card.id}
                     onClick={() => setFocusedAboutCard(card.id)}
-                    className={`relative h-[480px] rounded-3xl overflow-hidden shadow-xl glass border border-white/10 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer ${isFocused ? 'w-[400px] shrink-0 cursor-default' : 'w-[160px] shrink-0 hover:border-accent/50 hover:shadow-[0_0_30px_rgba(0,242,255,0.2)]'}`}
+                    className={`relative h-[350px] md:h-[480px] rounded-2xl md:rounded-3xl overflow-hidden shadow-xl glass border border-white/10 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer snap-center ${isFocused ? 'w-[75vw] md:w-[400px] shrink-0 cursor-default' : 'w-[20vw] md:w-[160px] shrink-0 hover:border-accent/50 hover:shadow-[0_0_30px_rgba(0,242,255,0.2)]'}`}
                   >
                     <img 
                       alt={card.narrowTitle} 
@@ -336,25 +336,25 @@ const Home = () => {
                       src={card.image} 
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
-                    <div className="absolute inset-0 flex flex-col justify-end p-8 text-white z-10">
+                    <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-8 text-white z-10">
                       {/* Focused state info */}
-                      <div className={`flex flex-col justify-end items-start gap-2 transition-all duration-300 ${isFocused ? 'opacity-100 translate-y-0 delay-150' : 'opacity-0 translate-y-4 pointer-events-none absolute bottom-8 left-8 right-8'}`}>
+                      <div className={`flex flex-col justify-end items-start gap-1 md:gap-2 transition-all duration-300 ${isFocused ? 'opacity-100 translate-y-0 delay-150' : 'opacity-0 translate-y-4 pointer-events-none absolute bottom-4 md:bottom-8 left-4 md:left-8 right-4 md:right-8'}`}>
                         <div>
-                          <h3 className="font-display text-3xl font-bold leading-tight uppercase tracking-tight">
+                          <h3 className="font-display text-2xl md:text-3xl font-bold leading-tight uppercase tracking-tight">
                             {card.title.split('\n').map((line, i) => <React.Fragment key={i}>{line}<br/></React.Fragment>)}
                           </h3>
                         </div>
                         {card.stat && (
-                          <div className="text-left">
-                            <span className="text-3xl font-bold text-accent">{card.stat}</span>
-                            <p className="text-[10px] uppercase tracking-widest text-slate-400">{card.statLabel}</p>
+                          <div className="text-left mt-1 md:mt-0">
+                            <span className="text-2xl md:text-3xl font-bold text-accent">{card.stat}</span>
+                            <p className="text-[9px] md:text-[10px] uppercase tracking-widest text-slate-400">{card.statLabel}</p>
                           </div>
                         )}
                       </div>
                       {/* Narrow state info */}
-                      <div className={`absolute bottom-12 left-1/2 -translate-x-1/2 transition-all duration-300 ${isFocused ? 'opacity-0 pointer-events-none' : 'opacity-100 delay-150'}`}>
+                      <div className={`absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 transition-all duration-300 ${isFocused ? 'opacity-0 pointer-events-none' : 'opacity-100 delay-150'}`}>
                         <h4 
-                          className="font-display text-2xl text-white uppercase tracking-widest whitespace-nowrap rotate-180"
+                          className="font-display text-lg md:text-2xl text-white uppercase tracking-widest whitespace-nowrap rotate-180"
                           style={{ writingMode: 'vertical-rl' }}
                         >
                           {card.narrowTitle}
@@ -370,29 +370,29 @@ const Home = () => {
       </section>
 
       {/* CONTACT SECTION */}
-      <section id="contact" className="py-32 px-8 flex flex-col items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 w-full max-w-5xl glass p-10 md:p-16 rounded-[40px]">
+      <section id="contact" className="py-20 md:py-32 px-4 md:px-8 flex flex-col items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 w-full max-w-5xl glass p-6 md:p-16 rounded-[24px] md:rounded-[40px]">
           <div className="flex flex-col">
             <p className="section-tag !text-left">Contact</p>
-            <h2 className="text-[3rem] mb-6 !text-left">Ready to start your journey?</h2>
-            <p className="text-slate-400 leading-[1.8] mt-4">
+            <h2 className="text-[2rem] md:text-[3rem] mb-4 md:mb-6 !text-left">Ready to start your journey?</h2>
+            <p className="text-slate-400 leading-[1.8] mt-2 md:mt-4 text-sm md:text-base">
               Have a project in mind? We'd love to hear about it. Send us a message and our team will get back to you within 24 hours.
             </p>
-            <div className="mt-10">
-              <p className="font-bold">Email us:</p>
-              <p className="text-accent">hello@azaitech.studio</p>
+            <div className="mt-8 md:mt-10">
+              <p className="font-bold text-sm md:text-base">Email us:</p>
+              <p className="text-accent text-sm md:text-base">hello@azaitech.studio</p>
             </div>
           </div>
-          <form className="flex flex-col gap-5">
-            <input type="text" placeholder="Your Name" className="bg-white/5 border border-white/10 rounded-xl p-4 text-white outline-none focus:border-accent transition-colors" />
-            <input type="email" placeholder="Your Email" className="bg-white/5 border border-white/10 rounded-xl p-4 text-white outline-none focus:border-accent transition-colors" />
-            <textarea rows="5" placeholder="Tell us about your project..." className="bg-white/5 border border-white/10 rounded-xl p-4 text-white outline-none focus:border-accent transition-colors"></textarea>
-            <button className="btn-primary w-full">SEND MESSAGE</button>
+          <form className="flex flex-col gap-4 md:gap-5">
+            <input type="text" placeholder="Your Name" className="bg-white/5 border border-white/10 rounded-xl p-3 md:p-4 text-sm md:text-base text-white outline-none focus:border-accent transition-colors" />
+            <input type="email" placeholder="Your Email" className="bg-white/5 border border-white/10 rounded-xl p-3 md:p-4 text-sm md:text-base text-white outline-none focus:border-accent transition-colors" />
+            <textarea rows="5" placeholder="Tell us about your project..." className="bg-white/5 border border-white/10 rounded-xl p-3 md:p-4 text-sm md:text-base text-white outline-none focus:border-accent transition-colors"></textarea>
+            <button className="btn-primary w-full text-xs md:text-base py-3 md:py-4">SEND MESSAGE</button>
           </form>
         </div>
       </section>
 
-      <footer className="py-16 text-center text-slate-600 text-xs tracking-[2px] uppercase">
+      <footer className="py-10 md:py-16 text-center text-slate-600 text-[10px] md:text-xs tracking-[2px] uppercase px-4">
         <p>&copy; 2024 AZAI TECH STUDIO &bull; BUILT FOR THE FUTURE</p>
       </footer>
     </div>
@@ -576,27 +576,27 @@ const OrbitalProjectViewer = () => {
   }, [project]);
 
   return (
-    <div className="relative w-full px-6 md:px-24 min-h-[500px] flex items-center justify-center py-16">
+    <div className="relative w-full px-2 md:px-24 min-h-[500px] flex items-center justify-center py-8 md:py-16">
       {/* Left Nav Arrow */}
       <button 
         onClick={handlePrev}
-        className="nav-arrow absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-50 hover:bg-white/10 hover:border-accent hover:shadow-[0_0_25px_rgba(0,229,255,0.3)] hover:text-white" aria-label="Previous"
+        className="nav-arrow absolute left-1 md:left-8 top-[30%] md:top-1/2 -translate-y-1/2 z-50 hover:bg-white/10 hover:border-accent hover:shadow-[0_0_25px_rgba(0,229,255,0.3)] hover:text-white" aria-label="Previous"
       >
-        <span className="material-symbols-outlined text-2xl">chevron_left</span>
+        <span className="material-symbols-outlined text-xl md:text-2xl">chevron_left</span>
       </button>
 
       {/* Right Nav Arrow */}
       <button 
         onClick={handleNext}
-        className="nav-arrow absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-50 hover:bg-white/10 hover:border-accent hover:shadow-[0_0_25px_rgba(0,229,255,0.3)] hover:text-white" aria-label="Next"
+        className="nav-arrow absolute right-1 md:right-8 top-[30%] md:top-1/2 -translate-y-1/2 z-50 hover:bg-white/10 hover:border-accent hover:shadow-[0_0_25px_rgba(0,229,255,0.3)] hover:text-white" aria-label="Next"
       >
-        <span className="material-symbols-outlined text-2xl">chevron_right</span>
+        <span className="material-symbols-outlined text-xl md:text-2xl">chevron_right</span>
       </button>
 
       {/* Diffuse Background Glow */}
       <div className="diffuse-glow hidden md:block"></div>
 
-      <div className="w-full max-w-[1400px] flex flex-col xl:flex-row items-center justify-between gap-12 xl:gap-32 z-10 px-12 md:px-20">
+      <div className="w-full max-w-[1400px] flex flex-col xl:flex-row items-center justify-between gap-8 xl:gap-32 z-10 px-8 md:px-20">
         
         {/* Left Content Group: Text & Details */}
         <motion.div 
@@ -605,28 +605,28 @@ const OrbitalProjectViewer = () => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.8 }}
-          className="flex-1 flex flex-col items-start w-full"
+          className="flex-1 flex flex-col items-center md:items-start w-full text-center md:text-left order-2 xl:order-1 mt-8 md:mt-0"
         >
-          <div className="mb-8 text-left max-w-2xl flex flex-col items-start gap-6">
-            <h2 className="text-2xl lg:text-3xl xl:text-3xl uppercase font-sans tracking-widest leading-[1.3] text-white">
+          <div className="mb-6 md:mb-8 max-w-2xl flex flex-col items-center md:items-start gap-4 md:gap-6">
+            <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-3xl uppercase font-sans tracking-widest leading-[1.3] text-white">
               {project.heading}
             </h2>
-            <p className="text-xs xl:text-xs text-slate-400 tracking-[0.2em] leading-[2] uppercase font-sans font-bold max-w-md">
+            <p className="text-[10px] md:text-xs text-slate-400 tracking-[0.2em] leading-[1.8] md:leading-[2] uppercase font-sans font-bold max-w-md">
               {project.description}
             </p>
           </div>
-          <p className="text-slate-500 tracking-[0.5em] text-[10px] mb-8 font-bold">{">>>>>>>>"}</p>
+          <p className="text-slate-500 tracking-[0.5em] text-[10px] mb-6 md:mb-8 font-bold hidden md:block">{">>>>>>>>"}</p>
           {project.link ? (
             <a 
               href={project.link} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-block px-6 py-2.5 bg-white/5 border border-white/10 hover:border-accent hover:shadow-[0_0_20px_rgba(0,229,255,0.2)] hover:bg-accent/10 transition-all duration-300 rounded-lg text-xs tracking-[0.2em] uppercase font-bold text-white text-center"
+              className="inline-block px-5 md:px-6 py-2.5 bg-white/5 border border-white/10 hover:border-accent hover:shadow-[0_0_20px_rgba(0,229,255,0.2)] hover:bg-accent/10 transition-all duration-300 rounded-lg text-[10px] md:text-xs tracking-[0.2em] uppercase font-bold text-white text-center"
             >
               View Project
             </a>
           ) : (
-            <button className="px-6 py-2.5 bg-white/5 border border-white/10 hover:border-accent hover:shadow-[0_0_20px_rgba(0,229,255,0.2)] transition-all duration-300 rounded-lg text-xs tracking-[0.2em] uppercase font-bold text-white">
+            <button className="px-5 md:px-6 py-2.5 bg-white/5 border border-white/10 hover:border-accent hover:shadow-[0_0_20px_rgba(0,229,255,0.2)] transition-all duration-300 rounded-lg text-[10px] md:text-xs tracking-[0.2em] uppercase font-bold text-white">
               Order Today
             </button>
           )}
@@ -639,7 +639,7 @@ const OrbitalProjectViewer = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className={`relative shrink-0 flex justify-center items-center py-10 ${project.deviceType === 'mobile' ? 'w-[140px] md:w-[230px]' : 'w-[320px] md:w-[560px]'}`}
+          className={`relative shrink-0 flex justify-center items-center py-4 md:py-10 order-1 xl:order-2 ${project.deviceType === 'mobile' ? 'w-[160px] md:w-[230px]' : 'w-[280px] md:w-[560px]'}`}
         >
           {/* Orbital Icons */}
           {project.floatingItems.map((item, idx) => (
@@ -669,14 +669,14 @@ const OrbitalProjectViewer = () => {
           ))}
 
           {/* Main Asset: Device Mockups */}
-          <div className="relative w-full max-w-[750px] flex flex-col md:flex-row items-end justify-center gap-8 md:gap-12 pb-12">
+          <div className="relative w-full max-w-[750px] flex flex-col md:flex-row items-end justify-center gap-8 md:gap-12 pb-8 md:pb-12">
             
             {/* Desktop Monitor */}
             {project.deviceType === "desktop" && (
-              <div className="relative w-[320px] h-[200px] md:w-[560px] md:h-[350px] bg-slate-800 rounded-t-2xl border-[4px] border-slate-800 shadow-[0_0_40px_rgba(0,0,0,0.8)] z-10 flex flex-col shrink-0 mx-auto">
+              <div className="relative w-full h-[180px] sm:h-[220px] md:w-[560px] md:h-[350px] bg-slate-800 rounded-t-xl md:rounded-t-2xl border-[3px] md:border-[4px] border-slate-800 shadow-[0_0_20px_rgba(0,0,0,0.8)] md:shadow-[0_0_40px_rgba(0,0,0,0.8)] z-10 flex flex-col shrink-0 mx-auto">
                 {/* Screen */}
                 <div 
-                  className={`w-full flex-1 bg-black overflow-hidden rounded-t-xl relative ${project.link ? 'cursor-pointer group' : ''}`}
+                  className={`w-full flex-1 bg-black overflow-hidden rounded-t-lg md:rounded-t-xl relative ${project.link ? 'cursor-pointer group' : ''}`}
                   onClick={() => project.link && window.open(project.link, '_blank')}
                 >
                   {project.video ? (
@@ -685,7 +685,7 @@ const OrbitalProjectViewer = () => {
                       loop 
                       muted 
                       playsInline 
-                      className={`w-full h-full object-fill rounded-t-xl opacity-100 transition-transform duration-700 ${project.link ? 'group-hover:scale-105' : ''}`}
+                      className={`w-full h-full object-fill rounded-t-lg md:rounded-t-xl opacity-100 transition-transform duration-700 ${project.link ? 'group-hover:scale-105' : ''}`}
                       src={project.video}
                     />
                   ) : project.images && project.images.length > 0 ? (
@@ -693,40 +693,40 @@ const OrbitalProjectViewer = () => {
                       <img 
                         key={idx}
                         alt={`${project.title} Desktop Image ${idx + 1}`} 
-                        className={`absolute inset-0 w-full h-full object-fill rounded-t-xl transition-opacity duration-1000 ${idx === currentImageIndex ? 'opacity-100' : 'opacity-0'} ${project.link ? 'group-hover:scale-105' : ''}`} 
+                        className={`absolute inset-0 w-full h-full object-fill rounded-t-lg md:rounded-t-xl transition-opacity duration-1000 ${idx === currentImageIndex ? 'opacity-100' : 'opacity-0'} ${project.link ? 'group-hover:scale-105' : ''}`} 
                         src={imgSrc}
                       />
                     ))
                   ) : (
                     <img 
                       alt={`${project.title} Desktop`} 
-                      className={`w-full h-full object-fill rounded-t-xl opacity-100 transition-transform duration-700 ${project.link ? 'group-hover:scale-105' : ''}`} 
+                      className={`w-full h-full object-fill rounded-t-lg md:rounded-t-xl opacity-100 transition-transform duration-700 ${project.link ? 'group-hover:scale-105' : ''}`} 
                       src={project.mainImage}
                     />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-                  <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 z-10">
-                    <h3 className="text-xs md:text-sm font-bold text-white flex items-center gap-2">
+                  <div className="absolute bottom-2 left-2 md:bottom-4 md:left-4 z-10">
+                    <h3 className="text-[10px] md:text-sm font-bold text-white flex items-center gap-1 md:gap-2">
                       {project.title}
-                      {project.link && <span className="material-symbols-outlined text-[12px] text-accent opacity-0 group-hover:opacity-100 transition-all duration-300">open_in_new</span>}
+                      {project.link && <span className="material-symbols-outlined text-[10px] md:text-[12px] text-accent opacity-0 group-hover:opacity-100 transition-all duration-300">open_in_new</span>}
                     </h3>
                   </div>
                 </div>
                 {/* Chin */}
-                <div className="h-4 md:h-5 w-full bg-slate-700 rounded-b-lg flex items-center justify-center border-t border-slate-600">
-                  <div className="w-6 h-1 bg-slate-500 rounded-full"></div>
+                <div className="h-3 md:h-5 w-full bg-slate-700 rounded-b-md md:rounded-b-lg flex items-center justify-center border-t border-slate-600">
+                  <div className="w-4 md:w-6 h-[2px] md:h-1 bg-slate-500 rounded-full"></div>
                 </div>
                 {/* Stand */}
-                <div className="absolute -bottom-4 md:-bottom-6 left-1/2 -translate-x-1/2 w-12 md:w-20 h-4 md:h-6 bg-slate-700" style={{ clipPath: 'polygon(15% 0, 85% 0, 100% 100%, 0% 100%)' }}></div>
-                <div className="absolute -bottom-5 md:-bottom-7 left-1/2 -translate-x-1/2 w-20 md:w-36 h-1 bg-slate-600 rounded-full shadow-lg"></div>
+                <div className="absolute -bottom-3 md:-bottom-6 left-1/2 -translate-x-1/2 w-8 md:w-20 h-3 md:h-6 bg-slate-700" style={{ clipPath: 'polygon(15% 0, 85% 0, 100% 100%, 0% 100%)' }}></div>
+                <div className="absolute -bottom-4 md:-bottom-7 left-1/2 -translate-x-1/2 w-16 md:w-36 h-1 bg-slate-600 rounded-full shadow-lg"></div>
               </div>
             )}
 
             {/* Mobile Phone */}
             {project.deviceType === "mobile" && (
-              <div className="relative w-[140px] h-[280px] md:w-[230px] md:h-[460px] bg-slate-800 rounded-[20px] md:rounded-[32px] border-[3px] md:border-[5px] border-slate-800 shadow-[10px_10px_40px_rgba(0,0,0,0.9)] z-20 overflow-hidden flex flex-col shrink-0 mx-auto">
+              <div className="relative w-[140px] h-[280px] md:w-[230px] md:h-[460px] bg-slate-800 rounded-[20px] md:rounded-[32px] border-[3px] md:border-[5px] border-slate-800 shadow-[5px_5px_20px_rgba(0,0,0,0.9)] md:shadow-[10px_10px_40px_rgba(0,0,0,0.9)] z-20 overflow-hidden flex flex-col shrink-0 mx-auto">
                 {/* Notch */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 md:w-18 h-3 md:h-4 bg-slate-800 rounded-b-md md:rounded-b-lg z-30"></div>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-10 md:w-18 h-3 md:h-4 bg-slate-800 rounded-b-md md:rounded-b-lg z-30"></div>
                 {/* Screen */}
                 <div 
                   className={`w-full h-full bg-black relative ${project.link ? 'cursor-pointer group' : ''}`}
@@ -749,10 +749,10 @@ const OrbitalProjectViewer = () => {
                     />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none"></div>
-                  <div className="absolute bottom-4 left-4 z-10">
+                  <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 z-10">
                     <p className="text-accent font-bold text-[8px] md:text-[10px] tracking-[2px] uppercase flex items-center gap-1">
                       {project.tag.split('/')[0]}
-                      {project.link && <span className="material-symbols-outlined text-[12px] text-accent opacity-0 group-hover:opacity-100 transition-all duration-300">open_in_new</span>}
+                      {project.link && <span className="material-symbols-outlined text-[10px] md:text-[12px] text-accent opacity-0 group-hover:opacity-100 transition-all duration-300">open_in_new</span>}
                     </p>
                   </div>
                 </div>

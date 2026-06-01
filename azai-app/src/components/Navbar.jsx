@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className="fixed top-0 w-full z-50 glass h-20 border-b border-white/10 flex items-center justify-between px-8 md:px-[8%]">
       <div className="flex items-center gap-4">
         <Link to="/" className="text-xl font-extrabold tracking-[2px] uppercase">
-          AZAI<span className="text-accent">TECH</span>
+          AZYAB<span className="text-accent">TECH</span>
         </Link>
       </div>
       

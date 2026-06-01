@@ -123,7 +123,7 @@ const Home = () => {
         <div className="z-10 text-center max-w-[800px] mt-12 md:mt-0">
           <p className="section-tag">Digital Software Studio</p>
           <h1 className="text-[clamp(3.5rem,15vw,10rem)] font-display tracking-[-2px] md:tracking-[-5px] leading-[0.9] bg-gradient-to-b from-white to-[#444] bg-clip-text text-transparent uppercase">
-            AZAI
+            AZYAB
           </h1>
           <p className="text-slate-400 my-6 md:my-8 mx-auto max-w-[550px] leading-relaxed text-sm md:text-lg">
             We transform complex ideas into elegant digital products. Specialized in high-performance 
@@ -380,7 +380,7 @@ const Home = () => {
             </p>
             <div className="mt-8 md:mt-10">
               <p className="font-bold text-sm md:text-base">Email us:</p>
-              <p className="text-accent text-sm md:text-base">hello@azaitech.studio</p>
+              <p className="text-accent text-sm md:text-base">hello@azyabtech.studio</p>
             </div>
           </div>
           <form className="flex flex-col gap-4 md:gap-5">
@@ -393,7 +393,7 @@ const Home = () => {
       </section>
 
       <footer className="py-10 md:py-16 text-center text-slate-600 text-[10px] md:text-xs tracking-[2px] uppercase px-4">
-        <p>&copy; 2024 AZAI TECH STUDIO &bull; BUILT FOR THE FUTURE</p>
+        <p>&copy; 2024 AZYAB TECH STUDIO &bull; BUILT FOR THE FUTURE</p>
       </footer>
     </div>
   );
@@ -451,7 +451,7 @@ const portfolioProjects = [
     tag: "WEB / SAAS",
     deviceType: "desktop",
     heading: "ECOSYNC ENTERPRISE",
-    description: "ECOSYNC ENTERPRISE IS A HIGH-FIDELITY DASHBOARD BY AZAI TECH THAT SIMPLIFIES LARGE-SCALE INDUSTRIAL DATA INTO INTUITIVE, PIXEL-PERFECT INTERFACES. WE BRIDGE THE GAP BETWEEN COMPLEX ENERGY TELEMETRY AND SMART UX TO DELIVER ACTIONABLE, AUTOMATED INSIGHTS.",
+    description: "ECOSYNC ENTERPRISE IS A HIGH-FIDELITY DASHBOARD BY AZYAB TECH THAT SIMPLIFIES LARGE-SCALE INDUSTRIAL DATA INTO INTUITIVE, PIXEL-PERFECT INTERFACES. WE BRIDGE THE GAP BETWEEN COMPLEX ENERGY TELEMETRY AND SMART UX TO DELIVER ACTIONABLE, AUTOMATED INSIGHTS.",
     mainImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
     video: EcoSyncVideo, 
     link: "",

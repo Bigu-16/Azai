@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useAnimationFrame, AnimatePresence } from 'framer-motion';
+import { Smartphone, Globe, BrainCircuit } from 'lucide-react';
 import { SmokeyFluidCursor } from 'react-smokey-fluid-cursor';
 import EcoSyncVideo from '../assets/EcoSyncVideo_WithAudio.mp4';
 import photo1 from '../assets/photo_1_2026-05-11_19-54-06.jpg';
@@ -16,62 +17,58 @@ const aboutCards = [
     id: 1,
     title: "Solome Getachew",
     narrowTitle: "Solome Getachew",
-    stat: "Frontend",
-    // statLabel: "Projects",
+    stat: "Frontend Developer",
     image: solomeImage
   },
   {
     id: 2,
     title: "Afomia Tadesse",
     narrowTitle: "Afomia Tadesse",
-    stat: "Backend",
+    stat: "Backend Developer",
     image: afomiaImage
   },
-    {
+  {
     id: 3,
     title: "Abigiya Getachew",
     narrowTitle: "Abigiya Getachew",
-    stat: "Mobile dev",
+    stat: "Mobile Developer",
     image: abigiyaImage
   }
 ];
 
 const services = [
   {
-    icon: "https://img.icons8.com/fluency/240/null/smartphone.png",
+    icon: Smartphone,
     title: "Mobile Apps",
     tagline: "IOS & ANDROID NATIVE",
-    bgImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2000",
-    description: "Architecting buttery-smooth mobile experiences. We specialize in high-performance native development that pushes the boundaries of touch-first interaction.",
+    bgImage: "/mobile.png",
     color: "#00f2ff",
-    solutionTagline: "CLEAN ARCHITECTURE & FLUTTER",
-    solutionTitle: "MOBILE EXCELLENCE",
-    solutionDescription: "We build high-performance mobile applications using Flutter, Google's UI toolkit for native compilation. Our development is rooted in Clean Architecture principles, ensuring a strict separation of concerns that makes our apps modular, testable, and future-proof.",
-    solutionImage: "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=2000"
+    solutionTagline: "FLUTTER & CROSS-PLATFORM",
+    solutionTitle: "MOBILE APPS",
+    solutionDescription: "We build apps for iPhone and Android that feel fast and look polished. Using Flutter, we write your app once and it runs perfectly on both platforms — saving you time and money without cutting any corners on quality.",
+    solutionImage: "/mobile.png"
   },
   {
-    icon: "https://img.icons8.com/fluency/240/null/web.png",
+    icon: Globe,
     title: "Web Platforms",
     tagline: "SCALABLE SAAS ARCHITECTURE",
-    bgImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000",
-    description: "From complex SaaS dashboards to high-conversion digital hubs. Our web platforms are engineered for speed, scale, and uncompromising precision.",
+    bgImage: "/web3.png",
     color: "#b464ff",
-    solutionTagline: "REACT & SCALABLE SAAS",
+    solutionTagline: "REACT & NEXT.JS",
     solutionTitle: "WEB PLATFORMS",
-    solutionDescription: "Our web architecture leverages React and Next.js to deliver high-performance, SEO-optimized experiences. We focus on modular frontend patterns and micro-frontend architectures to ensure your platform remains scalable and easy to maintain as it grows.",
-    solutionImage: "https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=2000"
+    solutionDescription: "We build websites and web apps that load fast, look great, and are easy to grow over time. Whether you need a marketing site or a full product dashboard, we make sure it works well today and can handle more users tomorrow.",
+    solutionImage: "/web4.png"
   },
   {
-    icon: "https://img.icons8.com/fluency/240/null/artificial-intelligence.png",
-    title: "Cloud & AI",
+    icon: BrainCircuit,
+    title: "Cloud & AI Automation",
     tagline: "AUTONOMOUS BACKEND SYSTEMS",
-    bgImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2000",
-    description: "The digital spine of your enterprise. We deploy massive-scale cloud infrastructures and custom AI neural networks to automate your commercial destiny.",
+    bgImage: "/automation2.jpg",
     color: "#ff6496",
-    solutionTagline: "NODE.JS & NEURAL NETWORKS",
-    solutionTitle: "CLOUD & AI SYSTEMS",
-    solutionDescription: "We architect robust backend systems using Node.js and Python, specialized for AI integration. By employing serverless computing and distributed system patterns, we ensure your AI workflows are efficient, cost-effective, and capable of handling massive datasets.",
-    solutionImage: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2000"
+    solutionTagline: "AI & CLOUD INFRASTRUCTURE",
+    solutionTitle: "CLOUD & AI AUTOMATION",
+    solutionDescription: "We connect your business to smart cloud tools and AI that work in the background — handling tasks automatically so your team doesn't have to. From intelligent chatbots to automated data pipelines, we make technology work harder for you.",
+    solutionImage: "/automation2.jpg"
   }
 ];
 
@@ -118,18 +115,17 @@ const Home = () => {
   return (
     <div className="pt-16 md:pt-20">
       {/* HERO SECTION */}
-      <section id="hero" className="min-h-[100svh] flex flex-col items-center justify-center relative px-4 md:px-8 overflow-hidden">
+      <section id="hero" className="min-h-[100svh] flex flex-col items-center justify-center relative px-5 sm:px-8 md:px-12 overflow-hidden">
         <SmokeyFluidCursor />
-        <div className="z-10 text-center max-w-[800px] mt-12 md:mt-0">
-          <p className="section-tag">Digital Software Studio</p>
-          <h1 className="text-[clamp(3.5rem,15vw,10rem)] font-display tracking-[-2px] md:tracking-[-5px] leading-[0.9] bg-gradient-to-b from-white to-[#444] bg-clip-text text-transparent uppercase">
-            AZAI
+        <div className="z-10 text-center w-full max-w-[820px] px-2">
+          <p className="section-tag">Integrated Tech Solutions</p>
+          <h1 className="text-[clamp(3rem,18vw,10rem)] font-display tracking-[-2px] sm:tracking-[-3px] md:tracking-[-5px] leading-[0.88] bg-gradient-to-b from-white to-[#444] bg-clip-text text-transparent uppercase">
+            AZYAB
           </h1>
-          <p className="text-slate-400 my-6 md:my-8 mx-auto max-w-[550px] leading-relaxed text-sm md:text-lg">
-            We transform complex ideas into elegant digital products. Specialized in high-performance 
-            mobile apps and scalable cloud ecosystems.
+          <p className="text-slate-400 my-5 sm:my-6 md:my-8 mx-auto max-w-[500px] leading-relaxed text-sm sm:text-base md:text-lg">
+            We transform complex ideas into elegant mobile apps, immersive websites, and intelligent AI automations. Specialized in high-performance digital ecosystems.
           </p>
-          <a href="#work" className="btn-primary inline-block text-xs md:text-base">VIEW OUR WORK</a>
+          <a href="#work" className="btn-primary inline-block text-[11px] sm:text-sm md:text-base px-6 sm:px-8">VIEW OUR WORK</a>
         </div>
       </section>
 
@@ -188,8 +184,12 @@ const Home = () => {
               >
                 {/* Orbital Icon Navigation */}
                 <div className="flex flex-col items-center">
-                  <div className={`w-20 h-20 md:w-36 md:h-36 rounded-full glass flex items-center justify-center p-4 md:p-6 transition-all duration-500 ${isActive ? 'shadow-[0_0_25px_rgba(255,255,255,0.3)] border-white/40' : 'border-white/5'}`}>
-                    <img alt={service.title} className="w-full h-full object-contain" src={service.icon}/>
+                  <div className={`w-24 h-24 md:w-44 md:h-44 rounded-full glass flex items-center justify-center p-4 md:p-6 transition-all duration-500 ${isActive ? 'shadow-[0_0_25px_rgba(255,255,255,0.3)] border-white/40' : 'border-white/5'}`}>
+                    <service.icon 
+                      className="w-full h-full p-1" 
+                      strokeWidth={1}
+                      style={{ color: isActive ? '#00f2ff' : 'rgba(0,242,255,0.4)' }}
+                    />
                   </div>
                 </div>
               </motion.div>
@@ -206,7 +206,7 @@ const Home = () => {
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               exit={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
               transition={{ duration: 0.4 }}
-              className="flex flex-col items-center text-center px-4 md:px-6"
+              className="flex flex-col items-center text-center px-4 md:px-6 pt-10 md:pt-16"
             >
               <p className="font-sans text-[0.5rem] md:text-[0.6rem] text-accent tracking-[0.4em] uppercase mb-3 md:mb-4">
                 {services[activeService].tagline}
@@ -215,9 +215,6 @@ const Home = () => {
                 {services[activeService].title}
               </h3>
               <div className="w-12 md:w-16 h-[2px] bg-accent shadow-[0_0_15px_rgba(0,242,255,0.5)] mb-6 md:mb-8"></div>
-              <p className="text-slate-400 font-sans text-sm md:text-lg leading-relaxed mb-8 md:mb-10 max-w-lg">
-                {services[activeService].description}
-              </p>
               <button 
                 onClick={() => {
                   document.getElementById('solutions').scrollIntoView({ behavior: 'smooth' });
@@ -246,10 +243,6 @@ const Home = () => {
             className="w-full md:w-1/2 flex justify-center items-center relative"
           >
             <div className="relative group">
-              <div 
-                className="absolute inset-0 rounded-[20px] md:rounded-3xl blur-2xl md:blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-1000"
-                style={{ backgroundColor: services[activeService].color }}
-              />
               <img 
                 alt={services[activeService].title} 
                 className="object-cover rounded-[20px] md:rounded-3xl w-full max-w-[300px] md:max-w-[500px] h-auto aspect-[4/5] md:aspect-[3/4] shadow-2xl border border-white/10" 
@@ -278,14 +271,20 @@ const Home = () => {
               {services[activeService].solutionDescription}
             </p>
             <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 w-full md:w-auto">
-              <button className="btn-primary w-full md:w-auto text-xs md:text-base">
-                TECHNICAL SPEC
+              <button 
+                onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+                className="btn-primary w-full md:w-auto text-xs md:text-base"
+              >
+                START A PROJECT
               </button>
-              <button className="flex items-center justify-center md:justify-start gap-3 w-full md:w-auto text-white/60 hover:text-accent transition-colors group">
+              <button 
+                onClick={() => document.getElementById('work').scrollIntoView({ behavior: 'smooth' })}
+                className="flex items-center justify-center md:justify-start gap-3 w-full md:w-auto text-white/60 hover:text-accent transition-colors group"
+              >
                 <span className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-accent/50">
-                  <span className="material-symbols-outlined text-xl">play_arrow</span>
+                  <span className="material-symbols-outlined text-xl">arrow_forward</span>
                 </span>
-                <span className="text-xs font-bold tracking-widest uppercase">Video Overview</span>
+                <span className="text-xs font-bold tracking-widest uppercase">See Our Work</span>
               </button>
             </div>
           </motion.div>
@@ -295,7 +294,7 @@ const Home = () => {
       {/* WORK SECTION */}
       <section id="work" className="py-20 md:py-32 flex flex-col items-center overflow-hidden">
         <p className="section-tag">Portfolio</p>
-        <h2 className="text-[clamp(2rem,5vw,4rem)] mb-8 md:mb-16 text-center px-4">Selected Projects</h2>
+        <h2 className="text-[clamp(2rem,5vw,4rem)] mb-8 md:mb-16 text-center px-4">Our Projects</h2>
         <OrbitalProjectViewer />
       </section>
 
@@ -306,13 +305,13 @@ const Home = () => {
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-[120px] pointer-events-none hidden md:block"></div>
         
         <div className="max-w-[1280px] w-full mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start lg:gap-8">
             {/* Left Column: Content */}
-            <div className="lg:col-span-4 pt-4 md:pt-12 text-center md:text-left flex flex-col items-center md:items-start">
+            <div className="lg:col-span-5 pt-4 md:pt-12 text-center md:text-left flex flex-col items-center md:items-start">
               <span className="section-tag !mx-auto md:!mx-0">About Us</span>
               <h2 className="font-display text-[2.5rem] lg:text-[3.5rem] leading-[1] text-white mt-2 md:mt-4 mb-4 md:mb-6 uppercase tracking-tighter bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
-                Meet<br className="hidden md:block" />
-                <span className="md:hidden"> </span>the<br className="hidden md:block" />
+                Meet the<br className="hidden md:block" />
+                
                 <span className="md:hidden"> </span>Team
               </h2>
               <p className="text-slate-400 font-sans text-sm md:text-lg leading-relaxed mb-8 md:mb-10 max-w-md">
@@ -321,7 +320,7 @@ const Home = () => {
             </div>
 
             {/* Right Column: Featured Cards */}
-            <div className="lg:col-span-8 flex flex-row items-end gap-3 md:gap-4 overflow-x-auto pb-4 min-h-[350px] md:min-h-[480px] w-full snap-x snap-mandatory hide-scrollbar">
+            <div className="lg:col-span-7 flex flex-row items-end gap-3 md:gap-4 overflow-x-auto pb-4 min-h-[350px] md:min-h-[480px] w-full snap-x snap-mandatory hide-scrollbar">
               {aboutCards.map((card) => {
                 const isFocused = focusedAboutCard === card.id;
                 return (
@@ -380,7 +379,7 @@ const Home = () => {
             </p>
             <div className="mt-8 md:mt-10">
               <p className="font-bold text-sm md:text-base">Email us:</p>
-              <p className="text-accent text-sm md:text-base">hello@azaitech.studio</p>
+              <p className="text-accent text-sm md:text-base">hello@azyabtech.studio</p>
             </div>
           </div>
           <form className="flex flex-col gap-4 md:gap-5">
@@ -393,7 +392,7 @@ const Home = () => {
       </section>
 
       <footer className="py-10 md:py-16 text-center text-slate-600 text-[10px] md:text-xs tracking-[2px] uppercase px-4">
-        <p>&copy; 2024 AZAI TECH STUDIO &bull; BUILT FOR THE FUTURE</p>
+        <p>&copy; 2026 AZYAB TECH STUDIO &bull; BUILT FOR THE FUTURE</p>
       </footer>
     </div>
   );
@@ -451,7 +450,7 @@ const portfolioProjects = [
     tag: "WEB / SAAS",
     deviceType: "desktop",
     heading: "ECOSYNC ENTERPRISE",
-    description: "ECOSYNC ENTERPRISE IS A HIGH-FIDELITY DASHBOARD BY AZAI TECH THAT SIMPLIFIES LARGE-SCALE INDUSTRIAL DATA INTO INTUITIVE, PIXEL-PERFECT INTERFACES. WE BRIDGE THE GAP BETWEEN COMPLEX ENERGY TELEMETRY AND SMART UX TO DELIVER ACTIONABLE, AUTOMATED INSIGHTS.",
+    description: "ECOSYNC ENTERPRISE IS A HIGH-FIDELITY DASHBOARD BY AZYAB TECH THAT SIMPLIFIES LARGE-SCALE INDUSTRIAL DATA INTO INTUITIVE, PIXEL-PERFECT INTERFACES. WE BRIDGE THE GAP BETWEEN COMPLEX ENERGY TELEMETRY AND SMART UX TO DELIVER ACTIONABLE, AUTOMATED INSIGHTS.",
     mainImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
     video: EcoSyncVideo, 
     link: "",
@@ -576,7 +575,7 @@ const OrbitalProjectViewer = () => {
   }, [project]);
 
   return (
-    <div className="relative w-full px-2 md:px-24 min-h-[500px] flex items-center justify-center py-8 md:py-16">
+    <div className="relative w-full px-2 md:px-24 min-h-[500px] flex items-center justify-center py-8 md:py-16 overflow-x-hidden md:overflow-x-visible">
       {/* Left Nav Arrow */}
       <button 
         onClick={handlePrev}
@@ -639,34 +638,49 @@ const OrbitalProjectViewer = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className={`relative shrink-0 flex justify-center items-center py-4 md:py-10 order-1 xl:order-2 ${project.deviceType === 'mobile' ? 'w-[160px] md:w-[230px]' : 'w-[280px] md:w-[560px]'}`}
+          className={`relative shrink-0 flex flex-col justify-center items-center py-4 md:py-10 order-1 xl:order-2 ${project.deviceType === 'mobile' ? 'w-[220px] md:w-[340px]' : 'w-full md:w-[680px]'}`}
         >
-          {/* Orbital Icons */}
-          {project.floatingItems.map((item, idx) => (
-            <div 
-              key={idx}
-              className={`absolute z-40 ${item.animation} glass-icon ${item.width} ${item.height} hidden md:flex`}
-              style={{ 
-                top: item.top, 
-                left: item.left, 
-                right: item.right, 
-                bottom: item.bottom,
-                transform: item.transform || 'none'
-              }}
-            >
-              {item.type === "image" ? (
-                <img 
-                  alt="Icon" 
-                  className="w-full h-full object-contain drop-shadow-[0_0_10px_rgba(0,229,255,0.8)]" 
-                  src={item.src}
-                />
-              ) : (
-                <span className={`material-symbols-outlined ${item.iconClass}`}>
-                  {item.icon}
-                </span>
-              )}
-            </div>
-          ))}
+          {/* Orbital Icons — absolute on desktop only */}
+          <div className="hidden md:block absolute inset-0 pointer-events-none">
+            {project.floatingItems.map((item, idx) => (
+              <div 
+                key={idx}
+                className={`absolute z-40 ${item.animation} glass-icon ${item.width} ${item.height} flex`}
+                style={{ 
+                  top: item.top, 
+                  left: item.left, 
+                  right: item.right, 
+                  bottom: item.bottom,
+                  transform: item.transform || 'none'
+                }}
+              >
+                {item.type === "image" ? (
+                  <img 
+                    alt="Icon" 
+                    className="w-full h-full object-contain drop-shadow-[0_0_10px_rgba(0,229,255,0.8)]" 
+                    src={item.src}
+                  />
+                ) : (
+                  <span className={`material-symbols-outlined ${item.iconClass}`}>
+                    {item.icon}
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile icon strip — shown only on small screens */}
+          <div className="flex md:hidden items-center justify-center gap-3 mb-3 flex-wrap">
+            {project.floatingItems.slice(0, 4).map((item, idx) => (
+              <div key={idx} className="glass-icon w-10 h-10 flex items-center justify-center">
+                {item.type === "image" ? (
+                  <img alt="Icon" className="w-full h-full object-contain drop-shadow-[0_0_6px_rgba(0,229,255,0.8)]" src={item.src} />
+                ) : (
+                  <span className="material-symbols-outlined text-lg text-cyan-400 drop-shadow-[0_0_6px_rgba(0,229,255,0.8)]">{item.icon}</span>
+                )}
+              </div>
+            ))}
+          </div>
 
           {/* Main Asset: Device Mockups */}
           <div className="relative w-full max-w-[750px] flex flex-col md:flex-row items-end justify-center gap-8 md:gap-12 pb-8 md:pb-12">

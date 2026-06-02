@@ -331,7 +331,7 @@ const Home = () => {
                   >
                     <img 
                       alt={card.narrowTitle} 
-                      className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-60" 
+                      className="absolute inset-0 w-full h-full object-cover opacity-90" 
                       src={card.image} 
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>

@@ -57,18 +57,18 @@ const services = [
     solutionTagline: "REACT & NEXT.JS",
     solutionTitle: "WEB PLATFORMS",
     solutionDescription: "We build websites and web apps that load fast, look great, and are easy to grow over time. Whether you need a marketing site or a full product dashboard, we make sure it works well today and can handle more users tomorrow.",
-    solutionImage: "/web4.png"
+    solutionImage: "/web5.png"
   },
   {
     icon: BrainCircuit,
     title: "Cloud & AI Automation",
     tagline: "AUTONOMOUS BACKEND SYSTEMS",
-    bgImage: "/automation2.jpg",
+    bgImage: "/automation4.png",
     color: "#ff6496",
     solutionTagline: "AI & CLOUD INFRASTRUCTURE",
     solutionTitle: "CLOUD & AI AUTOMATION",
     solutionDescription: "We connect your business to smart cloud tools and AI that work in the background — handling tasks automatically so your team doesn't have to. From intelligent chatbots to automated data pipelines, we make technology work harder for you.",
-    solutionImage: "/automation2.jpg"
+    solutionImage: "/automation4.png"
   }
 ];
 
@@ -310,7 +310,7 @@ const Home = () => {
             <div className="lg:col-span-5 pt-4 md:pt-12 text-center md:text-left flex flex-col items-center md:items-start">
               <span className="section-tag !mx-auto md:!mx-0">About Us</span>
               <h2 className="font-display text-[2.5rem] lg:text-[3.5rem] leading-[1] text-white mt-2 md:mt-4 mb-4 md:mb-6 uppercase tracking-tighter bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
-                Meet the<br className="hidden md:block" />
+                Meet  the<br className="hidden md:block" />
                 
                 <span className="md:hidden"> </span>Team
               </h2>
@@ -403,48 +403,6 @@ export default Home;
 
 const portfolioProjects = [
   {
-    id: 1,
-    title: "Nova Wallet App",
-    tag: "MOBILE / FINTECH",
-    deviceType: "mobile",
-    heading: "HARNESS THE POWER OF INNOVATION •",
-    description: "A BURST OF PRECISION DIGITAL DESIGN WILL IGNITE YOUR SENSES AND FUEL YOUR CORE PEAK PERFORMANCE.",
-    mainImage: "https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=2070&auto=format&fit=crop",
-    video: "", // Add .mp4 URL here to show video
-    link: "", // Add project URL here to make it clickable
-    floatingItems: [
-      {
-        type: "image",
-        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBoi8jtaxdtjlcU0ylWqpfdGSRoHwBS4DvrwwYP3x8jcqaRIYEo348i1Cud6iPBUzYe4w659p-vJSgN4mvfVzFHk0UxgapWw2T6UjZVT3sX9xcBHrXJv41FyKpE8IrNR_oANp-4k_hIC2ntuzVyVNv1G0fKzLT1CLTgUQa4dvtVOav6ozH58ZcQ7rpx8wUQ1sNFfejLUTsaqBVEcWDaTurgqsrSnM-VbePU7b5Krac36hDmDLlkw-iN1okWVr_PFLgkIotAjTsUs9CB",
-        top: "10%", left: "-95px",
-        animation: "animate-[bounce_4s_infinite]",
-        width: "w-14", height: "h-14"
-      },
-      {
-        type: "image",
-        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuB5PrJe96dcMWLme3F1cEcvDlL4WzSYPZLI6FlwoTtbcKzJN0Wu13Hkzcu6ouGS6OR5dMpJcF56YG37Ka37Fk30oZ5eifYfeyde9oZ2ky9uQOmHzfzWWojUIJwA-TiW9QYQYgJBU9E8TuM3oECYJmy_o-Ln9zqGOhIwx4YVFY2U2mIZFpYQ5AWBCYrC8hWjaEMhhC6tIiOsIY5FOnvkIK6bHRR25CmV01KcgbKVx1a9FSY-xKQ4I807U8tsxmkdFIzSQlJ0nrcdPxQl",
-        top: "10%", right: "-95px",
-        animation: "animate-[bounce_5s_infinite]",
-        width: "w-16", height: "h-16"
-      },
-      {
-        type: "image",
-        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBTyMwwPL4fCM0KC0nT2s9b-u2XeYyfpOrAs1JLlK7DwjQ_CPC4b34u0Rde0YGSwLM2CCq6Y6BcGeiL90IjiWEqKHMkf2jQpJNOi8xJBiikcuDZCq2yCO4eWlDIh6K3n_thmgS3kjHwOceG0ZVMqtekpfTe0KlxdpypbmIiOWDBrobwF8rHr4pAepTzbcMUoCp9o23dq-VLiGeIwfcfWR4RkfnrxxHowaoUEIWrj_sIPYYZtSpPagnfr2pj4_Hcv0dTgUKdz2eE63JE",
-        top: "80%", right: "-95px",
-        animation: "animate-[bounce_6s_infinite]",
-        width: "w-16", height: "h-16"
-      },
-      {
-        type: "icon",
-        icon: "shield_locked",
-        top: "80%", left: "-95px",
-        animation: "animate-[bounce_7s_infinite]",
-        width: "w-14", height: "h-14",
-        iconClass: "text-4xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
-      }
-    ]
-  },
-  {
     id: 2,
     //title: "EcoSync Enterprise",
     tag: "WEB / SAAS",
@@ -511,44 +469,136 @@ const portfolioProjects = [
       }
     ]
   },
-  {
-    id: 4,
-    title: "Aura Social Network",
-    tag: "MOBILE / LIFESTYLE",
-    deviceType: "mobile",
-    heading: "CONNECT WITH THE WORLD •",
-    description: "CRAFTING IMMERSIVE SOCIAL EXPERIENCES THAT BRIDGE COMMUNITIES AND REDEFINE DIGITAL LIFESTYLE.",
-    mainImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop",
-    video: "", 
-    link: "",
-    floatingItems: [
-      {
-        type: "icon", icon: "groups",
-        top: "10%", left: "-95px", animation: "animate-[bounce_5s_infinite]",
-        width: "w-16", height: "h-16", iconClass: "text-4xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
-      },
-      {
-        type: "icon", icon: "favorite",
-        top: "10%", right: "-95px", animation: "animate-[bounce_4s_infinite]",
-        width: "w-16", height: "h-16", iconClass: "text-5xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
-      },
-      {
-        type: "icon", icon: "forum",
-        top: "80%", right: "-95px", animation: "animate-[bounce_6s_infinite]",
-        width: "w-14", height: "h-14", iconClass: "text-4xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
-      },
-      {
-        type: "icon", icon: "photo_library",
-        top: "80%", left: "-95px", animation: "animate-[bounce_4.5s_infinite]",
-        width: "w-16", height: "h-16", iconClass: "text-5xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
-      }
-    ]
-  }
 ];
 
+/* ── Project Modal ─────────────────────────────────────────── */
+const ProjectModal = ({ project, onClose }) => {
+  const [modalImageIndex, setModalImageIndex] = useState(0);
+  const videoRef = React.useRef(null);
+
+  // lock body scroll
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, []);
+
+  // close on Escape
+  useEffect(() => {
+    const handler = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [onClose]);
+
+  const images = project.images && project.images.length > 0 ? project.images : [project.mainImage];
+  const hasVideo = !!project.video;
+
+  const prevImg = () => setModalImageIndex((p) => (p - 1 + images.length) % images.length);
+  const nextImg = () => setModalImageIndex((p) => (p + 1) % images.length);
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-[200] flex items-center justify-center p-4 md:p-8"
+        style={{ background: 'rgba(2,4,8,0.92)', backdropFilter: 'blur(16px)' }}
+        onClick={onClose}
+      >
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+          className="relative w-full max-w-5xl rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_60px_rgba(0,242,255,0.15)]"
+          style={{ background: '#0a1220' }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Close */}
+          <button
+            onClick={onClose}
+            className="absolute top-3 right-3 z-30 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center transition-all"
+          >
+            <span className="material-symbols-outlined text-white text-lg">close</span>
+          </button>
+
+          {/* Header */}
+          <div className="px-6 pt-5 pb-3 flex items-center gap-3">
+            <span className="text-[10px] text-accent tracking-[0.4em] uppercase font-bold">{project.tag}</span>
+            <span className="w-px h-3 bg-white/20" />
+            <span className="text-[10px] text-slate-400 tracking-widest uppercase">{project.heading}</span>
+          </div>
+
+          {/* Content */}
+          <div className="relative w-full" style={{ aspectRatio: hasVideo ? '16/9' : '16/9' }}>
+            {hasVideo ? (
+              <video
+                ref={videoRef}
+                key={project.id}
+                autoPlay
+                loop
+                controls
+                playsInline
+                className="w-full h-full object-contain bg-black"
+                src={project.video}
+              />
+            ) : (
+              <div className="relative w-full h-full bg-black flex items-center justify-center">
+                {images.map((src, idx) => (
+                  <img
+                    key={idx}
+                    src={src}
+                    alt={`${project.heading} ${idx + 1}`}
+                    className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${idx === modalImageIndex ? 'opacity-100' : 'opacity-0'}`}
+                  />
+                ))}
+                {images.length > 1 && (
+                  <>
+                    <button onClick={prevImg} className="absolute left-3 z-20 w-9 h-9 rounded-full bg-black/50 hover:bg-accent/20 border border-white/10 hover:border-accent flex items-center justify-center transition-all">
+                      <span className="material-symbols-outlined text-white text-lg">chevron_left</span>
+                    </button>
+                    <button onClick={nextImg} className="absolute right-3 z-20 w-9 h-9 rounded-full bg-black/50 hover:bg-accent/20 border border-white/10 hover:border-accent flex items-center justify-center transition-all">
+                      <span className="material-symbols-outlined text-white text-lg">chevron_right</span>
+                    </button>
+                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
+                      {images.map((_, idx) => (
+                        <button key={idx} onClick={() => setModalImageIndex(idx)}
+                          className={`w-1.5 h-1.5 rounded-full transition-all ${idx === modalImageIndex ? 'bg-accent w-4' : 'bg-white/30'}`}
+                        />
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
+            )}
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
+/* ── Autoplay-safe Video ───────────────────────────────────── */
+const AutoVideo = ({ src, projectId, className }) => {
+  const ref = React.useRef(null);
+  useEffect(() => {
+    const v = ref.current;
+    if (!v) return;
+    v.load();
+    const play = () => v.play().catch(() => {});
+    // try immediately, then on canplay
+    play();
+    v.addEventListener('canplay', play, { once: true });
+    return () => v.removeEventListener('canplay', play);
+  }, [projectId]);
+  return <video ref={ref} key={projectId} loop muted playsInline className={className} src={src} />;
+};
+
+/* ── Main Viewer ───────────────────────────────────────────── */
 const OrbitalProjectViewer = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % portfolioProjects.length);
@@ -575,6 +625,8 @@ const OrbitalProjectViewer = () => {
   }, [project]);
 
   return (
+    <>
+    {isModalOpen && <ProjectModal project={project} onClose={() => setIsModalOpen(false)} />}
     <div className="relative w-full px-2 md:px-24 min-h-[500px] flex items-center justify-center py-8 md:py-16 overflow-x-hidden md:overflow-x-visible">
       {/* Left Nav Arrow */}
       <button 
@@ -615,20 +667,7 @@ const OrbitalProjectViewer = () => {
             </p>
           </div>
           <p className="text-slate-500 tracking-[0.5em] text-[10px] mb-6 md:mb-8 font-bold hidden md:block">{">>>>>>>>"}</p>
-          {project.link ? (
-            <a 
-              href={project.link} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-block px-5 md:px-6 py-2.5 bg-white/5 border border-white/10 hover:border-accent hover:shadow-[0_0_20px_rgba(0,229,255,0.2)] hover:bg-accent/10 transition-all duration-300 rounded-lg text-[10px] md:text-xs tracking-[0.2em] uppercase font-bold text-white text-center"
-            >
-              View Project
-            </a>
-          ) : (
-            <button className="px-5 md:px-6 py-2.5 bg-white/5 border border-white/10 hover:border-accent hover:shadow-[0_0_20px_rgba(0,229,255,0.2)] transition-all duration-300 rounded-lg text-[10px] md:text-xs tracking-[0.2em] uppercase font-bold text-white">
-              Order Today
-            </button>
-          )}
+
         </motion.div>
 
         {/* Right Content Group: Device Mockup (Pushed Right by flex justify-between) */}
@@ -694,13 +733,10 @@ const OrbitalProjectViewer = () => {
                   onClick={() => project.link && window.open(project.link, '_blank')}
                 >
                   {project.video ? (
-                    <video 
-                      autoPlay 
-                      loop 
-                      muted 
-                      playsInline 
-                      className={`w-full h-full object-fill rounded-t-lg md:rounded-t-xl opacity-100 transition-transform duration-700 ${project.link ? 'group-hover:scale-105' : ''}`}
+                    <AutoVideo
                       src={project.video}
+                      projectId={project.id}
+                      className={`w-full h-full object-fill rounded-t-lg md:rounded-t-xl opacity-100 transition-transform duration-700 ${project.link ? 'group-hover:scale-105' : ''}`}
                     />
                   ) : project.images && project.images.length > 0 ? (
                     project.images.map((imgSrc, idx) => (
@@ -725,6 +761,14 @@ const OrbitalProjectViewer = () => {
                       {project.link && <span className="material-symbols-outlined text-[10px] md:text-[12px] text-accent opacity-0 group-hover:opacity-100 transition-all duration-300">open_in_new</span>}
                     </h3>
                   </div>
+                  {/* Maximize button */}
+                  <button
+                    onClick={(e) => { e.stopPropagation(); setIsModalOpen(true); }}
+                    className="absolute bottom-2 right-2 md:bottom-3 md:right-3 z-20 w-6 h-6 md:w-7 md:h-7 rounded-md bg-black/50 hover:bg-accent/30 border border-white/10 hover:border-accent flex items-center justify-center transition-all group/max"
+                    title="Expand"
+                  >
+                    <span className="material-symbols-outlined text-white/70 group-hover/max:text-accent text-sm md:text-base" style={{fontSize:'14px'}}>open_in_full</span>
+                  </button>
                 </div>
                 {/* Chin */}
                 <div className="h-3 md:h-5 w-full bg-slate-700 rounded-b-md md:rounded-b-lg flex items-center justify-center border-t border-slate-600">
@@ -747,13 +791,10 @@ const OrbitalProjectViewer = () => {
                   onClick={() => project.link && window.open(project.link, '_blank')}
                 >
                   {project.video ? (
-                    <video 
-                      autoPlay 
-                      loop 
-                      muted 
-                      playsInline 
-                      className={`w-full h-full object-cover transition-transform duration-700 ${project.link ? 'group-hover:scale-105' : ''}`}
+                    <AutoVideo
                       src={project.video}
+                      projectId={project.id}
+                      className={`w-full h-full object-cover transition-transform duration-700 ${project.link ? 'group-hover:scale-105' : ''}`}
                     />
                   ) : (
                     <img 
@@ -769,6 +810,14 @@ const OrbitalProjectViewer = () => {
                       {project.link && <span className="material-symbols-outlined text-[10px] md:text-[12px] text-accent opacity-0 group-hover:opacity-100 transition-all duration-300">open_in_new</span>}
                     </p>
                   </div>
+                  {/* Maximize button */}
+                  <button
+                    onClick={(e) => { e.stopPropagation(); setIsModalOpen(true); }}
+                    className="absolute bottom-3 right-3 z-20 w-6 h-6 rounded-md bg-black/50 hover:bg-accent/30 border border-white/10 hover:border-accent flex items-center justify-center transition-all group/max"
+                    title="Expand"
+                  >
+                    <span className="material-symbols-outlined text-white/70 group-hover/max:text-accent" style={{fontSize:'13px'}}>open_in_full</span>
+                  </button>
                 </div>
               </div>
             )}
@@ -778,6 +827,7 @@ const OrbitalProjectViewer = () => {
 
       </div>
     </div>
+    </>
   );
 };
 

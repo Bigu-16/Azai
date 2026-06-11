@@ -11,6 +11,8 @@ import photo5 from '../assets/photo_5_2026-05-11_19-54-06.jpg';
 import solomeImage from '../assets/photo_1_2026-05-20_20-41-52.jpg';
 import afomiaImage from '../assets/photo_1_2026-05-20_20-51-57.jpg';
 import abigiyaImage from '../assets/image copy.png';
+import GymPromoVideo from '../assets/GymPromo.MP4';
+import RealtyAIDemoVideo from '../assets/RealtyAIDemo.MP4';
 
 const aboutCards = [
   {
@@ -77,6 +79,24 @@ const Home = () => {
   const [activeService, setActiveService] = useState(0);
   const [rotation, setRotation] = useState(0);
   const [focusedAboutCard, setFocusedAboutCard] = useState(1);
+  const [isDesktop, setIsDesktop] = useState(typeof window !== 'undefined' ? window.innerWidth > 768 : true);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Continuous smooth rotation
   useAnimationFrame((time, delta) => {
@@ -116,7 +136,7 @@ const Home = () => {
     <div className="pt-16 md:pt-20">
       {/* HERO SECTION */}
       <section id="hero" className="min-h-[100svh] flex flex-col items-center justify-center relative px-5 sm:px-8 md:px-12 overflow-hidden">
-        <SmokeyFluidCursor />
+        {isDesktop && <SmokeyFluidCursor />}
         <div className="z-10 text-center w-full max-w-[820px] px-2">
           <p className="section-tag">Integrated Tech Solutions</p>
           <h1 className="text-[clamp(3rem,18vw,10rem)] font-display tracking-[-2px] sm:tracking-[-3px] md:tracking-[-5px] leading-[0.88] bg-gradient-to-b from-white to-[#444] bg-clip-text text-transparent uppercase">
@@ -394,6 +414,23 @@ const Home = () => {
       <footer className="py-10 md:py-16 text-center text-slate-600 text-[10px] md:text-xs tracking-[2px] uppercase px-4">
         <p>&copy; 2026 AZYAB TECH STUDIO &bull; BUILT FOR THE FUTURE</p>
       </footer>
+
+      {/* Back to Top Button */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.5, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.5, y: 20 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => window.scrollTo(0, 0)}
+            className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[100] w-12 h-12 md:w-14 md:h-14 rounded-full glass border border-accent/30 shadow-[0_0_20px_rgba(0,242,255,0.2)] hover:shadow-[0_0_30px_rgba(0,242,255,0.4)] flex items-center justify-center text-accent hover:text-white hover:border-accent hover:scale-110 transition-all cursor-pointer"
+            aria-label="Back to Top"
+          >
+            <span className="material-symbols-outlined text-2xl md:text-3xl">arrow_upward</span>
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
@@ -404,10 +441,10 @@ export default Home;
 const portfolioProjects = [
   {
     id: 2,
-    //title: "EcoSync Enterprise",
+    title: "EcoSync Enterprise - UI/UX",
     tag: "WEB / SAAS",
     deviceType: "desktop",
-    heading: "ECOSYNC ENTERPRISE",
+    heading: "ECOSYNC ENTERPRISE - UI/UX",
     description: "ECOSYNC ENTERPRISE IS A HIGH-FIDELITY DASHBOARD BY AZYAB TECH THAT SIMPLIFIES LARGE-SCALE INDUSTRIAL DATA INTO INTUITIVE, PIXEL-PERFECT INTERFACES. WE BRIDGE THE GAP BETWEEN COMPLEX ENERGY TELEMETRY AND SMART UX TO DELIVER ACTIONABLE, AUTOMATED INSIGHTS.",
     mainImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
     video: EcoSyncVideo, 
@@ -445,7 +482,7 @@ const portfolioProjects = [
     mainImage: photo1,
     images: [photo1, photo2, photo3, photo4, photo5],
     video: "", 
-    link: "",
+    link: "https://clinicclink.netlify.app/patient",
     floatingItems: [
       {
         type: "icon", icon: "monitor_heart",
@@ -469,6 +506,74 @@ const portfolioProjects = [
       }
     ]
   },
+  {
+    id: 4,
+    title: "Gym Membership Management",
+    tag: "WEB / SAAS",
+    deviceType: "desktop",
+    heading: "GYM MEMBERSHIP MANAGEMENT",
+    description: "A COMPREHENSIVE AND INTUITIVE PLATFORM DESIGNED FOR FITNESS CENTERS TO EFFORTLESSLY MANAGE MEMBERSHIPS, TRACK CLASS SCHEDULES, AND STREAMLINE DAILY OPERATIONS, ELEVATING BOTH ADMIN EFFICIENCY AND MEMBER EXPERIENCE.",
+    mainImage: "",
+    images: [],
+    video: GymPromoVideo, 
+    link: "https://preeminent-licorice-9a24fd.netlify.app/",
+    floatingItems: [
+      {
+        type: "icon", icon: "fitness_center",
+        top: "10%", left: "-95px", animation: "animate-[bounce_4.5s_infinite]",
+        width: "w-16", height: "h-16", iconClass: "text-4xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
+      },
+      {
+        type: "icon", icon: "group",
+        top: "10%", right: "-95px", animation: "animate-[bounce_5.5s_infinite]",
+        width: "w-20", height: "h-20", iconClass: "text-5xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
+      },
+      {
+        type: "icon", icon: "calendar_month",
+        top: "80%", right: "-95px", animation: "animate-[bounce_6.5s_infinite]",
+        width: "w-14", height: "h-14", iconClass: "text-4xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
+      },
+      {
+        type: "icon", icon: "query_stats",
+        top: "80%", left: "-95px", animation: "animate-[bounce_4s_infinite]",
+        width: "w-16", height: "h-16", iconClass: "text-5xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
+      }
+    ]
+  },
+  {
+    id: 5,
+    title: "Real Estate AI Automation",
+    tag: "AI / AUTOMATION",
+    deviceType: "desktop",
+    heading: "REAL ESTATE AI AUTOMATION",
+    description: "AN ADVANCED AI-POWERED SOLUTION FOR REAL ESTATE COMPANIES, FEATURING INTELLIGENT VOICE AGENTS AND CHATBOTS THAT AUTOMATE PROPERTY INQUIRIES, LEAD GENERATION, AND CUSTOMER SUPPORT ROUND-THE-CLOCK.",
+    mainImage: "",
+    images: [],
+    video: RealtyAIDemoVideo, 
+    link: "https://addisababa-realty.netlify.app/",
+    floatingItems: [
+      {
+        type: "icon", icon: "smart_toy",
+        top: "10%", left: "-95px", animation: "animate-[bounce_4s_infinite]",
+        width: "w-16", height: "h-16", iconClass: "text-4xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
+      },
+      {
+        type: "icon", icon: "support_agent",
+        top: "10%", right: "-95px", animation: "animate-[bounce_5s_infinite]",
+        width: "w-20", height: "h-20", iconClass: "text-5xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
+      },
+      {
+        type: "icon", icon: "real_estate_agent",
+        top: "80%", right: "-95px", animation: "animate-[bounce_6s_infinite]",
+        width: "w-14", height: "h-14", iconClass: "text-4xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
+      },
+      {
+        type: "icon", icon: "forum",
+        top: "80%", left: "-95px", animation: "animate-[bounce_5.5s_infinite]",
+        width: "w-16", height: "h-16", iconClass: "text-5xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
+      }
+    ]
+  }
 ];
 
 /* ── Project Modal ─────────────────────────────────────────── */
@@ -665,6 +770,17 @@ const OrbitalProjectViewer = () => {
             <p className="text-[10px] md:text-xs text-slate-400 tracking-[0.2em] leading-[1.8] md:leading-[2] uppercase font-sans font-bold max-w-md">
               {project.description}
             </p>
+            {project.link && (
+              <a 
+                href={project.link} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="mt-2 inline-flex items-center gap-2 text-accent text-[10px] md:text-xs tracking-widest uppercase hover:text-white transition-colors"
+              >
+                <span className="material-symbols-outlined text-sm md:text-base">link</span>
+                View Deployment
+              </a>
+            )}
           </div>
           <p className="text-slate-500 tracking-[0.5em] text-[10px] mb-6 md:mb-8 font-bold hidden md:block">{">>>>>>>>"}</p>
 

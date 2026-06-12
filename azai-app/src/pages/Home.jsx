@@ -81,6 +81,37 @@ const Home = () => {
   const [focusedAboutCard, setFocusedAboutCard] = useState(1);
   const [isDesktop, setIsDesktop] = useState(typeof window !== 'undefined' ? window.innerWidth > 768 : true);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [formStatus, setFormStatus] = useState("");
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    setFormStatus("Sending...");
+    const formData = new FormData(event.target);
+
+    // Replace YOUR_ACCESS_KEY_HERE with your actual Web3Forms access key
+    // You can get one for free at https://web3forms.com/ by entering contact@azyab.com
+    formData.append("access_key", "6dd7390c-a7b5-466b-9eeb-6e6b0556e3a5");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setFormStatus("Message sent successfully!");
+        event.target.reset();
+      } else {
+        console.error("Form error:", data);
+        setFormStatus("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setFormStatus("An error occurred. Please try again later.");
+    }
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -399,14 +430,19 @@ const Home = () => {
             </p>
             <div className="mt-8 md:mt-10">
               <p className="font-bold text-sm md:text-base">Email us:</p>
-              <p className="text-accent text-sm md:text-base">hello@azyabtech.studio</p>
+              <p className="text-accent text-sm md:text-base">contact@azyab.com</p>
             </div>
           </div>
-          <form className="flex flex-col gap-4 md:gap-5">
-            <input type="text" placeholder="Your Name" className="bg-white/5 border border-white/10 rounded-xl p-3 md:p-4 text-sm md:text-base text-white outline-none focus:border-accent transition-colors" />
-            <input type="email" placeholder="Your Email" className="bg-white/5 border border-white/10 rounded-xl p-3 md:p-4 text-sm md:text-base text-white outline-none focus:border-accent transition-colors" />
-            <textarea rows="5" placeholder="Tell us about your project..." className="bg-white/5 border border-white/10 rounded-xl p-3 md:p-4 text-sm md:text-base text-white outline-none focus:border-accent transition-colors"></textarea>
-            <button className="btn-primary w-full text-xs md:text-base py-3 md:py-4">SEND MESSAGE</button>
+          <form onSubmit={handleFormSubmit} className="flex flex-col gap-4 md:gap-5">
+            <input type="text" name="name" required placeholder="Your Name" className="bg-white/5 border border-white/10 rounded-xl p-3 md:p-4 text-sm md:text-base text-white outline-none focus:border-accent transition-colors" />
+            <input type="email" name="email" required placeholder="Your Email" className="bg-white/5 border border-white/10 rounded-xl p-3 md:p-4 text-sm md:text-base text-white outline-none focus:border-accent transition-colors" />
+            <textarea name="message" required rows="5" placeholder="Tell us about your project..." className="bg-white/5 border border-white/10 rounded-xl p-3 md:p-4 text-sm md:text-base text-white outline-none focus:border-accent transition-colors"></textarea>
+            <button type="submit" className="btn-primary w-full text-xs md:text-base py-3 md:py-4">SEND MESSAGE</button>
+            {formStatus && (
+              <p className={`text-center text-sm mt-2 ${formStatus.includes("success") ? "text-green-400" : formStatus.includes("Sending") ? "text-accent" : "text-red-400"}`}>
+                {formStatus}
+              </p>
+            )}
           </form>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import React from "react";
 import {
   AbsoluteFill,
+  Audio,
   Img,
   interpolate,
   spring,
@@ -296,6 +297,8 @@ export const AzyabLogoAnimationLight: React.FC = () => {
         overflow: "hidden",
       }}
     >
+      {/* Background Music */}
+      <Audio src={staticFile("employer-bg.mp3")} volume={0.5} />
       {/* Subtle grid - light version */}
       <div
         style={{

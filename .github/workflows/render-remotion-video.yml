@@ -1,0 +1,47 @@
+name: Render Remotion Video
+
+on:
+  push:
+    branches:
+      - remotion-video
+    paths:
+      - "remotion-video/**"
+  workflow_dispatch:
+    inputs:
+      composition_id:
+        description: "Remotion composition id to render"
+        required: false
+        default: "AzyabLogoAnimationLight"
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: remotion-video
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: remotion-video/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chrome Headless Shell
+        run: npx remotion browser ensure
+
+      - name: Render video
+        run: npx remotion render src/index.ts ${{ github.event.inputs.composition_id || 'AzyabLogoAnimationLight' }} out/AzyabLogoLight.mp4
+
+      - name: Upload rendered video
+        uses: actions/upload-artifact@v4
+        with:
+          name: AzyabLogoLight
+          path: remotion-video/out/AzyabLogoLight.mp4
+          retention-days: 14

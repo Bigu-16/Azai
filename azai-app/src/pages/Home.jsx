@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, useAnimationFrame, AnimatePresence } from 'framer-motion';
 import { Smartphone, Globe, BrainCircuit } from 'lucide-react';
 import { SmokeyFluidCursor } from 'react-smokey-fluid-cursor';
@@ -170,13 +171,13 @@ const Home = () => {
         {isDesktop && <SmokeyFluidCursor />}
         <div className="z-10 text-center w-full max-w-[820px] px-2">
           <p className="section-tag">Integrated Tech Solutions</p>
-          <h1 className="text-[clamp(3rem,18vw,10rem)] font-display tracking-[-2px] sm:tracking-[-3px] md:tracking-[-5px] leading-[0.88] bg-gradient-to-b from-white to-[#444] bg-clip-text text-transparent uppercase">
+          <h1 className="hero-title text-[clamp(3rem,18vw,10rem)] font-display tracking-[-2px] sm:tracking-[-3px] md:tracking-[-5px] leading-[0.88] bg-gradient-to-b from-white to-[#444] bg-clip-text text-transparent uppercase">
             AZYAB
           </h1>
           <p className="text-slate-400 my-5 sm:my-6 md:my-8 mx-auto max-w-[500px] leading-relaxed text-sm sm:text-base md:text-lg">
             We transform complex ideas into elegant mobile apps, immersive websites, and intelligent AI automations. Specialized in high-performance digital ecosystems.
           </p>
-          <a href="#work" className="btn-primary inline-block text-[11px] sm:text-sm md:text-base px-6 sm:px-8">VIEW OUR WORK</a>
+          <a href="#work" className="hero-cta btn-primary inline-block text-[11px] sm:text-sm md:text-base px-6 sm:px-8">VIEW OUR WORK</a>
         </div>
       </section>
 
@@ -184,13 +185,13 @@ const Home = () => {
       <section id="services" className="relative min-h-[100svh] flex flex-col items-center pt-24 md:pt-40 pb-16 md:pb-20 overflow-hidden">
         {/* Cinematic Backdrop - Now Dynamic */}
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(15,23,42,0.8)_0%,_transparent_100%)]" />
+          <div className="dark-vignette absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(15,23,42,0.8)_0%,_transparent_100%)]" />
           <motion.div 
             key={services[activeService].bgImage}
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.08 }}
             transition={{ duration: 2 }}
-            className="absolute inset-0 bg-cover bg-center mix-blend-screen"
+            className="service-bg absolute inset-0 bg-cover bg-center mix-blend-screen"
             style={{ backgroundImage: `url(${services[activeService].bgImage})` }}
           />
         </div>
@@ -281,7 +282,7 @@ const Home = () => {
 
       {/* SOLUTIONS DETAIL SECTION (Based on SpaceEdu design) */}
       <section id="solutions" className="relative min-h-[100svh] bg-slate-950 text-white py-20 md:py-32 px-4 md:px-8 flex flex-col items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_#0b1121_0%,_#020408_100%)] opacity-60"></div>
+        <div className="dark-vignette absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_#0b1121_0%,_#020408_100%)] opacity-60"></div>
         
         <div className="flex flex-col md:flex-row items-center justify-center max-w-[1280px] mx-auto w-full gap-12 md:gap-24 relative z-10">
           {/* Left Side: Technical Visual */}
@@ -346,7 +347,15 @@ const Home = () => {
       <section id="work" className="py-20 md:py-32 flex flex-col items-center overflow-hidden">
         <p className="section-tag">Portfolio</p>
         <h2 className="text-[clamp(2rem,5vw,4rem)] mb-8 md:mb-16 text-center px-4">Our Projects</h2>
-        <OrbitalProjectViewer />
+        <OrbitalProjectViewer single />
+        <Link
+          to="/projects"
+          onClick={() => window.scrollTo(0, 0)}
+          className="mt-6 md:mt-10 inline-flex items-center gap-2 px-6 md:px-8 py-2.5 md:py-3 rounded-full border border-accent/40 text-accent text-xs md:text-sm font-bold tracking-widest uppercase hover:bg-accent hover:text-black hover:border-accent hover:shadow-[0_0_25px_rgba(0,229,255,0.35)] transition-all duration-300"
+        >
+          View More Projects
+          <span className="material-symbols-outlined text-base md:text-lg">arrow_forward</span>
+        </Link>
       </section>
 
       {/* ABOUT US SECTION */}
@@ -378,7 +387,7 @@ const Home = () => {
                   <div 
                     key={card.id}
                     onClick={() => setFocusedAboutCard(card.id)}
-                    className={`relative h-[350px] md:h-[480px] rounded-2xl md:rounded-3xl overflow-hidden shadow-xl glass border border-white/10 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer snap-center ${isFocused ? 'w-[75vw] md:w-[400px] shrink-0 cursor-default' : 'w-[20vw] md:w-[160px] shrink-0 hover:border-accent/50 hover:shadow-[0_0_30px_rgba(0,242,255,0.2)]'}`}
+                    className={`media-card relative h-[350px] md:h-[480px] rounded-2xl md:rounded-3xl overflow-hidden shadow-xl glass border border-white/10 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer snap-center ${isFocused ? 'w-[75vw] md:w-[400px] shrink-0 cursor-default' : 'w-[20vw] md:w-[160px] shrink-0 hover:border-accent/50 hover:shadow-[0_0_30px_rgba(0,242,255,0.2)]'}`}
                   >
                     <img 
                       alt={card.narrowTitle} 
@@ -474,7 +483,7 @@ const Home = () => {
 
 export default Home;
 
-const portfolioProjects = [
+export const portfolioProjects = [
   {
     id: 2,
     title: "EcoSync Enterprise - UI/UX",
@@ -613,7 +622,7 @@ const portfolioProjects = [
 ];
 
 /* ── Project Modal ─────────────────────────────────────────── */
-const ProjectModal = ({ project, onClose }) => {
+export const ProjectModal = ({ project, onClose }) => {
   const [modalImageIndex, setModalImageIndex] = useState(0);
   const videoRef = React.useRef(null);
 
@@ -643,7 +652,7 @@ const ProjectModal = ({ project, onClose }) => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         className="fixed inset-0 z-[200] flex items-center justify-center p-4 md:p-8"
-        style={{ background: 'rgba(2,4,8,0.92)', backdropFilter: 'blur(16px)' }}
+        style={{ background: 'var(--modal-overlay)', backdropFilter: 'blur(16px)' }}
         onClick={onClose}
       >
         <motion.div
@@ -652,7 +661,7 @@ const ProjectModal = ({ project, onClose }) => {
           exit={{ scale: 0.9, opacity: 0 }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
           className="relative w-full max-w-5xl rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_60px_rgba(0,242,255,0.15)]"
-          style={{ background: '#0a1220' }}
+          style={{ background: 'var(--modal-bg)' }}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close */}
@@ -720,7 +729,7 @@ const ProjectModal = ({ project, onClose }) => {
 };
 
 /* ── Autoplay-safe Video ───────────────────────────────────── */
-const AutoVideo = ({ src, projectId, className }) => {
+export const AutoVideo = ({ src, projectId, className }) => {
   const ref = React.useRef(null);
   useEffect(() => {
     const v = ref.current;
@@ -736,7 +745,7 @@ const AutoVideo = ({ src, projectId, className }) => {
 };
 
 /* ── Main Viewer ───────────────────────────────────────────── */
-const OrbitalProjectViewer = () => {
+const OrbitalProjectViewer = ({ single = false }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -770,20 +779,24 @@ const OrbitalProjectViewer = () => {
     {isModalOpen && <ProjectModal project={project} onClose={() => setIsModalOpen(false)} />}
     <div className="relative w-full px-2 md:px-24 min-h-[500px] flex items-center justify-center py-8 md:py-16 overflow-x-hidden md:overflow-x-visible">
       {/* Left Nav Arrow */}
-      <button 
+      {!single && (
+      <button
         onClick={handlePrev}
         className="nav-arrow absolute left-1 md:left-8 top-[30%] md:top-1/2 -translate-y-1/2 z-50 hover:bg-white/10 hover:border-accent hover:shadow-[0_0_25px_rgba(0,229,255,0.3)] hover:text-white" aria-label="Previous"
       >
         <span className="material-symbols-outlined text-xl md:text-2xl">chevron_left</span>
       </button>
+      )}
 
       {/* Right Nav Arrow */}
-      <button 
+      {!single && (
+      <button
         onClick={handleNext}
         className="nav-arrow absolute right-1 md:right-8 top-[30%] md:top-1/2 -translate-y-1/2 z-50 hover:bg-white/10 hover:border-accent hover:shadow-[0_0_25px_rgba(0,229,255,0.3)] hover:text-white" aria-label="Next"
       >
         <span className="material-symbols-outlined text-xl md:text-2xl">chevron_right</span>
       </button>
+      )}
 
       {/* Diffuse Background Glow */}
       <div className="diffuse-glow hidden md:block"></div>
@@ -878,7 +891,7 @@ const OrbitalProjectViewer = () => {
             
             {/* Desktop Monitor */}
             {project.deviceType === "desktop" && (
-              <div className="relative w-full h-[180px] sm:h-[220px] md:w-[560px] md:h-[350px] bg-slate-800 rounded-t-xl md:rounded-t-2xl border-[3px] md:border-[4px] border-slate-800 shadow-[0_0_20px_rgba(0,0,0,0.8)] md:shadow-[0_0_40px_rgba(0,0,0,0.8)] z-10 flex flex-col shrink-0 mx-auto">
+              <div className="media-card relative w-full h-[180px] sm:h-[220px] md:w-[560px] md:h-[350px] bg-slate-800 rounded-t-xl md:rounded-t-2xl border-[3px] md:border-[4px] border-slate-800 shadow-[0_0_20px_rgba(0,0,0,0.8)] md:shadow-[0_0_40px_rgba(0,0,0,0.8)] z-10 flex flex-col shrink-0 mx-auto">
                 {/* Screen */}
                 <div 
                   className={`w-full flex-1 bg-black overflow-hidden rounded-t-lg md:rounded-t-xl relative ${project.link ? 'cursor-pointer group' : ''}`}
@@ -906,9 +919,8 @@ const OrbitalProjectViewer = () => {
                       src={project.mainImage}
                     />
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
                   <div className="absolute bottom-2 left-2 md:bottom-4 md:left-4 z-10">
-                    <h3 className="text-[10px] md:text-sm font-bold text-white flex items-center gap-1 md:gap-2">
+                    <h3 className="text-[10px] md:text-sm font-bold text-white flex items-center gap-1 md:gap-2 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
                       {project.title}
                       {project.link && <span className="material-symbols-outlined text-[10px] md:text-[12px] text-accent opacity-0 group-hover:opacity-100 transition-all duration-300">open_in_new</span>}
                     </h3>
@@ -934,7 +946,7 @@ const OrbitalProjectViewer = () => {
 
             {/* Mobile Phone */}
             {project.deviceType === "mobile" && (
-              <div className="relative w-[140px] h-[280px] md:w-[230px] md:h-[460px] bg-slate-800 rounded-[20px] md:rounded-[32px] border-[3px] md:border-[5px] border-slate-800 shadow-[5px_5px_20px_rgba(0,0,0,0.9)] md:shadow-[10px_10px_40px_rgba(0,0,0,0.9)] z-20 overflow-hidden flex flex-col shrink-0 mx-auto">
+              <div className="media-card relative w-[140px] h-[280px] md:w-[230px] md:h-[460px] bg-slate-800 rounded-[20px] md:rounded-[32px] border-[3px] md:border-[5px] border-slate-800 shadow-[5px_5px_20px_rgba(0,0,0,0.9)] md:shadow-[10px_10px_40px_rgba(0,0,0,0.9)] z-20 overflow-hidden flex flex-col shrink-0 mx-auto">
                 {/* Notch */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-10 md:w-18 h-3 md:h-4 bg-slate-800 rounded-b-md md:rounded-b-lg z-30"></div>
                 {/* Screen */}
@@ -955,9 +967,8 @@ const OrbitalProjectViewer = () => {
                       src={project.mainImage}
                     />
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none"></div>
                   <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 z-10">
-                    <p className="text-accent font-bold text-[8px] md:text-[10px] tracking-[2px] uppercase flex items-center gap-1">
+                    <p className="text-accent font-bold text-[8px] md:text-[10px] tracking-[2px] uppercase flex items-center gap-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
                       {project.tag.split('/')[0]}
                       {project.link && <span className="material-symbols-outlined text-[10px] md:text-[12px] text-accent opacity-0 group-hover:opacity-100 transition-all duration-300">open_in_new</span>}
                     </p>

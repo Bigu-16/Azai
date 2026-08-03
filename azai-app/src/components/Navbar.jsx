@@ -1,8 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === 'undefined') return 'dark';
+    return localStorage.getItem('azyab-theme') || 'dark';
+  });
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('light', theme === 'light');
+    try { localStorage.setItem('azyab-theme', theme); } catch (e) {}
+  }, [theme]);
+
+  const toggleTheme = () => setTheme((t) => (t === 'light' ? 'dark' : 'light'));
 
   return (
     <>
@@ -34,6 +45,9 @@ const Navbar = () => {
         
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
+          <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-[0.75rem] font-bold tracking-widest text-slate-400 hover:text-white transition-colors uppercase">
+            Home
+          </Link>
           <a href="#about" className="text-[0.75rem] font-bold tracking-widest text-slate-400 hover:text-white transition-colors uppercase">
             About Us
           </a>
@@ -42,8 +56,17 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Contact Button */}
-        <div className="flex items-center gap-4">
+        {/* Contact Button + Theme Toggle */}
+        <div className="flex items-center gap-2 md:gap-4">
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle light and dark mode"
+            className="flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full glass text-slate-300 hover:text-accent transition-colors"
+          >
+            <span className="material-symbols-outlined text-[20px]">
+              {theme === 'light' ? 'dark_mode' : 'light_mode'}
+            </span>
+          </button>
           <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="btn-primary !px-3 md:!px-6 !py-1.5 md:!py-2 !text-[0.6rem] md:!text-[0.7rem]">
             <span className="hidden sm:inline">CONTACT US</span>
             <span className="sm:hidden">CONTACT</span>
@@ -54,8 +77,15 @@ const Navbar = () => {
       {/* Mobile Dropdown Menu */}
       {isMobileMenuOpen && (
         <div className="fixed top-16 left-0 w-full glass border-b border-white/10 flex flex-col items-center py-6 gap-6 md:hidden z-40 bg-[#020617]/95 backdrop-blur-2xl shadow-2xl">
-          <a 
-            href="#about" 
+          <Link
+            to="/"
+            onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); setIsMobileMenuOpen(false); }}
+            className="text-sm font-bold tracking-widest text-slate-300 hover:text-accent transition-colors uppercase"
+          >
+            Home
+          </Link>
+          <a
+            href="#about"
             onClick={() => setIsMobileMenuOpen(false)} 
             className="text-sm font-bold tracking-widest text-slate-300 hover:text-accent transition-colors uppercase"
           >

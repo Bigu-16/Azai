@@ -45,7 +45,183 @@
   --accent: #00d2ff;
   --glass: rgba(255, 255, 255, 0.03);
   --border: rgba(255, 255, 255, 0.1);
+
+  /* Theme-aware surfaces (flip in light mode) */
+  --modal-bg: #0a1220;
+  --modal-overlay: rgba(2, 4, 8, 0.92);
 }
+
+/* ============================================================
+   LIGHT MODE
+   Same aesthetic (space/tech, cyan accent), light surfaces.
+   Applied when <html> has the .light class (set by the navbar
+   toggle + the anti-flash script in index.html).
+   ============================================================ */
+html.light {
+  /* Theme tokens — these flip every text-accent / bg-accent /
+     text-on-surface utility automatically via the cascade. */
+  --color-background: #eef2f8;
+  --color-surface: #ffffff;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-accent: #0891b2;
+  --color-accent-glow: rgba(8, 145, 178, 0.35);
+
+  --bg: #eef2f8;
+  --accent: #0891b2;
+  --glass: rgba(15, 23, 42, 0.03);
+  --border: rgba(15, 23, 42, 0.1);
+
+  --modal-bg: #ffffff;
+  --modal-overlay: rgba(15, 23, 42, 0.45);
+}
+
+html.light body {
+  background-color: var(--bg);
+}
+
+html.light .bg-starfield {
+  background: radial-gradient(circle at 50% 30%, #ffffff 0%, #dde5f0 100%);
+}
+
+/* Hide the dark depth overlays — they only make sense on a dark canvas */
+html.light .dark-vignette {
+  opacity: 0 !important;
+}
+
+/* Headings default to dark ink (clipped-gradient headings stay
+   transparent and are handled by the gradient overrides below) */
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6 {
+  color: #0f172a;
+}
+
+/* Clip-text headings must stay transparent so their gradient shows
+   through (the rule above would otherwise paint them solid). */
+html.light .text-transparent {
+  color: transparent;
+}
+
+/* Foreground text */
+html.light .text-white { color: #0f172a; }
+html.light .text-white\/70 { color: rgba(15, 23, 42, 0.6); }
+html.light .text-white\/60 { color: rgba(15, 23, 42, 0.55); }
+html.light .text-slate-300 { color: #334155; }
+html.light .text-slate-400 { color: #475569; }
+html.light .text-slate-500 { color: #64748b; }
+html.light .text-slate-600 { color: #475569; }
+
+/* Surfaces */
+html.light .bg-white\/5  { background-color: rgba(15, 23, 42, 0.04); }
+html.light .bg-white\/10 { background-color: rgba(15, 23, 42, 0.06); }
+html.light .bg-white\/20 { background-color: rgba(15, 23, 42, 0.10); }
+html.light .bg-white\/30 { background-color: rgba(15, 23, 42, 0.14); }
+html.light .bg-black     { background-color: #ffffff; }
+html.light .bg-black\/50 { background-color: rgba(255, 255, 255, 0.7); }
+html.light .bg-slate-950 { background-color: #eef2f8; }
+html.light .bg-slate-950\/50 { background-color: rgba(15, 23, 42, 0.03); }
+html.light .bg-slate-800 { background-color: #dbe3ee; }
+html.light .bg-slate-700 { background-color: #cbd5e1; }
+html.light .bg-slate-600 { background-color: #94a3b8; }
+html.light .bg-slate-500 { background-color: #cbd5e1; }
+
+/* Borders */
+html.light .border-white\/5  { border-color: rgba(15, 23, 42, 0.06); }
+html.light .border-white\/10 { border-color: rgba(15, 23, 42, 0.10); }
+html.light .border-white\/40 { border-color: rgba(15, 23, 42, 0.25); }
+html.light .border-slate-800 { border-color: rgba(15, 23, 42, 0.12); }
+html.light .border-slate-600 { border-color: rgba(15, 23, 42, 0.20); }
+
+/* Clipped-gradient TEXT headings (hero "AZYAB" + section headings).
+   NOTE: image/video overlay gradients (from-black/*, from-slate-950,
+   via-*) are intentionally NOT flipped — those live on media cards
+   that stay dark in both themes (see .media-card rules below), so
+   flipping them would wash the images out with a white overlay. */
+html.light .from-white     { --tw-gradient-from: #0f172a; }
+html.light .to-white       { --tw-gradient-to: #475569; }
+html.light .to-white\/40   { --tw-gradient-to: rgba(71, 85, 105, 0.5); }
+html.light .to-\[\#444\]   { --tw-gradient-to: #64748b; }
+
+/* Components */
+html.light .glass {
+  background-color: rgba(15, 23, 42, 0.03);
+  border-color: rgba(15, 23, 42, 0.1);
+}
+
+html.light .btn-primary {
+  background-color: #0f172a;
+  color: #ffffff;
+}
+html.light .btn-primary:hover {
+  box-shadow: 0 0 30px rgba(15, 23, 42, 0.25);
+}
+
+html.light .glass-icon {
+  background: rgba(255, 255, 255, 0.55);
+  border-color: rgba(8, 145, 178, 0.35);
+  box-shadow: 0 0 25px rgba(8, 145, 178, 0.25), inset 0 0 15px rgba(8, 145, 178, 0.12);
+}
+
+html.light .nav-arrow {
+  border-color: rgba(15, 23, 42, 0.2);
+  color: #0f172a;
+}
+html.light .nav-arrow:hover {
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #ffffff;
+  box-shadow: 0 0 30px rgba(15, 23, 42, 0.2);
+}
+
+/* Home hero — brand blue gradient on the "AZYAB" title + CTA button,
+   with black supporting text around it for contrast (light mode). */
+html.light .hero-title {
+  --tw-gradient-from: #00d2ff;
+  --tw-gradient-to: #0e7490;
+}
+html.light #hero .section-tag { color: #0f172a; }
+html.light #hero p { color: #0f172a; }
+html.light .hero-cta {
+  background-color: transparent;
+  background-image: linear-gradient(135deg, #00d2ff 0%, #0e7490 100%);
+  color: #ffffff;
+}
+html.light .hero-cta:hover {
+  box-shadow: 0 0 30px rgba(0, 210, 255, 0.4);
+}
+
+/* Light mode: drop the washed-out service backdrop imagery */
+html.light .service-bg { display: none; }
+
+/* Media cards (project device mockups + team photos) keep their dark
+   image treatment in light mode — no white overlay, light text, and
+   the device frames/screens stay dark like real hardware. */
+html.light .media-card .text-white { color: #ffffff; }
+html.light .media-card .text-slate-400 { color: #cbd5e1; }
+/* Headings inside media cards (e.g. the expanded team member name)
+   inherit white — override the light-mode dark-heading rule so they
+   read white over the dark photo, just like in dark mode. */
+html.light .media-card h1,
+html.light .media-card h2,
+html.light .media-card h3,
+html.light .media-card h4,
+html.light .media-card h5,
+html.light .media-card h6 { color: #ffffff; }
+/* The screen itself stays black (it displays the video/image) */
+html.light .media-card .bg-black { background-color: #000000; }
+/* The device frame/body is a light silver "laptop" in light mode */
+html.light .media-card.bg-slate-800,
+html.light .media-card .bg-slate-800 { background-color: #cbd5e1; }
+html.light .media-card .bg-slate-700 { background-color: #b8c2ce; }
+html.light .media-card .bg-slate-600 { background-color: #9aa7b8; }
+html.light .media-card .bg-slate-500 { background-color: #cbd5e1; }
+html.light .media-card.border-slate-800,
+html.light .media-card .border-slate-800 { border-color: #b0bccb; }
+html.light .media-card .border-slate-600 { border-color: #9aa7b8; }
 
 #smokey-fluid-canvas {
   position: absolute !important; /* Contained within the section */

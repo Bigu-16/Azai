@@ -560,8 +560,8 @@ export const portfolioProjects = [
     description: "A COMPREHENSIVE AND INTUITIVE PLATFORM DESIGNED FOR FITNESS CENTERS TO EFFORTLESSLY MANAGE MEMBERSHIPS, TRACK CLASS SCHEDULES, AND STREAMLINE DAILY OPERATIONS, ELEVATING BOTH ADMIN EFFICIENCY AND MEMBER EXPERIENCE.",
     mainImage: "",
     images: [],
-    video: GymPromoVideo, 
-    link: "https://preeminent-licorice-9a24fd.netlify.app/",
+    video: GymPromoVideo,
+    link: "https://gym-membership-beta.vercel.app/",
     floatingItems: [
       {
         type: "icon", icon: "fitness_center",

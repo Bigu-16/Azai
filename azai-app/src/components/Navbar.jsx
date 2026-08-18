@@ -51,9 +51,9 @@ const Navbar = () => {
           <a href="#about" className="text-[0.75rem] font-bold tracking-widest text-slate-400 hover:text-white transition-colors uppercase">
             About Us
           </a>
-          <a href="#work" className="text-[0.75rem] font-bold tracking-widest text-slate-400 hover:text-white transition-colors uppercase">
+          <Link to="/projects" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-[0.75rem] font-bold tracking-widest text-slate-400 hover:text-white transition-colors uppercase">
             Our Works
-          </a>
+          </Link>
         </div>
 
         {/* Contact Button + Theme Toggle */}
@@ -91,13 +91,13 @@ const Navbar = () => {
           >
             About Us
           </a>
-          <a 
-            href="#work" 
-            onClick={() => setIsMobileMenuOpen(false)} 
+          <Link
+            to="/projects"
+            onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); setIsMobileMenuOpen(false); }}
             className="text-sm font-bold tracking-widest text-slate-300 hover:text-accent transition-colors uppercase"
           >
             Our Works
-          </a>
+          </Link>
         </div>
       )}
     </>

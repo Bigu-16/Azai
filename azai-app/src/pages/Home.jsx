@@ -14,6 +14,21 @@ import afomiaImage from '../assets/photo_1_2026-05-20_20-51-57.jpg';
 import abigiyaImage from '../assets/image copy.png';
 import GymPromoVideo from '../assets/GymPromo.MP4';
 import RealtyAIDemoVideo from '../assets/RealtyAIDemo.MP4';
+import selamHero from '../assets/selam/selam-01-hero.jpg';
+import selamPrograms from '../assets/selam/selam-02-programs.jpg';
+import selamFeatures from '../assets/selam/selam-03-features.jpg';
+import selamExplore from '../assets/selam/selam-04-explore.jpg';
+import selamStudentLife from '../assets/selam/selam-05-student-life.jpg';
+import selamFacilities from '../assets/selam/selam-06-facilities.jpg';
+import selamAdmissions from '../assets/selam/selam-07-admissions.jpg';
+import selamRecognition from '../assets/selam/selam-08-recognition.jpg';
+import selamArchives from '../assets/selam/selam-09-archives.jpg';
+import selamContact from '../assets/selam/selam-10-contact.jpg';
+import alphaHero from '../assets/alpha/alpha-01-hero.jpg';
+import alphaServices from '../assets/alpha/alpha-02-services.jpg';
+import alphaWhatWeDo from '../assets/alpha/alpha-03-what-we-do.jpg';
+import alphaTestimonials from '../assets/alpha/alpha-04-testimonials.jpg';
+import alphaCta from '../assets/alpha/alpha-05-cta.jpg';
 
 const aboutCards = [
   {
@@ -490,7 +505,8 @@ export const portfolioProjects = [
     tag: "WEB / SAAS",
     deviceType: "desktop",
     heading: "ECOSYNC ENTERPRISE - UI/UX",
-    description: "ECOSYNC ENTERPRISE IS A HIGH-FIDELITY DASHBOARD BY AZYAB TECH THAT SIMPLIFIES LARGE-SCALE INDUSTRIAL DATA INTO INTUITIVE, PIXEL-PERFECT INTERFACES. WE BRIDGE THE GAP BETWEEN COMPLEX ENERGY TELEMETRY AND SMART UX TO DELIVER ACTIONABLE, AUTOMATED INSIGHTS.",
+    description: "EcoSync Enterprise is a high-fidelity dashboard by AZYAB Tech that simplifies large-scale industrial data into intuitive, pixel-perfect interfaces. We bridge the gap between complex energy telemetry and smart UX to deliver actionable, automated insights.",
+    shortDescription: "A high-fidelity dashboard that turns complex energy telemetry into clear, actionable insights.",
     mainImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
     video: EcoSyncVideo, 
     link: "",
@@ -523,7 +539,8 @@ export const portfolioProjects = [
     tag: "WEB / HEALTHCARE",
     deviceType: "desktop",
     heading: "PATIENT TRACKER •",
-    description: "PATIENT TRACKER IS A DIGITAL ECOSYSTEM DESIGNED TO STRENGTHEN THE VITAL LINK BETWEEN PATIENTS AND DOCTORS THROUGH REAL-TIME COMMUNICATION AND SHARED HEALTH INSIGHTS.",
+    description: "Patient Tracker is a digital ecosystem designed to strengthen the vital link between patients and doctors through real-time communication and shared health insights.",
+    shortDescription: "A digital ecosystem connecting patients and doctors with real-time health insights.",
     mainImage: photo1,
     images: [photo1, photo2, photo3, photo4, photo5],
     video: "", 
@@ -557,7 +574,8 @@ export const portfolioProjects = [
     tag: "WEB / SAAS",
     deviceType: "desktop",
     heading: "GYM MEMBERSHIP MANAGEMENT",
-    description: "A COMPREHENSIVE AND INTUITIVE PLATFORM DESIGNED FOR FITNESS CENTERS TO EFFORTLESSLY MANAGE MEMBERSHIPS, TRACK CLASS SCHEDULES, AND STREAMLINE DAILY OPERATIONS, ELEVATING BOTH ADMIN EFFICIENCY AND MEMBER EXPERIENCE.",
+    description: "A comprehensive, intuitive platform for fitness centers to effortlessly manage memberships, track class schedules, and streamline daily operations — elevating both admin efficiency and the member experience.",
+    shortDescription: "A platform for fitness centers to manage memberships, classes, and daily operations.",
     mainImage: "",
     images: [],
     video: GymPromoVideo,
@@ -591,7 +609,8 @@ export const portfolioProjects = [
     tag: "AI / AUTOMATION",
     deviceType: "desktop",
     heading: "REAL ESTATE AI AUTOMATION",
-    description: "AN ADVANCED AI-POWERED SOLUTION FOR REAL ESTATE COMPANIES, FEATURING INTELLIGENT VOICE AGENTS AND CHATBOTS THAT AUTOMATE PROPERTY INQUIRIES, LEAD GENERATION, AND CUSTOMER SUPPORT ROUND-THE-CLOCK.",
+    description: "An advanced AI-powered solution for real estate companies, featuring intelligent voice agents and chatbots that automate property inquiries, lead generation, and customer support round-the-clock.",
+    shortDescription: "AI voice agents and chatbots that automate property inquiries and lead generation 24/7.",
     mainImage: "",
     images: [],
     video: RealtyAIDemoVideo, 
@@ -615,6 +634,95 @@ export const portfolioProjects = [
       {
         type: "icon", icon: "forum",
         top: "80%", left: "-95px", animation: "animate-[bounce_5.5s_infinite]",
+        width: "w-16", height: "h-16", iconClass: "text-5xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
+      }
+    ]
+  },
+  {
+    id: 6,
+    title: "Selam Academy — School Website",
+    tag: "WEB / EDUCATION",
+    deviceType: "desktop",
+    heading: "SELAM ACADEMY — SCHOOL WEBSITE",
+    description: "A full website redesign for Selam Academy, a K–12 school in Addis Ababa — a bilingual, multi-page experience spanning admissions, programs, school life and recognition, with light/dark theming and a warm, trustworthy brand.",
+    shortDescription: "A bilingual, multi-page website redesign for a K–12 school in Addis Ababa.",
+    mainImage: selamHero,
+    images: [selamHero, selamPrograms, selamFeatures, selamExplore, selamStudentLife, selamFacilities, selamAdmissions, selamRecognition, selamArchives, selamContact],
+    video: "",
+    gallery: [
+      { src: selamHero, caption: "Homepage — where Ethiopia's brightest minds begin" },
+      { src: selamPrograms, caption: "Programs — one school, every stage of the journey" },
+      { src: selamFeatures, caption: "Why families choose us — everything a child needs to thrive" },
+      { src: selamExplore, caption: "Explore — everything Selam has to offer" },
+      { src: selamStudentLife, caption: "School Life — happy, busy, unforgettable days" },
+      { src: selamFacilities, caption: "Facilities — spaces designed for learning" },
+      { src: selamAdmissions, caption: "Admissions — how to apply, step by step" },
+      { src: selamRecognition, caption: "Recognition — recognised where it matters" },
+      { src: selamArchives, caption: "About — the archives & gallery" },
+      { src: selamContact, caption: "Contact — book a visit or ask a question" }
+    ],
+    link: "https://selamacademy.netlify.app/",
+    floatingItems: [
+      {
+        type: "icon", icon: "school",
+        top: "10%", left: "-95px", animation: "animate-[bounce_4.5s_infinite]",
+        width: "w-16", height: "h-16", iconClass: "text-4xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
+      },
+      {
+        type: "icon", icon: "menu_book",
+        top: "10%", right: "-95px", animation: "animate-[bounce_5.5s_infinite]",
+        width: "w-20", height: "h-20", iconClass: "text-5xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
+      },
+      {
+        type: "icon", icon: "groups",
+        top: "80%", right: "-95px", animation: "animate-[bounce_6.5s_infinite]",
+        width: "w-14", height: "h-14", iconClass: "text-4xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
+      },
+      {
+        type: "icon", icon: "auto_stories",
+        top: "80%", left: "-95px", animation: "animate-[bounce_4s_infinite]",
+        width: "w-16", height: "h-16", iconClass: "text-5xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
+      }
+    ]
+  },
+  {
+    id: 7,
+    title: "Alpha Creatives — Marketing Studio",
+    tag: "WEB / MARKETING",
+    deviceType: "desktop",
+    heading: "ALPHA CREATIVES — MARKETING STUDIO",
+    description: "A landing page for Alpha Creatives, a digital marketing and content studio in Addis Ababa — a bold, dark, animated single-page site showcasing services, courses, work and testimonials, built to grow both brands and creative skills.",
+    shortDescription: "A bold, animated landing page for a digital marketing and content studio.",
+    mainImage: alphaHero,
+    images: [alphaHero, alphaServices, alphaWhatWeDo, alphaTestimonials, alphaCta],
+    video: "",
+    gallery: [
+      { src: alphaHero, caption: "Homepage — we grow your brand and your creative skills" },
+      { src: alphaServices, caption: "Our Services — marketing, design, videography & courses" },
+      { src: alphaWhatWeDo, caption: "What we do — everything your brand needs to grow" },
+      { src: alphaTestimonials, caption: "Testimonials — loved by the brands we work with" },
+      { src: alphaCta, caption: "Get in touch — ready to grow your brand?" }
+    ],
+    link: "https://alpha-creatives-studio.netlify.app/",
+    floatingItems: [
+      {
+        type: "icon", icon: "campaign",
+        top: "10%", left: "-95px", animation: "animate-[bounce_4.5s_infinite]",
+        width: "w-16", height: "h-16", iconClass: "text-4xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
+      },
+      {
+        type: "icon", icon: "movie",
+        top: "10%", right: "-95px", animation: "animate-[bounce_5.5s_infinite]",
+        width: "w-20", height: "h-20", iconClass: "text-5xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
+      },
+      {
+        type: "icon", icon: "palette",
+        top: "80%", right: "-95px", animation: "animate-[bounce_6.5s_infinite]",
+        width: "w-14", height: "h-14", iconClass: "text-4xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
+      },
+      {
+        type: "icon", icon: "trending_up",
+        top: "80%", left: "-95px", animation: "animate-[bounce_4s_infinite]",
         width: "w-16", height: "h-16", iconClass: "text-5xl text-cyan-400 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"
       }
     ]
@@ -679,6 +787,11 @@ export const ProjectModal = ({ project, onClose }) => {
             <span className="text-[10px] text-slate-400 tracking-widest uppercase">{project.heading}</span>
           </div>
 
+          {/* Full description */}
+          {project.description && (
+            <p className="px-6 pb-4 text-sm md:text-base text-slate-400 leading-relaxed">{project.description}</p>
+          )}
+
           {/* Content */}
           <div className="relative w-full" style={{ aspectRatio: hasVideo ? '16/9' : '16/9' }}>
             {hasVideo ? (
@@ -702,6 +815,13 @@ export const ProjectModal = ({ project, onClose }) => {
                     className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${idx === modalImageIndex ? 'opacity-100' : 'opacity-0'}`}
                   />
                 ))}
+                {project.gallery && project.gallery[modalImageIndex] && (
+                  <div className="absolute inset-x-0 bottom-0 px-6 pt-10 pb-10 md:pb-12 bg-gradient-to-t from-black/85 to-transparent z-[5] pointer-events-none">
+                    <p className="text-sm md:text-base font-medium text-center" style={{ color: '#ffffff' }}>
+                      {project.gallery[modalImageIndex].caption}
+                    </p>
+                  </div>
+                )}
                 {images.length > 1 && (
                   <>
                     <button onClick={prevImg} className="absolute left-3 z-20 w-9 h-9 rounded-full bg-black/50 hover:bg-accent/20 border border-white/10 hover:border-accent flex items-center justify-center transition-all">

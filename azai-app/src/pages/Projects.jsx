@@ -1,7 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { portfolioProjects, AutoVideo, ProjectModal } from './Home';
+
+/* Auto-advancing slideshow with a per-slide caption (subtitle). */
+const CardSlideshow = ({ gallery }) => {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setI((p) => (p + 1) % gallery.length), 2800);
+    return () => clearInterval(t);
+  }, [gallery.length]);
+
+  return (
+    <>
+      {gallery.map((slide, idx) => (
+        <img
+          key={idx}
+          src={slide.src}
+          alt={slide.caption}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${idx === i ? 'opacity-100' : 'opacity-0'}`}
+        />
+      ))}
+      {/* Progress dots */}
+      <div className="absolute top-3 left-3 z-10 flex gap-1.5">
+        {gallery.map((_, idx) => (
+          <span
+            key={idx}
+            className={`h-1.5 rounded-full transition-all duration-300 ${idx === i ? 'w-4 bg-white' : 'w-1.5 bg-white/50'}`}
+          />
+        ))}
+      </div>
+      {/* Caption / subtitle */}
+      <div className="absolute inset-x-0 bottom-0 px-4 pt-10 pb-3 md:pb-4 bg-gradient-to-t from-black/85 to-transparent pointer-events-none">
+        <p className="text-[11px] md:text-xs font-medium leading-snug" style={{ color: '#ffffff' }}>
+          {gallery[i].caption}
+        </p>
+      </div>
+    </>
+  );
+};
 
 const Projects = () => {
   const [selected, setSelected] = useState(null);
@@ -20,8 +57,8 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* Grid: up to 3 columns */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {/* Grid: 2 columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
           {portfolioProjects.map((project) => {
             const thumb = project.mainImage || (project.images && project.images[0]) || '';
             return (
@@ -33,7 +70,9 @@ const Projects = () => {
               >
                 {/* Media */}
                 <div className="relative aspect-video overflow-hidden bg-slate-900">
-                  {project.video ? (
+                  {project.gallery ? (
+                    <CardSlideshow gallery={project.gallery} />
+                  ) : project.video ? (
                     <AutoVideo
                       src={project.video}
                       projectId={project.id}
@@ -56,9 +95,9 @@ const Projects = () => {
                 <div className="p-4 md:p-5">
                   <span className="text-[10px] text-accent tracking-[0.3em] uppercase font-bold">{project.tag}</span>
                   <h3 className="font-display text-lg md:text-xl text-white mt-1 leading-tight">{project.title}</h3>
-                  {project.description && (
-                    <p className="mt-2 md:mt-3 text-[10px] md:text-[11px] text-slate-400 tracking-[0.15em] leading-[1.9] uppercase font-sans font-medium">
-                      {project.description}
+                  {(project.shortDescription || project.description) && (
+                    <p className="mt-2 md:mt-3 text-sm md:text-base text-slate-400 leading-relaxed">
+                      {project.shortDescription || project.description}
                     </p>
                   )}
                   {project.link && (
